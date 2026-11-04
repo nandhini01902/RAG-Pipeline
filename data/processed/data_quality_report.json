@@ -1,0 +1,86 @@
+{
+  "source_file": "extracted_text.txt",
+  "pages_in_source": 22,
+  "pages_in_main_corpus": 21,
+  "pages_excluded": [
+    16
+  ],
+  "repeated_header_lines_removed": 66,
+  "duplicate_candidates_exact_text": [],
+  "issues_requiring_human_review": [
+    {
+      "type": "wrong_patient_document",
+      "pages": [
+        16
+      ],
+      "action": "Excluded from cleaned_records.json; retained in this report for audit."
+    },
+    {
+      "type": "conflicting_duplicate_progress_notes",
+      "pages": [
+        10,
+        12
+      ],
+      "details": "Both are dated 04/09/2024 and visit 14/24, but pain score, SLR, EHL strength and clinical status differ; page 10 is signed and page 12 is an unsigned draft.",
+      "action": "Retain both as separate source records; review against original documents."
+    },
+    {
+      "type": "date_of_injury_conflict",
+      "pages": [
+        7
+      ],
+      "details": "Page 7 reports a date of injury of 17/02/2024, while other records describe the collision as 02/11/2024.",
+      "action": "Preserve both dates and verify against the original record."
+    },
+    {
+      "type": "laterality_conflict",
+      "pages": [
+        14
+      ],
+      "details": "EMG describes chronic LEFT L5 radiculopathy with active denervation; other records predominantly describe RIGHT L5 symptoms.",
+      "action": "Do not change left/right; flag for source review."
+    },
+    {
+      "type": "allergy_medication_conflict",
+      "pages": [
+        2,
+        3,
+        5,
+        6,
+        19
+      ],
+      "details": "Codeine allergy/rash is documented in clinical records, while acetaminophen-codeine appears in the dispensing record; pharmacy page 19 says no allergies documented.",
+      "action": "Preserve source statements and flag for review; do not infer whether the prescription was taken."
+    },
+    {
+      "type": "missing_requested_documents",
+      "pages": [
+        22
+      ],
+      "details": "The production log states that the cervical MRI report, legible duplicate of the 05/21 handwritten note, 06/11 injection clinical documentation, and PT visits 15–22 notes were not produced/located.",
+      "action": "Keep missing-document statements; do not create substitute content."
+    },
+    {
+      "type": "illegible_handwriting",
+      "pages": [
+        13
+      ],
+      "details": "Handwritten content contains illegible portions.",
+      "action": "Retain [illegible] markers and annotations; do not guess the words."
+    }
+  ],
+  "excluded_documents_for_audit": [
+    {
+      "page": 16,
+      "document_id": "LTM-PI-00016",
+      "reason": "Different patient record; exclude from the target patient's RAG corpus.",
+      "cleaned_text_for_audit": "MERIDIAN REHABILITATION & SPORTS THERAPY\nOutpatient Physical Therapy\nPHYSICAL THERAPY DISCHARGE SUMMARY\nPatient\nWhitmore, Marcus\nDOB\n09/22/1979\nMRN\nMER-778213\nDate of Discharge\n04/30/2024\nReferring Provider B. Castellanos, MD\nBody Region Treated LEFT SHOULDER - rotator cuff repair, post-operative\nREASON FOR REFERRAL\nStatus post left rotator cuff repair 01/18/2024. Post-operative rehabilitation protocol, phase III.\nDISCHARGE STATUS\nLeft shoulder flexion 165 degrees (from 90 at initial evaluation) Left shoulder abduction 160 degrees Left external rotation 70 degrees MMT supraspinatus 4+/5 DASH score 18% (from 62%)\nPain 1/10 at rest, 3/10 with overhead activity\nGOALS STATUS\n– Return to overhead reaching without pain: MET\n– Lift 20 lb to shoulder height: MET\n– Sleep on affected side: PARTIALLY MET\n– Return to recreational golf: NOT MET, deferred to home program\nASSESSMENT\nPatient has met the majority of stated goals and has plateaued with skilled intervention. Independent with home exercise program and demonstrated correct technique on all prescribed exercises.\nPLAN\nDischarge from skilled physical therapy. Continue home exercise program 4x weekly. Follow up with Dr. Castellanos as scheduled 05/14/2024.\nElectronically signed: J. Mwangi, PT | 04/30/2024"
+    }
+  ],
+  "cleaning_policy": [
+    "Only spacing, punctuation and line-wrap formatting were automatically repaired.",
+    "Clinical facts, dates, laterality, medication names/doses, diagnoses and measurements were not inferred or reconciled.",
+    "Original source file was not modified.",
+    "Every included record retains its original page number and document ID."
+  ]
+}
