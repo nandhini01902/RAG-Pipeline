@@ -158,7 +158,6 @@ def main():
         cleaned_records.append({
             "page": page_number,
             "document_id": document_id,
-            "source_file": INPUT_FILE.name,
             "text": cleaned,
             "cleaning": {
                 "repeated_headers_removed": len(removed_headers),
@@ -217,7 +216,6 @@ def main():
             seen[key] = rec["page"]
 
     quality_report = {
-        "source_file": INPUT_FILE.name,
         "pages_in_source": len(pages),
         "pages_in_main_corpus": len(cleaned_records),
         "pages_excluded": [16],

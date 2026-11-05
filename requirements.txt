@@ -1,0 +1,7 @@
+pymupdf
+sentence-transformers
+qdrant-client
+numpy
+streamlit
+requests
+tokenizers
