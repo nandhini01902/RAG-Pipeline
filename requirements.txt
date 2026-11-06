@@ -5,3 +5,5 @@ numpy
 streamlit
 requests
 tokenizers
+google-genai
+python-dotenv
