@@ -3,272 +3,612 @@
         "chunk_id": "LTM-PI-00001_P1_C1",
         "document_id": "LTM-PI-00001",
         "page": 1,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "piedmont county emergency medical services prehospital care report | unit m - 14 | shift b ambulance run report patient name whitfield, marcus d. date of birth 03 / 14 / 1987 ( age 36 ) sex male incident date / time 02 / 11 / 2024 17 : 42 dispatch / on - scene / transport 17 : 44 / 17 : 53 / 18 : 06 receiving facility piedmont county general hospital, ed run number ems - 2024 - 03318 dispatch information unit dispatched priority 2 to eastbound route 9 near mile marker 14 for reported two - vehicle motor vehicle collision with one restrained occupant complaining of neck and back pain. law enforcement on scene prior to arrival. scene findings on arrival crew found a 2018 sedan with moderate rear - end deformity, rear bumper and trunk intrusion approximately 18 inches. airbags did not deploy. patient was the restrained driver, self - extricated prior to ems arrival, and was ambulatory at the roadside. second vehicle ( pickup truck ) with front - end damage ; that driver refused transport. patient assessment patient is a 36 - year - old male, alert and oriented x4, gcs 15. complains of immediate onset posterior neck pain, mid and lower back pain, and a ' jolt ' sensation down the right leg. denies loss of consciousness, denies head strike, denies chest pain, denies shortness of breath, denies abdominal pain. no numbness in upper extremities. ambulatory but reports pain with weight bearing on the right. airway patent. breath sounds clear and equal bilaterally. skin warm and dry. pupils equal, round, reactive. abdomen soft, non - tender. pelvis stable. no obvious deformity, no external hemorrhage. cervical midline tenderness present at approximately c5 - c6 level. lumbar paraspinal tenderness present bilaterally, greater on the right. vital signs 17 : 56 bp 148 / 88, hr 96, rr 20, spo2 98 % ra, pain 7 / 10 18 : 12 bp 141 / 84, hr 88, rr 18, spo2 99 % ra, pain 7 / 10 treatment rendered – full spinal motion restriction applied : rigid cervical collar,",
-        "token_count": 450
+        "chunk_text": "PIEDMONT COUNTY EMERGENCY MEDICAL SERVICES Prehospital Care Report | Unit M-14 | Shift B",
+        "token_count": 19
     },
     {
         "chunk_id": "LTM-PI-00001_P1_C2",
         "document_id": "LTM-PI-00001",
         "page": 1,
-        "section": "General Information",
-        "chunk_text": "##mbar paraspinal tenderness present bilaterally, greater on the right. vital signs 17 : 56 bp 148 / 88, hr 96, rr 20, spo2 98 % ra, pain 7 / 10 18 : 12 bp 141 / 84, hr 88, rr 18, spo2 99 % ra, pain 7 / 10 treatment rendered – full spinal motion restriction applied : rigid cervical collar, scoop stretcher transfer – oxygen not required, room air maintained – iv access deferred, patient stable – position of comfort, supine with padding transport transported non - emergent to piedmont county general hospital. no change in patient condition en route. report given to ed triage rn at 18 : 19. care transferred without incident. crew : j. okafor, nrp ( lead ) / t. bianchi, emt - b. report electronically signed 02 / 11 / 2024 19 : 40.",
-        "token_count": 188
+        "patient_name": "Whitfield, Marcus D",
+        "section": "AMBULANCE RUN REPORT",
+        "chunk_text": "Patient Name Whitfield, Marcus D.\n\nDate of Birth 03/14/1987 (Age 36)\n\nSex Male Incident Date / Time 02/11/2024 17: 42 Dispatch / On-Scene / Transport 17: 44 / 17: 53 / 18: 06 Receiving Facility Piedmont County General Hospital, ED\n\nRun Number",
+        "token_count": 64
     },
     {
-        "chunk_id": "LTM-PI-00002_P2_C3",
+        "chunk_id": "LTM-PI-00001_P1_C3",
+        "document_id": "LTM-PI-00001",
+        "page": 1,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "EMS-2024-03318",
+        "chunk_text": "DISPATCH INFORMATION Unit dispatched Priority 2 to eastbound Route 9 near mile marker 14 for reported two-vehicle motor vehicle collision with one restrained occupant complaining of neck and back pain. Law enforcement on scene prior to arrival.\n\nSCENE FINDINGS On arrival crew found a 2018 sedan with moderate rear-end deformity, rear bumper and trunk intrusion approximately 18 inches. Airbags did not deploy. Patient was the restrained driver, self-extricated prior to EMS arrival, and was ambulatory at the roadside. Second vehicle (pickup truck) with front-end damage; that driver refused transport.",
+        "token_count": 119
+    },
+    {
+        "chunk_id": "LTM-PI-00001_P1_C4",
+        "document_id": "LTM-PI-00001",
+        "page": 1,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "PATIENT ASSESSMENT",
+        "chunk_text": "Patient is a 36-year-old male, alert and oriented x4, GCS 15. Complains of immediate onset posterior neck pain, mid and lower back pain, and a 'jolt' sensation down the right leg. Denies loss of consciousness, denies head strike, denies chest pain, denies shortness of breath, denies abdominal pain. No numbness in upper extremities. Ambulatory but reports pain with weight bearing on the right. Airway patent. Breath sounds clear and equal bilaterally. Skin warm and dry. Pupils equal, round, reactive. Abdomen soft, non-tender. Pelvis stable. No obvious deformity, no external hemorrhage. Cervical midline tenderness present at approximately C5-C6 level. Lumbar paraspinal tenderness present bilaterally, greater on the right.\n\nVITAL SIGNS 17: 56 BP 148/88, HR 96, RR 20, SpO2 98% RA, Pain 7/10 18: 12 BP 141/84, HR 88, RR 18, SpO2 99% RA, Pain 7/10\n\nTREATMENT RENDERED – Full spinal motion restriction applied: rigid cervical collar, scoop stretcher transfer – Oxygen not required, room air maintained – IV access deferred, patient stable – Position of comfort, supine with padding\n\nTRANSPORT Transported non-emergent to Piedmont County General Hospital. No change in patient condition en route. Report given to ED triage RN at 18: 19. Care transferred without incident. Crew: J. Okafor, NRP (Lead) / T. Bianchi, EMT-B. Report electronically signed 02/11/2024 19: 40.",
+        "token_count": 341
+    },
+    {
+        "chunk_id": "LTM-PI-00002_P2_C5",
         "document_id": "LTM-PI-00002",
         "page": 2,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "piedmont county general hospital department of emergency medicine | 4100 wellstone parkway emergency department triage & nursing record patient whitfield, marcus d. mrn pcg - 4471902 account / encounter ed - 24 - 0211 - 556 arrival 02 / 11 / 2024 18 : 19 via ems triage acuity esi level 3 allergies codeine ( rash, documented by patient ) ; nka otherwise triage note ( 18 : 22 ) restrained driver rear - ended at moderate speed approximately 1 hour ago. reports neck pain, low back pain radiating into the right buttock and posterior thigh. denies loc. arrived in c - collar per ems. ambulates with a slow antalgic gait. pain rated 8 / 10 at triage. nursing assessment alert, oriented, cooperative, in no acute distress but visibly uncomfortable when repositioning. neurovascular intact all four extremities. sensation intact to light touch. strength 5 / 5 bilaterally in upper extremities ; right lower extremity limited by pain, patient able to dorsiflex and plantarflex. capillary refill less than 2 seconds. skin intact, no abrasions or seatbelt marks noted. intake questionnaire ( patient - completed ) prior motor vehicle accidents? no prior back injury or back treatment? no currently working? yes - warehouse logistics coordinator, full duty current medications? none daily. occasional ibuprofen. tobacco / alcohol never smoker. social alcohol, 2 - 3 drinks per week. vital signs - ed course 18 : 25 bp 144 / 86 hr 92 rr 18 t 98. 2f spo2 99 % pain 8 / 10 19 : 40 bp 136 / 82 hr 84 rr 16 t 98. 4f spo2 99 % pain 6 / 10 21 : 15 bp 132 / 78 hr 78 rr 16 t 98. 1f spo2 100 % pain 4 / 10 medications administered in ed 19 : 05 ketorolac 30 mg iv x1 - given by r. delacroix, rn 19 : 05 methocarbamol 1000 mg iv x1 - given by r. delacroix, rn nursing",
-        "token_count": 450
+        "chunk_text": "PIEDMONT COUNTY GENERAL HOSPITAL Department of Emergency Medicine | 4100 Wellstone Parkway",
+        "token_count": 14
     },
     {
-        "chunk_id": "LTM-PI-00002_P2_C4",
+        "chunk_id": "LTM-PI-00002_P2_C6",
         "document_id": "LTM-PI-00002",
         "page": 2,
-        "section": "General Information",
-        "chunk_text": "/ 10 21 : 15 bp 132 / 78 hr 78 rr 16 t 98. 1f spo2 100 % pain 4 / 10 medications administered in ed 19 : 05 ketorolac 30 mg iv x1 - given by r. delacroix, rn 19 : 05 methocarbamol 1000 mg iv x1 - given by r. delacroix, rn nursing disposition cervical collar removed at 21 : 05 per physician order following negative imaging. patient tolerated collar removal without increase in symptoms. ambulated in hallway with steady though guarded gait. discharge instructions reviewed, patient verbalized understanding. departed ambulatory with spouse at 21 : 52. electronically signed : r. delacroix, rn | 02 / 11 / 2024 21 : 58",
-        "token_count": 157
+        "patient_name": "Whitfield, Marcus D",
+        "section": "EMERGENCY DEPARTMENT TRIAGE & NURSING RECORD",
+        "chunk_text": "Patient Whitfield, Marcus D.",
+        "token_count": 8
     },
     {
-        "chunk_id": "LTM-PI-00003_P3_C5",
+        "chunk_id": "LTM-PI-00002_P2_C7",
+        "document_id": "LTM-PI-00002",
+        "page": 2,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "PCG-4471902",
+        "chunk_text": "Account / Encounter\n\nED-24-0211-556 Arrival 02/11/2024 18: 19 via EMS Triage Acuity ESI Level 3 Allergies CODEINE (rash, documented by patient); NKA otherwise\n\nTRIAGE NOTE (18: 22) Restrained driver rear-ended at moderate speed approximately 1 hour ago. Reports neck pain, low back pain radiating into the right buttock and posterior thigh. Denies LOC. Arrived in c-collar per EMS. Ambulates with a slow antalgic gait. Pain rated 8/10 at triage.\n\nNURSING ASSESSMENT Alert, oriented, cooperative, in no acute distress but visibly uncomfortable when repositioning. Neurovascular intact all four extremities. Sensation intact to light touch. Strength 5/5 bilaterally in upper extremities; right lower extremity limited by pain, patient able to dorsiflex and plantarflex. Capillary refill less than 2 seconds. Skin intact, no abrasions or seatbelt marks noted. INTAKE QUESTIONNAIRE (patient-completed) Prior motor vehicle accidents?\n\nNO Prior back injury or back treatment?\n\nNO Currently working? YES - warehouse logistics coordinator, full duty Current medications? None daily. Occasional ibuprofen. Tobacco / Alcohol Never smoker. Social alcohol, 2-3 drinks per week.\n\nVITAL SIGNS - ED COURSE 18: 25 BP 144/86 HR 92 RR 18 T 98.2F SpO2 99% Pain 8/10 19: 40 BP 136/82 HR 84 RR 16 T 98.4F SpO2 99% Pain 6/10 21: 15 BP 132/78 HR 78 RR 16 T 98.1F SpO2 100% Pain 4/10\n\nMEDICATIONS ADMINISTERED IN ED 19: 05 Ketorolac 30 mg IV x1 - given by R. Delacroix, RN 19: 05 Methocarbamol 1000 mg IV x1 - given by R. Delacroix, RN",
+        "token_count": 410
+    },
+    {
+        "chunk_id": "LTM-PI-00002_P2_C8",
+        "document_id": "LTM-PI-00002",
+        "page": 2,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "PCG-4471902",
+        "chunk_text": "6 / 10 21 : 15 bp 132 / 78 hr 78 rr 16 t 98. 1f spo2 100 % pain 4 / 10 medications administered in ed 19 : 05 ketorolac 30 mg iv x1 - given by r. delacroix, rn 19 : 05 methocarbamol 1000 mg iv x1 - given by r. delacroix, rn\n\nNURSING DISPOSITION Cervical collar removed at 21: 05 per physician order following negative imaging. Patient tolerated collar removal without increase in symptoms. Ambulated in hallway with steady though guarded gait. Discharge instructions reviewed, patient verbalized understanding. Departed ambulatory with spouse at 21: 52. Electronically signed: R. Delacroix, RN | 02/11/2024 21: 58",
+        "token_count": 158
+    },
+    {
+        "chunk_id": "LTM-PI-00003_P3_C9",
         "document_id": "LTM-PI-00003",
         "page": 3,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "piedmont county general hospital department of emergency medicine emergency physician note patient whitfield, marcus d. mrn pcg - 4471902 date of service 02 / 11 / 2024 attending s. nakamura, md, facep chief complaint neck and low back pain following motor vehicle collision. history of present illness the patient is a 36 - year - old male with no significant past medical history who presents by ems following a motor vehicle collision that occurred earlier this evening. he reports he was stopped at a traffic signal when his vehicle was struck from behind by a pickup truck. he was restrained by a three - point harness. airbags did not deploy. he denies striking his head, denies loss of consciousness, and denies any period of confusion. he describes immediate onset of posterior neck pain, non - radiating, rated 6 / 10, and low back pain rated 8 / 10 which radiates into the right buttock and down the posterior right thigh to approximately the level of the knee. he describes an associated ' electric ' sensation with certain movements. he denies bowel or bladder incontinence, denies saddle anesthesia, denies fever, and denies prior similar symptoms. he states he has never had back problems before and has never been treated for back pain. past medical history unremarkable per patient report. no prior surgeries. no chronic medications. allergies codeine - rash. physical examination general : well - developed male, uncomfortable but in no acute distress. heent : normocephalic, atraumatic. no scalp hematoma. eomi, perrl. neck : midline cervical tenderness at c5 - c6. no step - off, no crepitus. range of motion reduced in all planes secondary to pain and guarding. chest / cv : clear to auscultation. regular rate and rhythm. no chest wall tenderness, no seatbelt sign. abdomen : soft, non - distended, non - tender. back : lumbar paraspinal muscle spasm palpable bilaterally, more pronounced on the right. tenderness at l4 - l5 and l5 - s1 levels. no midline step - off. neuro : cranial nerves",
-        "token_count": 450
+        "chunk_text": "PIEDMONT COUNTY GENERAL HOSPITAL Department of Emergency Medicine",
+        "token_count": 8
     },
     {
-        "chunk_id": "LTM-PI-00003_P3_C6",
+        "chunk_id": "LTM-PI-00003_P3_C10",
         "document_id": "LTM-PI-00003",
         "page": 3,
-        "section": "General Information",
-        "chunk_text": "regular rate and rhythm. no chest wall tenderness, no seatbelt sign. abdomen : soft, non - distended, non - tender. back : lumbar paraspinal muscle spasm palpable bilaterally, more pronounced on the right. tenderness at l4 - l5 and l5 - s1 levels. no midline step - off. neuro : cranial nerves ii - xii intact. motor 5 / 5 throughout except right hip flexion and great toe extension limited to 4 + / 5, effort - limited by pain. sensation intact. deep tendon reflexes 2 + and symmetric at patella and achilles. straight leg raise positive on the right at approximately 45 degrees, negative on the left. medical decision making given midline cervical tenderness with a distracting injury, nexus criteria are not satisfied and ct cervical spine was obtained. lumbar radiographs obtained given focal tenderness and radicular complaints. imaging reviewed independently by me and is without acute traumatic finding, as detailed in the radiology reports. neurologic examination is non - focal apart from pain - limited effort. no red flag features for cauda equina. working impression is acute cervical strain and acute lumbosacral strain with right - sided radicular symptoms following motor vehicle collision. discussed conservative management, red flag return precautions, and outpatient follow - up. diagnoses 1. cervical strain, acute, initial encounter ( s13. 4xxa ) 2. lumbosacral strain, acute, initial encounter ( s33. 5xxa ) 3. radiculopathy, lumbar region, right ( m54. 41 ) 4. motor vehicle collision, occupant, initial encounter ( v49. 9xxa ) electronically signed : sara nakamura, md | 02 / 11 / 2024 22 : 31",
-        "token_count": 374
+        "patient_name": "Whitfield, Marcus D",
+        "section": "EMERGENCY PHYSICIAN NOTE",
+        "chunk_text": "Patient Whitfield, Marcus D. MRN PCG-4471902 Date of Service 02/11/2024 Attending S. Nakamura, MD, FACEP\n\nCHIEF COMPLAINT Neck and low back pain following motor vehicle collision.\n\nHISTORY OF PRESENT ILLNESS The patient is a 36-year-old male with no significant past medical history who presents by EMS following a motor vehicle collision that occurred earlier this evening. He reports he was stopped at a traffic signal when his vehicle was struck from behind by a pickup truck. He was restrained by a three-point harness. Airbags did not deploy. He denies striking his head, denies loss of consciousness, and denies any period of confusion. He describes immediate onset of posterior neck pain, non-radiating, rated 6/10, and low back pain rated 8/10 which radiates into the right buttock and down the posterior right thigh to approximately the level of the knee. He describes an associated 'electric' sensation with certain movements. He denies bowel or bladder incontinence, denies saddle anesthesia, denies fever, and denies prior similar symptoms. He states he has never had back problems before and has never been treated for back pain.\n\nPAST MEDICAL HISTORY Unremarkable per patient report. No prior surgeries. No chronic medications.\n\nALLERGIES Codeine - rash.",
+        "token_count": 270
     },
     {
-        "chunk_id": "LTM-PI-00004_P4_C7",
+        "chunk_id": "LTM-PI-00003_P3_C11",
+        "document_id": "LTM-PI-00003",
+        "page": 3,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "EMERGENCY PHYSICIAN NOTE",
+        "chunk_text": "associated ' electric ' sensation with certain movements. he denies bowel or bladder incontinence, denies saddle anesthesia, denies fever, and denies prior similar symptoms. he states he has never had back problems before and has never been treated for back pain. past medical history unremarkable per patient report. no prior surgeries. no chronic medications. allergies codeine - rash.\n\nPHYSICAL EXAMINATION General: Well-developed male, uncomfortable but in no acute distress. HEENT: Normocephalic, atraumatic. No scalp hematoma. EOMI, PERRL. Neck: Midline cervical tenderness at C5-C6. No step-off, no crepitus. Range of motion reduced in all planes secondary to pain and guarding. Chest/CV: Clear to auscultation. Regular rate and rhythm. No chest wall tenderness, no seatbelt sign. Abdomen: Soft, non-distended, non-tender. Back: Lumbar paraspinal muscle spasm palpable bilaterally, more pronounced on the right. Tenderness at L4-L5 and L5-S1 levels. No midline step-off. Neuro: Cranial nerves II-XII intact. Motor 5/5 throughout except right hip flexion and great toe extension limited to 4+/5, effort-limited by pain. Sensation intact. Deep tendon reflexes 2+ and symmetric at patella and Achilles. Straight leg raise positive on the right at approximately 45 degrees, negative on the left.\n\nMEDICAL DECISION MAKING Given midline cervical tenderness with a distracting injury, NEXUS criteria are not satisfied and CT cervical spine was obtained. Lumbar radiographs obtained given focal tenderness and radicular complaints. Imaging reviewed independently by me and is without acute traumatic finding, as detailed in the radiology reports. Neurologic examination is non-focal apart from pain-limited effort. No red flag features for cauda equina. Working impression is acute cervical strain and acute lumbosacral strain with right-sided radicular symptoms following motor vehicle collision. Discussed conservative management, red flag return precautions, and outpatient follow-up.",
+        "token_count": 445
+    },
+    {
+        "chunk_id": "LTM-PI-00004_P4_C12",
         "document_id": "LTM-PI-00004",
         "page": 4,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "piedmont county general hospital department of radiology diagnostic imaging reports patient whitfield, marcus d. mrn pcg - 4471902 date of service 02 / 11 / 2024 exam 1 : ct cervical spine without contrast accession : ct - 24 - 118844 | performed 19 : 48 | cpt 72125 indication : motor vehicle collision with midline cervical tenderness. technique : helical axial images obtained from the skull base through t1 with sagittal and coronal reformations. no intravenous contrast. findings : vertebral body heights are maintained. alignment is anatomic with preservation of the anterior and posterior vertebral lines. no acute fracture is identified. facet joints are congruent bilaterally. mild disc space narrowing at c5 - c6 with small anterior osteophyte formation, degenerative in nature. prevertebral soft tissues are within normal limits. visualized lung apices are clear. impression : 1. no acute fracture or traumatic malalignment of the cervical spine. 2. mild degenerative disc disease at c5 - c6, chronic. reported by : a. ramachandran, md | signed 02 / 11 / 2024 20 : 22 exam 2 : radiographs lumbar spine, 3 views accession : xr - 24 - 118851 | performed 20 : 05 | cpt 72100 indication : low back pain following motor vehicle collision. technique : ap, lateral, and spot lateral views of the lumbar spine. findings : five non - rib - bearing lumbar vertebrae. vertebral body heights preserved without compression deformity. no spondylolisthesis on the lateral view. mild disc space narrowing at l4 - l5 with endplate sclerosis. facet arthropathy at l4 - l5 and l5 - s1, mild to moderate. sacroiliac joints unremarkable. no acute fracture. impression : 1. no acute fracture or listhesis. 2. degenerative disc disease and facet arthropathy at l4 - l5 and l5 - s1. these findings are chronic and of longstanding",
-        "token_count": 450
+        "chunk_text": "PIEDMONT COUNTY GENERAL HOSPITAL Department of Radiology",
+        "token_count": 8
     },
     {
-        "chunk_id": "LTM-PI-00004_P4_C8",
+        "chunk_id": "LTM-PI-00004_P4_C13",
         "document_id": "LTM-PI-00004",
         "page": 4,
-        "section": "General Information",
-        "chunk_text": "##hropathy at l4 - l5 and l5 - s1, mild to moderate. sacroiliac joints unremarkable. no acute fracture. impression : 1. no acute fracture or listhesis. 2. degenerative disc disease and facet arthropathy at l4 - l5 and l5 - s1. these findings are chronic and of longstanding duration. 3. clinical correlation recommended. mri may be considered if radicular symptoms persist. reported by : a. ramachandran, md | signed 02 / 11 / 2024 20 : 44",
-        "token_count": 122
+        "patient_name": "Whitfield, Marcus D",
+        "section": "DIAGNOSTIC IMAGING REPORTS",
+        "chunk_text": "Patient Whitfield, Marcus D. MRN PCG-4471902 Date of Service 02/11/2024\n\nEXAM 1: CT CERVICAL SPINE WITHOUT CONTRAST Accession: CT-24-118844 | Performed 19: 48 | CPT 72125 INDICATION: Motor vehicle collision with midline cervical tenderness. TECHNIQUE: Helical axial images obtained from the skull base through T1 with sagittal and coronal reformations. No intravenous contrast. FINDINGS: Vertebral body heights are maintained. Alignment is anatomic with preservation of the anterior and posterior vertebral lines. No acute fracture is identified. Facet joints are congruent bilaterally. Mild disc space narrowing at C5-C6 with small anterior osteophyte formation, degenerative in nature. Prevertebral soft tissues are within normal limits. Visualized lung apices are clear.",
+        "token_count": 187
     },
     {
-        "chunk_id": "LTM-PI-00005_P5_C9",
+        "chunk_id": "LTM-PI-00004_P4_C14",
+        "document_id": "LTM-PI-00004",
+        "page": 4,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "2. Mild degenerative disc disease at C5-C6, chronic. Reported by: A. Ramachandran, MD | Signed 02/11/2024 20: 22",
+        "chunk_text": "EXAM 2: RADIOGRAPHS LUMBAR SPINE, 3 VIEWS Accession: XR-24-118851 | Performed 20: 05 | CPT 72100 INDICATION: Low back pain following motor vehicle collision. TECHNIQUE: AP, lateral, and spot lateral views of the lumbar spine. FINDINGS: Five non-rib-bearing lumbar vertebrae. Vertebral body heights preserved without compression deformity. No spondylolisthesis on the lateral view. Mild disc space narrowing at L4-L5 with endplate sclerosis. Facet arthropathy at L4-L5 and L5-S1, mild to moderate. Sacroiliac joints unremarkable. No acute fracture.",
+        "token_count": 150
+    },
+    {
+        "chunk_id": "LTM-PI-00005_P5_C15",
         "document_id": "LTM-PI-00005",
         "page": 5,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "PIEDMONT COUNTY GENERAL HOSPITAL\nDepartment of Emergency Medicine\nED DISCHARGE SUMMARY & PRESCRIPTION RECORD\nPatient Whitfield, Marcus D. MRN PCG-4471902\nDischarge Date / Time 02/11/2024 21: 52\nDisposition Home, ambulatory, accompanied by spouse Condition at Discharge Stable, improved\nDISCHARGE DIAGNOSES\nAcute cervical strain; acute lumbosacral strain; right lumbar radiculopathy; motor vehicle collision.\nPRESCRIPTIONS ISSUED\n1 Naproxen 500 mg PO BID with food, #30, no refills 2 Methocarbamol 750 mg PO TID PRN muscle spasm, #30, no refills 3 Acetaminophen with Codeine 300/30 mg, 1 tab PO q6h PRN severe pain, #12, no refills\nDISCHARGE INSTRUCTIONS\n– Apply ice to the neck and low back for 20 minutes every 2-3 hours for the first 48 hours, then may transition to heat.\n– Remain as active as tolerated. Avoid bed rest beyond 1-2 days. Avoid lifting greater than 10 pounds for one week.\n– Work status: OFF WORK 02/12/2024 through 02/16/2024. May return to light duty 02/19/2024 with no lifting over 15 pounds.\n– Follow up with primary care physician within 5-7 days.\n– Follow up with orthopedic spine specialist if radicular symptoms persist beyond two weeks.\nRETURN PRECAUTIONS - RETURN IMMEDIATELY IF\n– Weakness in the legs, difficulty walking, or worsening numbness\n– Loss of bowel or bladder control, or numbness in the groin or inner thighs\n– Fever, chills, or unrelenting night pain\n– Severe headache, vomiting, confusion, or visual change\nPatient and spouse verbalized understanding of all instructions, prescriptions, and return precautions. All questions answered.\nWritten materials provided.\nElectronically signed: Sara Nakamura, MD | 02/11/2024 21: 55 Co-signed: R. Delacroix, RN | 02/11/2024 21: 58",
-        "token_count": 422
+        "chunk_text": "PIEDMONT COUNTY GENERAL HOSPITAL Department of Emergency Medicine",
+        "token_count": 8
     },
     {
-        "chunk_id": "LTM-PI-00006_P6_C10",
+        "chunk_id": "LTM-PI-00005_P5_C16",
+        "document_id": "LTM-PI-00005",
+        "page": 5,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "ED DISCHARGE SUMMARY & PRESCRIPTION RECORD",
+        "chunk_text": "Patient Whitfield, Marcus D. MRN PCG-4471902 Discharge Date / Time 02/11/2024 21: 52 Disposition Home, ambulatory, accompanied by spouse Condition at Discharge Stable, improved\n\nDISCHARGE DIAGNOSES Acute cervical strain; acute lumbosacral strain; right lumbar radiculopathy; motor vehicle collision.",
+        "token_count": 76
+    },
+    {
+        "chunk_id": "LTM-PI-00005_P5_C17",
+        "document_id": "LTM-PI-00005",
+        "page": 5,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "1 Naproxen 500 mg PO BID with food, #30, no refills 2 Methocarbamol 750 mg PO TID PRN muscle spasm, #30, no refills 3 Acetaminophen with Codeine 300/30 mg, 1 tab PO q6h PRN severe pain, #12, no refills",
+        "chunk_text": "DISCHARGE INSTRUCTIONS – Apply ice to the neck and low back for 20 minutes every 2-3 hours for the first 48 hours, then may transition to heat. – Remain as active as tolerated. Avoid bed rest beyond 1-2 days. Avoid lifting greater than 10 pounds for one week. – Work status: OFF WORK 02/12/2024 through 02/16/2024. May return to light duty 02/19/2024 with no lifting over 15 pounds. – Follow up with primary care physician within 5-7 days. – Follow up with orthopedic spine specialist if radicular symptoms persist beyond two weeks.\n\nRETURN PRECAUTIONS - RETURN IMMEDIATELY IF – Weakness in the legs, difficulty walking, or worsening numbness – Loss of bowel or bladder control, or numbness in the groin or inner thighs – Fever, chills, or unrelenting night pain – Severe headache, vomiting, confusion, or visual change\n\nPatient and spouse verbalized understanding of all instructions, prescriptions, and return precautions. All questions answered. Written materials provided. Electronically signed: Sara Nakamura, MD | 02/11/2024 21: 55 Co-signed: R. Delacroix, RN | 02/11/2024 21: 58",
+        "token_count": 253
+    },
+    {
+        "chunk_id": "LTM-PI-00006_P6_C18",
         "document_id": "LTM-PI-00006",
         "page": 6,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "northgate family medicine associates marcus whitfield - established patient | 812 rosewood ave, suite 210 office visit note - primary care patient whitfield, marcus d. dob 03 / 14 / 1987 date of service 02 / 19 / 2024 provider l. osei - bonsu, md visit type follow - up, post motor vehicle collision subjective patient returns 8 days after a rear - end motor vehicle collision on 02 / 11 / 2024 for which he was evaluated in the emergency department. he reports neck pain has improved from 6 / 10 to roughly 3 / 10 and is now intermittent. low back pain persists at 6 - 7 / 10 and is worse in the morning and after prolonged sitting. right leg pain continues into the posterior thigh and now extends intermittently to the lateral calf. he reports occasional tingling in the right foot, particularly the top of the foot. he took the acetaminophen - codeine tablets for two days and stopped, reporting an itchy rash across the chest and forearms which resolved after discontinuation. he continues naproxen with partial benefit. he has not returned to work ; he states his employer will not accommodate the light duty restriction at present. of note, the patient reports on further questioning that he was involved in a prior rear - end collision in 2021 and had ' a few weeks of back trouble ' at that time which resolved without formal treatment. he also recalls being seen at an urgent care for back pain ' a few years ago ' but does not recall details. objective vitals : bp 128 / 80, hr 76, t 98. 3f, wt 194 lb, ht 5 ' 10 \", bmi 27. 8 general : well appearing, moves stiffly from seated to standing. neck : mild paraspinal tenderness, full range of motion with end - range discomfort. spurling maneuver negative bilaterally. back : lumbar flexion limited to approximately 50 degrees by pain. paraspinal spasm right greater than left. tenderness over the right l5 - s1 facet region. neuro : strength 5 / 5 except right extensor hallucis longus 4 / 5. sensation decreased to light touch over the right l5 der",
-        "token_count": 450
+        "chunk_text": "NORTHGATE FAMILY MEDICINE ASSOCIATES Marcus Whitfield - Established Patient | 812 Rosewood Ave, Suite 210",
+        "token_count": 20
     },
     {
-        "chunk_id": "LTM-PI-00006_P6_C11",
+        "chunk_id": "LTM-PI-00006_P6_C19",
         "document_id": "LTM-PI-00006",
         "page": 6,
-        "section": "General Information",
-        "chunk_text": "range discomfort. spurling maneuver negative bilaterally. back : lumbar flexion limited to approximately 50 degrees by pain. paraspinal spasm right greater than left. tenderness over the right l5 - s1 facet region. neuro : strength 5 / 5 except right extensor hallucis longus 4 / 5. sensation decreased to light touch over the right l5 dermatome. patellar reflexes 2 + bilaterally, achilles 2 + on the left and 1 + on the right. straight leg raise positive right at 40 degrees. crossed straight leg raise negative. assessment 1. lumbar radiculopathy, right, likely l5 distribution, persistent and not improving at 8 days post - injury. 2. cervical strain, improving. 3. adverse drug reaction to codeine - documented allergy, patient was nonetheless prescribed a codeine - containing analgesic at discharge. reaction reviewed with patient ; codeine added prominently to the chart allergy list. plan – discontinue acetaminophen - codeine. do not re - prescribe any codeine - containing product. – continue naproxen 500 mg bid with food. add gabapentin 300 mg at bedtime, titrate as tolerated. – referral to physical therapy, 2 visits per week for 6 weeks. – referral to orthopedic spine surgery, dr. halloway. – mri lumbar spine without contrast ordered given persistent radicular deficit. – work note provided : off work through 03 / 04 / 2024, reassess. electronically signed : lydia osei - bonsu, md | 02 / 19 / 2024 16 : 12",
-        "token_count": 345
+        "patient_name": "Whitfield, Marcus D",
+        "section": "OFFICE VISIT NOTE - PRIMARY CARE",
+        "chunk_text": "Patient Whitfield, Marcus D. DOB 03/14/1987 Date of Service 02/19/2024 Provider L. Osei-Bonsu, MD Visit Type Follow-up, post motor vehicle collision",
+        "token_count": 44
     },
     {
-        "chunk_id": "LTM-PI-00007_P7_C12",
+        "chunk_id": "LTM-PI-00006_P6_C20",
+        "document_id": "LTM-PI-00006",
+        "page": 6,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "SUBJECTIVE",
+        "chunk_text": "Patient returns 8 days after a rear-end motor vehicle collision on 02/11/2024 for which he was evaluated in the emergency department. He reports neck pain has improved from 6/10 to roughly 3/10 and is now intermittent. Low back pain persists at 6-7/10 and is worse in the morning and after prolonged sitting. Right leg pain continues into the posterior thigh and now extends intermittently to the lateral calf. He reports occasional tingling in the right foot, particularly the top of the foot. He took the acetaminophen-codeine tablets for two days and stopped, reporting an itchy rash across the chest and forearms which resolved after discontinuation. He continues naproxen with partial benefit. He has not returned to work; he states his employer will not accommodate the light duty restriction at present. Of note, the patient reports on further questioning that he was involved in a prior rear-end collision in 2021 and had 'a few weeks of back trouble' at that time which resolved without formal treatment. He also recalls being seen at an urgent care for back pain 'a few years ago' but does not recall details.\n\nOBJECTIVE Vitals: BP 128/80, HR 76, T 98.3F, Wt 194 lb, Ht 5'10\", BMI 27.8 General: Well appearing, moves stiffly from seated to standing. Neck: Mild paraspinal tenderness, full range of motion with end-range discomfort. Spurling maneuver negative bilaterally. Back: Lumbar flexion limited to approximately 50 degrees by pain. Paraspinal spasm right greater than left. Tenderness over the right L5-S1 facet region. Neuro: Strength 5/5 except right extensor hallucis longus 4/5. Sensation decreased to light touch over the right L5 dermatome. Patellar reflexes 2+ bilaterally, Achilles 2+ on the left and 1+ on the right. Straight leg raise positive right at 40 degrees. Crossed straight leg raise negative.",
+        "token_count": 419
+    },
+    {
+        "chunk_id": "LTM-PI-00006_P6_C21",
+        "document_id": "LTM-PI-00006",
+        "page": 6,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "3. Adverse drug reaction to codeine - documented allergy, patient was nonetheless prescribed a codeine-containing analgesic at discharge. Reaction reviewed with patient; codeine added prominently to the chart allergy list.",
+        "chunk_text": "PLAN – Discontinue acetaminophen-codeine. Do not re-prescribe any codeine-containing product. – Continue naproxen 500 mg BID with food. Add gabapentin 300 mg at bedtime, titrate as tolerated. – Referral to physical therapy, 2 visits per week for 6 weeks. – Referral to orthopedic spine surgery, Dr. Halloway. – MRI lumbar spine without contrast ordered given persistent radicular deficit. – Work note provided: off work through 03/04/2024, reassess. Electronically signed: Lydia Osei-Bonsu, MD | 02/19/2024 16: 12",
+        "token_count": 145
+    },
+    {
+        "chunk_id": "LTM-PI-00007_P7_C22",
         "document_id": "LTM-PI-00007",
         "page": 7,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "meridian rehabilitation & sports therapy outpatient physical therapy | clinic site 3 physical therapy initial evaluation patient whitfield, marcus dob 03 / 14 / 1987 date of evaluation 02 / 26 / 2024 referring provider l. osei - bonsu, md date of injury 17 / 02 / 2024 therapist k. petrosyan, pt, dpt referral diagnosis lumbar radiculopathy, right ; cervical strain. frequency 2x / week for 6 weeks. subjective patient reports constant low back pain averaging 6 / 10 with peaks to 8 / 10, radiating into the right buttock, posterior thigh, and lateral calf. aggravating factors include sitting greater than 20 minutes, forward bending, and rising from a chair. easing factors include lying supine with knees flexed and walking short distances. sleep is disrupted, waking 2 - 3 times nightly. he denies bowel or bladder change. patient states he has not worked since the collision. prior level of function : full duty warehouse work including lifting up to 50 pounds, recreational basketball twice weekly. objective findings posture flattened lumbar lordosis, right lateral shift gait antalgic, decreased right stance time, decreased step length lumbar arom flexion 45 % of normal, extension 30 %, r sidebend 50 %, l sidebend 70 % palpation hypertonicity right lumbar multifidus and quadratus lumborum mmt r hip flexion 4 / 5 ( l 5 / 5 ) mmt r great toe extension 4 / 5 ( l 5 / 5 ) mmt r ankle dorsiflexion 4 + / 5 ( l 5 / 5 ) sensation diminished light touch right l5 dermatome slr positive right at 40 deg ; negative left slump test positive right outcome measures oswestry disability index : 48 % ( severe disability ). numeric pain rating : 6 / 10 current, 8 / 10 worst, 4 / 10 best. assessment patient presents with signs and symptoms consistent with right l5 radiculopathy with associated lumbar segmental dysfunction, myofascial guarding, and significant functional limitation. directional preference for extension noted during examination. good rehabilitation potential ; prognosis fair to",
-        "token_count": 450
+        "chunk_text": "MERIDIAN REHABILITATION & SPORTS THERAPY Outpatient Physical Therapy | Clinic Site 3",
+        "token_count": 13
     },
     {
-        "chunk_id": "LTM-PI-00007_P7_C13",
+        "chunk_id": "LTM-PI-00007_P7_C23",
         "document_id": "LTM-PI-00007",
         "page": 7,
-        "section": "General Information",
-        "chunk_text": "48 % ( severe disability ). numeric pain rating : 6 / 10 current, 8 / 10 worst, 4 / 10 best. assessment patient presents with signs and symptoms consistent with right l5 radiculopathy with associated lumbar segmental dysfunction, myofascial guarding, and significant functional limitation. directional preference for extension noted during examination. good rehabilitation potential ; prognosis fair to good pending mri findings. plan of care / goals ( 6 weeks ) – reduce worst pain from 8 / 10 to 4 / 10 – improve odi from 48 % to below 25 % – restore lumbar flexion to 80 % of normal – tolerate 45 minutes seated without symptom escalation – return to modified duty work interventions : manual therapy, directional preference exercise, neural mobilization, core stabilization progression, postural education, modalities as indicated. electronically signed : karine petrosyan, pt, dpt | 02 / 26 / 2024",
-        "token_count": 192
+        "patient_name": "Whitfield, Marcus D",
+        "section": "PHYSICAL THERAPY INITIAL EVALUATION",
+        "chunk_text": "Patient Whitfield, Marcus\n\nDOB 03/14/1987 Date of Evaluation 02/26/2024 Referring Provider L. Osei-Bonsu, MD Date of Injury 17/02/2024 Therapist K. Petrosyan, PT, DPT\n\nREFERRAL DIAGNOSIS Lumbar radiculopathy, right; cervical strain. Frequency 2x/week for 6 weeks.",
+        "token_count": 78
     },
     {
-        "chunk_id": "LTM-PI-00008_P8_C14",
+        "chunk_id": "LTM-PI-00007_P7_C24",
+        "document_id": "LTM-PI-00007",
+        "page": 7,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "SUBJECTIVE",
+        "chunk_text": "Patient reports constant low back pain averaging 6/10 with peaks to 8/10, radiating into the right buttock, posterior thigh, and lateral calf. Aggravating factors include sitting greater than 20 minutes, forward bending, and rising from a chair. Easing factors include lying supine with knees flexed and walking short distances. Sleep is disrupted, waking 2-3 times nightly. He denies bowel or bladder change.\n\nPatient states he has not worked since the collision. Prior level of function: full duty warehouse work including lifting up to 50 pounds, recreational basketball twice weekly.\n\nOBJECTIVE FINDINGS Posture Flattened lumbar lordosis, right lateral shift Gait Antalgic, decreased right stance time, decreased step length Lumbar AROM Flexion 45% of normal, Extension 30%, R sidebend 50%, L sidebend 70% Palpation Hypertonicity right lumbar multifidus and quadratus lumborum MMT R hip flexion\n\n4/5 (L 5/5) MMT R great toe extension\n\n4/5 (L 5/5) MMT R ankle dorsiflexion\n\n4+/5 (L 5/5) Sensation Diminished light touch right L5 dermatome\n\nSLR Positive right at 40 deg; negative left Slump test Positive right\n\nOUTCOME MEASURES Oswestry Disability Index: 48% (severe disability). Numeric Pain Rating: 6/10 current, 8/10 worst, 4/10 best.",
+        "token_count": 301
+    },
+    {
+        "chunk_id": "LTM-PI-00007_P7_C25",
+        "document_id": "LTM-PI-00007",
+        "page": 7,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "ASSESSMENT",
+        "chunk_text": "Patient presents with signs and symptoms consistent with right L5 radiculopathy with associated lumbar segmental dysfunction, myofascial guarding, and significant functional limitation. Directional preference for extension noted during examination. Good rehabilitation potential; prognosis fair to good pending MRI findings. PLAN OF CARE / GOALS (6 weeks) – Reduce worst pain from 8/10 to 4/10 – Improve ODI from 48% to below 25% – Restore lumbar flexion to 80% of normal – Tolerate 45 minutes seated without symptom escalation – Return to modified duty work Interventions: manual therapy, directional preference exercise, neural mobilization, core stabilization progression, postural education, modalities as indicated. Electronically signed: Karine Petrosyan, PT, DPT | 02/26/2024",
+        "token_count": 164
+    },
+    {
+        "chunk_id": "LTM-PI-00008_P8_C26",
         "document_id": "LTM-PI-00008",
         "page": 8,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "valley imaging partners advanced diagnostic imaging | 1. 5t mri suite mri lumbar spine without contrast patient whitfield, marcus d. dob 03 / 14 / 1987 date of exam 03 / 06 / 2024 accession mr - 24 - 20719 cpt 72148 referring l. osei - bonsu, md clinical history 36 - year - old male, motor vehicle collision 02 / 11 / 2024. persistent right lower extremity radicular pain with l5 sensory deficit and mild weakness. evaluate for disc herniation. technique multiplanar, multisequence imaging of the lumbar spine performed without intravenous contrast. sagittal t1, sagittal t2, sagittal stir, and axial t2 sequences obtained from t12 through s1. comparison lumbar radiographs dated 02 / 11 / 2024. no prior cross - sectional imaging available for comparison at this institution. findings alignment : normal lumbar alignment. no spondylolisthesis. vertebrae : vertebral body heights and marrow signal are normal. no marrow edema on stir to suggest acute osseous injury. no compression deformity. conus medullaris terminates at the l1 level and is normal in signal. t12 - l1 through l3 - l4 : no significant disc bulge, herniation, or stenosis. facets unremarkable. l4 - l5 : moderate disc desiccation with loss of disc height. broad - based disc bulge with a superimposed right paracentral disc protrusion measuring approximately 6 mm in ap dimension, extending into the right lateral recess. there is contact with and mild posterior displacement of the traversing right l5 nerve root. mild bilateral facet hypertrophy and ligamentum flavum thickening. resulting mild to moderate right lateral recess stenosis. central canal is patent. neural foramina mildly narrowed on the right. l5 - s1 : disc desiccation with mild loss of height. small central disc bulge without focal herniation. moderate bilateral facet arthropathy with periarticular sclerosis. no significant stenosis. neural foramina",
-        "token_count": 450
+        "chunk_text": "VALLEY IMAGING PARTNERS Advanced Diagnostic Imaging | 1.5T MRI Suite",
+        "token_count": 13
     },
     {
-        "chunk_id": "LTM-PI-00008_P8_C15",
+        "chunk_id": "LTM-PI-00008_P8_C27",
         "document_id": "LTM-PI-00008",
         "page": 8,
-        "section": "General Information",
-        "chunk_text": "##avum thickening. resulting mild to moderate right lateral recess stenosis. central canal is patent. neural foramina mildly narrowed on the right. l5 - s1 : disc desiccation with mild loss of height. small central disc bulge without focal herniation. moderate bilateral facet arthropathy with periarticular sclerosis. no significant stenosis. neural foramina patent bilaterally. paraspinal soft tissues : unremarkable. no hematoma or edema. impression 1. l4 - l5 right paracentral disc protrusion measuring 6 mm with contact and mild displacement of the traversing right l5 nerve root and mild to moderate right lateral recess stenosis. this finding correlates with the reported right l5 radicular symptoms. 2. multilevel degenerative disc disease at l4 - l5 and l5 - s1 with facet arthropathy. disc desiccation and facet changes are chronic and predate the reported injury ; the superimposed focal protrusion cannot be dated by imaging alone. 3. no acute fracture, marrow edema, or ligamentous injury. reported by : anand ramchandran, md | electronically signed 03 / 06 / 2024 15 : 03",
-        "token_count": 262
+        "patient_name": "Whitfield, Marcus D",
+        "section": "MRI LUMBAR SPINE WITHOUT CONTRAST",
+        "chunk_text": "Patient Whitfield, Marcus D.\n\nDOB 03/14/1987 Date of Exam 03/06/2024 Accession\n\nMR-24-20719 CPT 72148 Referring L. Osei-Bonsu, MD\n\nCLINICAL HISTORY 36-year-old male, motor vehicle collision 02/11/2024. Persistent right lower extremity radicular pain with L5 sensory deficit and mild weakness. Evaluate for disc herniation.\n\nTECHNIQUE Multiplanar, multisequence imaging of the lumbar spine performed without intravenous contrast. Sagittal T1, sagittal T2, sagittal STIR, and axial T2 sequences obtained from T12 through S1.\n\nCOMPARISON Lumbar radiographs dated 02/11/2024. No prior cross-sectional imaging available for comparison at this institution.",
+        "token_count": 172
     },
     {
-        "chunk_id": "LTM-PI-00009_P9_C16",
+        "chunk_id": "LTM-PI-00008_P8_C28",
+        "document_id": "LTM-PI-00008",
+        "page": 8,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "MRI LUMBAR SPINE WITHOUT CONTRAST",
+        "chunk_text": "multiplanar, multisequence imaging of the lumbar spine performed without intravenous contrast. sagittal t1, sagittal t2, sagittal stir, and axial t2 sequences obtained from t12 through s1. comparison lumbar radiographs dated 02 / 11 / 2024. no prior cross - sectional imaging available for comparison at this institution.\n\nFINDINGS Alignment: Normal lumbar alignment. No spondylolisthesis. Vertebrae: Vertebral body heights and marrow signal are normal. No marrow edema on STIR to suggest acute osseous injury. No compression deformity. Conus medullaris terminates at the L1 level and is normal in signal. T12-L1 through L3-L4: No significant disc bulge, herniation, or stenosis. Facets unremarkable. L4-L5: Moderate disc desiccation with loss of disc height. Broad-based disc bulge with a superimposed RIGHT PARACENTRAL DISC PROTRUSION measuring approximately 6 mm in AP dimension, extending into the right lateral recess. There is contact with and mild posterior displacement of the traversing right L5 nerve root. Mild bilateral facet hypertrophy and ligamentum flavum thickening. Resulting mild to moderate right lateral recess stenosis. Central canal is patent. Neural foramina mildly narrowed on the right. L5-S1: Disc desiccation with mild loss of height. Small central disc bulge without focal herniation. Moderate bilateral facet arthropathy with periarticular sclerosis. No significant stenosis. Neural foramina patent bilaterally. Paraspinal soft tissues: Unremarkable. No hematoma or edema.",
+        "token_count": 361
+    },
+    {
+        "chunk_id": "LTM-PI-00009_P9_C29",
         "document_id": "LTM-PI-00009",
         "page": 9,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "halloway orthopedic spine institute spine surgery and non - operative spine care orthopedic spine consultation patient whitfield, marcus d. dob 03 / 14 / 1987 date of service 03 / 14 / 2024 provider g. halloway, md, orthopedic spine surgery referral source l. osei - bonsu, md history this is a 36 - year - old right - hand - dominant male warehouse logistics coordinator referred for evaluation of persistent right lower extremity radicular pain following a rear - end motor vehicle collision on 02 / 11 / 2024. he was evaluated in the emergency department on the date of injury with negative radiographs. symptoms have persisted for five weeks despite naproxen, gabapentin, methocarbamol, and six sessions of physical therapy. he describes low back pain of 5 / 10 and right leg pain of 7 / 10, the leg pain now dominant. pain radiates from the right buttock through the posterolateral thigh and calf into the dorsum of the right foot. he reports numbness over the dorsum of the right foot and a sense that the right foot ' catches ' when he is tired. he denies left leg symptoms, denies bowel or bladder dysfunction, and denies saddle anesthesia. he remains off work. he rates his function as markedly limited and reports inability to sit through a full meal or drive more than 20 minutes. review of prior records i have personally reviewed the ed records of 02 / 11 / 2024, the lumbar radiographs of the same date, and the mri lumbar spine of 03 / 06 / 2024. i have also reviewed the cervical spine mri dated 03 / 2024 which demonstrates no significant cord compression. physical therapy notes reviewed. examination gait antalgic on the right. heel walking on the right is weak ; toe walking intact. lumbar flexion to 50 degrees, extension to 15 degrees with reproduction of leg pain. motor : right ehl 4 / 5. right tibialis anterior 4 + / 5. right gastrocnemius 5 / 5. left lower extremity 5 / 5 throughout. hip abduction symmetric.",
-        "token_count": 450
+        "chunk_text": "HALLOWAY ORTHOPEDIC SPINE INSTITUTE Spine Surgery and Non-Operative Spine Care",
+        "token_count": 17
     },
     {
-        "chunk_id": "LTM-PI-00009_P9_C17",
+        "chunk_id": "LTM-PI-00009_P9_C30",
         "document_id": "LTM-PI-00009",
         "page": 9,
-        "section": "General Information",
-        "chunk_text": "##algic on the right. heel walking on the right is weak ; toe walking intact. lumbar flexion to 50 degrees, extension to 15 degrees with reproduction of leg pain. motor : right ehl 4 / 5. right tibialis anterior 4 + / 5. right gastrocnemius 5 / 5. left lower extremity 5 / 5 throughout. hip abduction symmetric. sensory : diminished pinprick right l5 dermatome, dorsum of foot and lateral calf. reflexes : patellar 2 + bilaterally. achilles 2 + left, 1 + right. provocative : right straight leg raise positive at 35 degrees reproducing leg pain. contralateral slr negative. faber negative bilaterally. no hip joint pain with internal rotation. assessment right l5 radiculopathy secondary to an l4 - l5 right paracentral disc protrusion, symptomatic and correlating with imaging. underlying multilevel degenerative disc disease is present and is chronic ; in my opinion the acute focal protrusion and the onset of radicular symptoms are temporally related to the collision of 02 / 11 / 2024, in a spine with pre - existing degenerative change that was asymptomatic prior to the event. plan 1. continue physical therapy, extend authorization by 4 weeks. 2. referral to interventional pain management for right l5 transforaminal epidural steroid injection. 3. continue gabapentin, titrate to 300 mg tid. 4. repeat evaluation in 6 weeks. if radicular pain and ehl weakness persist despite injection, would discuss right l4 - l5 microdiscectomy. 5. work status : remains off work. electronically signed : gregory halloway, md | 03 / 14 / 2024",
-        "token_count": 379
+        "patient_name": "Whitfield, Marcus D",
+        "section": "ORTHOPEDIC SPINE CONSULTATION",
+        "chunk_text": "Patient Whitfield, Marcus D. DOB 03/14/1987 Date of Service 03/14/2024 Provider G. Halloway, MD, Orthopedic Spine Surgery Referral Source L. Osei-Bonsu, MD\n\nHISTORY This is a 36-year-old right-hand-dominant male warehouse logistics coordinator referred for evaluation of persistent right lower extremity radicular pain following a rear-end motor vehicle collision on 02/11/2024. He was evaluated in the emergency department on the date of injury with negative radiographs. Symptoms have persisted for five weeks despite naproxen, gabapentin, methocarbamol, and six sessions of physical therapy. He describes low back pain of 5/10 and right leg pain of 7/10, the leg pain now dominant. Pain radiates from the right buttock through the posterolateral thigh and calf into the dorsum of the right foot. He reports numbness over the dorsum of the right foot and a sense that the right foot 'catches' when he is tired. He denies left leg symptoms, denies bowel or bladder dysfunction, and denies saddle anesthesia. He remains off work. He rates his function as markedly limited and reports inability to sit through a full meal or drive more than 20 minutes.\n\nREVIEW OF PRIOR RECORDS I have personally reviewed the ED records of 02/11/2024, the lumbar radiographs of the same date, and the MRI lumbar spine of 03/06/2024. I have also reviewed the cervical spine MRI dated 03/2024 which demonstrates no significant cord compression. Physical therapy notes reviewed.",
+        "token_count": 343
     },
     {
-        "chunk_id": "LTM-PI-00010_P10_C18",
+        "chunk_id": "LTM-PI-00009_P9_C31",
+        "document_id": "LTM-PI-00009",
+        "page": 9,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "ORTHOPEDIC SPINE CONSULTATION",
+        "chunk_text": "a full meal or drive more than 20 minutes. review of prior records i have personally reviewed the ed records of 02 / 11 / 2024, the lumbar radiographs of the same date, and the mri lumbar spine of 03 / 06 / 2024. i have also reviewed the cervical spine mri dated 03 / 2024 which demonstrates no significant cord compression. physical therapy notes reviewed.\n\nEXAMINATION Gait antalgic on the right. Heel walking on the right is weak; toe walking intact. Lumbar flexion to 50 degrees, extension to 15 degrees with reproduction of leg pain. Motor: Right EHL 4/5. Right tibialis anterior 4+/5. Right gastrocnemius 5/5. Left lower extremity 5/5 throughout. Hip abduction symmetric. Sensory: Diminished pinprick right L5 dermatome, dorsum of foot and lateral calf. Reflexes: Patellar 2+ bilaterally. Achilles 2+ left, 1+ right. Provocative: Right straight leg raise positive at 35 degrees reproducing leg pain. Contralateral SLR negative. FABER negative bilaterally. No hip joint pain with internal rotation.\n\nASSESSMENT Right L5 radiculopathy secondary to an L4-L5 right paracentral disc protrusion, symptomatic and correlating with imaging. Underlying multilevel degenerative disc disease is present and is chronic; in my opinion the acute focal protrusion and the onset of radicular symptoms are temporally related to the collision of 02/11/2024, in a spine with pre-existing degenerative change that was asymptomatic prior to the event.",
+        "token_count": 347
+    },
+    {
+        "chunk_id": "LTM-PI-00010_P10_C32",
         "document_id": "LTM-PI-00010",
         "page": 10,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "MERIDIAN REHABILITATION & SPORTS THERAPY\nOutpatient Physical Therapy | Daily Treatment Notes\nPHYSICAL THERAPY PROGRESS NOTE\nPatient Whitfield, Marcus DOB 03/14/1987\nDate of Service\n04/09/2024\nVisit Number 14 of 24 authorized\nTherapist K. Petrosyan, PT, DPT\nSUBJECTIVE\nPatient reports back pain improved to 4/10 but states right leg pain is unchanged at 7/10 and remains the dominant complaint. He reports the leg pain worsens after the treadmill portion of the session. He continues to report numbness on the dorsum of the right foot. Reports he has been approved for an injection and is awaiting scheduling.\nOBJECTIVE\nLumbar flexion 65% of normal (from 45% at eval) Lumbar extension 60% of normal (from 30% at eval) SLR right Positive at 45 degrees (from 40 degrees) MMT R great toe extension 4/5, unchanged\nOswestry Disability Index 38% (from 48%)\nTREATMENT PROVIDED\n– Therapeutic exercise 30 min: prone press-up progression, quadruped stabilization, standing hip hinge with dowel\n– Manual therapy 15 min: grade III central PA mobilization L3-L5, soft tissue mobilization right QL and multifidus\n– Neuromuscular re-education 15 min: gait training with cue for symmetric stance time\n– Modalities: moist heat 10 min prior to manual therapy\nASSESSMENT\nPatient demonstrating measurable improvement in lumbar mobility and axial pain with corresponding ODI improvement of 10 points. However, radicular symptoms and L5 motor deficit are unchanged at 14 visits, suggesting therapy alone is unlikely to resolve the nerve root involvement. Findings communicated to referring provider.\nPLAN\nContinue current plan of care. Reduce treadmill duration. Recommend patient proceed with scheduled injection. Reassess at visit 18.\nElectronically signed: Karine Petrosyan, PT, DPT | 04/09/2024 11: 42",
-        "token_count": 389
+        "chunk_text": "MERIDIAN REHABILITATION & SPORTS THERAPY Outpatient Physical Therapy | Daily Treatment Notes",
+        "token_count": 13
     },
     {
-        "chunk_id": "LTM-PI-00011_P11_C19",
+        "chunk_id": "LTM-PI-00010_P10_C33",
+        "document_id": "LTM-PI-00010",
+        "page": 10,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "PHYSICAL THERAPY PROGRESS NOTE",
+        "chunk_text": "Patient Whitfield, Marcus DOB 03/14/1987 Date of Service 04/09/2024 Visit Number 14 of 24 authorized Therapist K. Petrosyan, PT, DPT",
+        "token_count": 39
+    },
+    {
+        "chunk_id": "LTM-PI-00010_P10_C34",
+        "document_id": "LTM-PI-00010",
+        "page": 10,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "SUBJECTIVE",
+        "chunk_text": "Patient reports back pain improved to 4/10 but states right leg pain is unchanged at 7/10 and remains the dominant complaint. He reports the leg pain worsens after the treadmill portion of the session. He continues to report numbness on the dorsum of the right foot. Reports he has been approved for an injection and is awaiting scheduling.\n\nOBJECTIVE Lumbar flexion 65% of normal (from 45% at eval) Lumbar extension 60% of normal (from 30% at eval) SLR right Positive at 45 degrees (from 40 degrees) MMT R great toe extension 4/5, unchanged Oswestry Disability Index 38% (from 48%)\n\nTREATMENT PROVIDED – Therapeutic exercise 30 min: prone press-up progression, quadruped stabilization, standing hip hinge with dowel – Manual therapy 15 min: grade III central PA mobilization L3-L5, soft tissue mobilization right QL and multifidus – Neuromuscular re-education 15 min: gait training with cue for symmetric stance time – Modalities: moist heat 10 min prior to manual therapy",
+        "token_count": 226
+    },
+    {
+        "chunk_id": "LTM-PI-00010_P10_C35",
+        "document_id": "LTM-PI-00010",
+        "page": 10,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "ASSESSMENT",
+        "chunk_text": "Patient demonstrating measurable improvement in lumbar mobility and axial pain with corresponding ODI improvement of 10 points. However, radicular symptoms and L5 motor deficit are unchanged at 14 visits, suggesting therapy alone is unlikely to resolve the nerve root involvement. Findings communicated to referring provider.\n\nPLAN Continue current plan of care. Reduce treadmill duration. Recommend patient proceed with scheduled injection. Reassess at visit 18. Electronically signed: Karine Petrosyan, PT, DPT | 04/09/2024 11: 42",
+        "token_count": 105
+    },
+    {
+        "chunk_id": "LTM-PI-00011_P11_C36",
         "document_id": "LTM-PI-00011",
         "page": 11,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "summit interventional pain & spine ambulatory procedure suite | fluoroscopy room 2 procedure note - transforaminal epidural steroid injection patient whitfield, marcus d. dob 03 / 14 / 1987 date of procedure 04 / 23 / 2024 proceduralist d. farhadi, md pre - procedure diagnosis right l5 radiculopathy, l4 - l5 disc protrusion post - procedure diagnosis same procedure right l5 - s1 transforaminal epidural steroid injection under fluoroscopic guidance ( cpt 64483 ) anesthesia local, 1 % lidocaine. no sedation. complications none indication patient with imaging - confirmed right paracentral l4 - l5 disc protrusion and clinically corroborated right l5 radiculopathy, refractory to eight weeks of oral medication and fourteen sessions of physical therapy. risks, benefits, and alternatives including continued conservative care and surgical decompression were discussed. written informed consent obtained. technique patient placed prone on the fluoroscopy table with a bolster beneath the abdomen. the lumbosacral region was prepped with chlorhexidine and draped in sterile fashion. under intermittent fluoroscopic guidance the target foramen was identified and the c - arm obliqued to visualize the ' scotty dog ' view. skin and subcutaneous tissue infiltrated with 1 % lidocaine. a 22 - gauge spinal needle was advanced under intermittent fluoroscopy to the safe triangle beneath the pedicle. position confirmed on ap and lateral views. negative aspiration for blood and cerebrospinal fluid. omnipaque 180 contrast, 1 ml, injected demonstrating appropriate epidural and perineural spread along the nerve root without vascular uptake. a solution of dexamethasone 10 mg with 1 ml of 0. 25 % bupivacaine was then injected slowly. the patient tolerated the injection well and reported his typical radicular pain reproduced on contrast injection, then relieved. post - procedure patient monitored in recovery for 30 minutes. motor and sensory function intact bilaterally. ambulated without difficulty. discharged home in stable condition with",
-        "token_count": 450
+        "chunk_text": "SUMMIT INTERVENTIONAL PAIN & SPINE Ambulatory Procedure Suite | Fluoroscopy Room 2",
+        "token_count": 18
     },
     {
-        "chunk_id": "LTM-PI-00011_P11_C20",
+        "chunk_id": "LTM-PI-00011_P11_C37",
         "document_id": "LTM-PI-00011",
         "page": 11,
-        "section": "General Information",
-        "chunk_text": "a solution of dexamethasone 10 mg with 1 ml of 0. 25 % bupivacaine was then injected slowly. the patient tolerated the injection well and reported his typical radicular pain reproduced on contrast injection, then relieved. post - procedure patient monitored in recovery for 30 minutes. motor and sensory function intact bilaterally. ambulated without difficulty. discharged home in stable condition with a responsible adult driver. pre - procedure pain 7 / 10. immediate post - procedure pain 2 / 10 ( anesthetic phase ). plan – pain diary for 14 days. – resume physical therapy in 3 days. – follow up in 3 weeks. may consider a second injection if partial but incomplete relief. – return to dr. halloway if relief is inadequate to discuss surgical options. electronically signed : darius farhadi, md | 04 / 23 / 2024 14 : 35",
-        "token_count": 178
+        "patient_name": "Whitfield, Marcus D",
+        "section": "PROCEDURE NOTE - TRANSFORAMINAL EPIDURAL STEROID INJECTION",
+        "chunk_text": "Patient Whitfield, Marcus D. DOB 03/14/1987 Date of Procedure 04/23/2024 Proceduralist D. Farhadi, MD Pre-procedure Diagnosis Right L5 radiculopathy, L4-L5 disc protrusion Post-procedure Diagnosis Same Procedure Right L5-S1 transforaminal epidural steroid injection under fluoroscopic guidance (CPT 64483) Anesthesia Local, 1% lidocaine. No sedation. Complications None",
+        "token_count": 104
     },
     {
-        "chunk_id": "LTM-PI-00012_P12_C21",
+        "chunk_id": "LTM-PI-00011_P11_C38",
+        "document_id": "LTM-PI-00011",
+        "page": 11,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "INDICATION",
+        "chunk_text": "Patient with imaging-confirmed right paracentral L4-L5 disc protrusion and clinically corroborated right L5 radiculopathy, refractory to eight weeks of oral medication and fourteen sessions of physical therapy. Risks, benefits, and alternatives including continued conservative care and surgical decompression were discussed. Written informed consent obtained.",
+        "token_count": 73
+    },
+    {
+        "chunk_id": "LTM-PI-00011_P11_C39",
+        "document_id": "LTM-PI-00011",
+        "page": 11,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "TECHNIQUE",
+        "chunk_text": "Patient placed prone on the fluoroscopy table with a bolster beneath the abdomen. The lumbosacral region was prepped with chlorhexidine and draped in sterile fashion. Under intermittent fluoroscopic guidance the target foramen was identified and the C-arm obliqued to visualize the 'Scotty dog' view. Skin and subcutaneous tissue infiltrated with 1% lidocaine. A 22-gauge spinal needle was advanced under intermittent fluoroscopy to the safe triangle beneath the pedicle. Position confirmed on AP and lateral views. Negative aspiration for blood and cerebrospinal fluid. Omnipaque 180 contrast, 1 mL, injected demonstrating appropriate epidural and perineural spread along the nerve root without vascular uptake. A solution of dexamethasone 10 mg with 1 mL of 0.25% bupivacaine was then injected slowly. The patient tolerated the injection well and reported his typical radicular pain reproduced on contrast injection, then relieved.",
+        "token_count": 209
+    },
+    {
+        "chunk_id": "LTM-PI-00011_P11_C40",
+        "document_id": "LTM-PI-00011",
+        "page": 11,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "POST-PROCEDURE",
+        "chunk_text": "Patient monitored in recovery for 30 minutes. Motor and sensory function intact bilaterally. Ambulated without difficulty. Discharged home in stable condition with a responsible adult driver. Pre-procedure pain 7/10. Immediate post-procedure pain 2/10 (anesthetic phase).\n\nPLAN – Pain diary for 14 days. – Resume physical therapy in 3 days. – Follow up in 3 weeks. May consider a second injection if partial but incomplete relief. – Return to Dr. Halloway if relief is inadequate to discuss surgical options. Electronically signed: Darius Farhadi, MD | 04/23/2024 14: 35",
+        "token_count": 126
+    },
+    {
+        "chunk_id": "LTM-PI-00012_P12_C41",
         "document_id": "LTM-PI-00012",
         "page": 12,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "MERIDIAN REHABILITATION & SPORTS THERAPY\nOutpatient Physical Therapy | Daily Treatment Notes\nPHYSICAL THERAPY PROGRESS NOTE\nPatient Whitfield, Marcus DOB 03/14/1987\nDate of Service\n04/09/2024\nVisit Number 14 of 24 authorized\nTherapist (not signed)\nSUBJECTIVE\nPatient reports back pain 4/10 and right leg pain 5/10, improved. States he is tolerating sitting better and was able to drive 30 minutes without stopping. Denies new numbness.\nOBJECTIVE\nLumbar flexion 65% of normal SLR right\nNegative MMT R great toe extension 5/5\nOswestry Disability Index 38%\nTREATMENT PROVIDED\n– Therapeutic exercise 30 min\n– Manual therapy 15 min\n– Neuromuscular re-education 15 min\nASSESSMENT\nPatient progressing well toward goals. Radicular symptoms resolving.\nPLAN\nContinue plan of care. Reassess at visit 18. Consider discharge planning.\nNOTE NOT ELECTRONICALLY SIGNED. Draft status at time of records production.",
-        "token_count": 186
+        "chunk_text": "MERIDIAN REHABILITATION & SPORTS THERAPY Outpatient Physical Therapy | Daily Treatment Notes",
+        "token_count": 13
     },
     {
-        "chunk_id": "LTM-PI-00013_P13_C22",
+        "chunk_id": "LTM-PI-00012_P12_C42",
+        "document_id": "LTM-PI-00012",
+        "page": 12,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "PHYSICAL THERAPY PROGRESS NOTE",
+        "chunk_text": "Patient Whitfield, Marcus DOB 03/14/1987 Date of Service 04/09/2024 Visit Number 14 of 24 authorized Therapist (not signed)",
+        "token_count": 33
+    },
+    {
+        "chunk_id": "LTM-PI-00012_P12_C43",
+        "document_id": "LTM-PI-00012",
+        "page": 12,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "SUBJECTIVE",
+        "chunk_text": "Patient reports back pain 4/10 and right leg pain 5/10, improved. States he is tolerating sitting better and was able to drive 30 minutes without stopping. Denies new numbness.\n\nOBJECTIVE Lumbar flexion 65% of normal SLR right Negative MMT R great toe extension 5/5 Oswestry Disability Index 38%\n\nTREATMENT PROVIDED – Therapeutic exercise 30 min – Manual therapy 15 min – Neuromuscular re-education 15 min",
+        "token_count": 92
+    },
+    {
+        "chunk_id": "LTM-PI-00012_P12_C44",
+        "document_id": "LTM-PI-00012",
+        "page": 12,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "ASSESSMENT",
+        "chunk_text": "Patient progressing well toward goals. Radicular symptoms resolving.\n\nPLAN Continue plan of care. Reassess at visit 18. Consider discharge planning. NOTE NOT ELECTRONICALLY SIGNED. Draft status at time of records production.",
+        "token_count": 42
+    },
+    {
+        "chunk_id": "LTM-PI-00013_P13_C45",
         "document_id": "LTM-PI-00013",
         "page": 13,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "HALLOWAY ORTHOPEDIC SPINE INSTITUTE\nHandwritten Clinic Note - Transcribed from Scanned Chart\nORTHOPEDIC FOLLOW-UP VISIT (SCANNED / PARTIALLY ILLEGIBLE)\nPatient Whitfield, M.\nDate of Service\n05/21/2024\nProvider G. Halloway, MD\nTRANSCRIPTION OF HANDWRITTEN NOTE\n\"Pt 4 wks s/p R TFESI. Reports [illegible] relief x 10 days then return of leg sx. Currently leg 6/10, back 4/10. Numbness dorsum R foot persists.\" \"Exam: gait antalgic R. EHL 4/5 R [illegible]. SLR + R at 35. Achilles 1+ R, 2+ L. No [illegible] change L side.\" \"A: R L5 radic, L4-5 HNP, failed conservative care incl PT x [illegible] visits, TFESI x1, meds.\" \"P: Discussed R L4-5 microdiscectomy. Risks incl bleeding, infection, dural tear, recurrent HNP, [illegible], no guarantee of relief.\nPt wishes to proceed. Pre-op labs + [illegible] clearance. Sched OR.\" \"Work status: remains off work. Recheck post-op.\" Signature illegible. Date stamp on scanned page: 05/21/2024. Transcribed by records department 06/14/2024.\nRECORDS DEPARTMENT ANNOTATION\nThe original of this page was produced as a photocopy of a handwritten chart note of poor quality. Portions could not be read with confidence and are marked [illegible]. A request for a legible or typed duplicate was submitted to the provider on 06/14/2024. No response received as of the date of this production.",
-        "token_count": 389
+        "chunk_text": "HALLOWAY ORTHOPEDIC SPINE INSTITUTE Handwritten Clinic Note - Transcribed from Scanned Chart",
+        "token_count": 18
     },
     {
-        "chunk_id": "LTM-PI-00014_P14_C23",
+        "chunk_id": "LTM-PI-00013_P13_C46",
+        "document_id": "LTM-PI-00013",
+        "page": 13,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "ORTHOPEDIC FOLLOW-UP VISIT (SCANNED / PARTIALLY ILLEGIBLE)",
+        "chunk_text": "Patient Whitfield, M. Date of Service 05/21/2024 Provider G. Halloway, MD\n\nTRANSCRIPTION OF HANDWRITTEN NOTE \"Pt 4 wks s/p R TFESI. Reports [illegible] relief x 10 days then return of leg sx. Currently leg 6/10, back 4/10. Numbness dorsum R foot persists.\" \"Exam: gait antalgic R. EHL 4/5 R [illegible]. SLR + R at 35. Achilles 1+ R, 2+ L. No [illegible] change L side.\" \"A: R L5 radic, L4-5 HNP, failed conservative care incl PT x [illegible] visits, TFESI x1, meds.\" \"P: Discussed R L4-5 microdiscectomy. Risks incl bleeding, infection, dural tear, recurrent HNP, [illegible], no guarantee of relief. Pt wishes to proceed. Pre-op labs + [illegible] clearance. Sched OR.\" \"Work status: remains off work. Recheck post-op.\" Signature illegible. Date stamp on scanned page: 05/21/2024. Transcribed by records department 06/14/2024.\n\nRECORDS DEPARTMENT ANNOTATION The original of this page was produced as a photocopy of a handwritten chart note of poor quality. Portions could not be read with confidence and are marked [illegible]. A request for a legible or typed duplicate was submitted to the provider on 06/14/2024. No response received as of the date of this production.",
+        "token_count": 355
+    },
+    {
+        "chunk_id": "LTM-PI-00014_P14_C47",
         "document_id": "LTM-PI-00014",
         "page": 14,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "NORTHSTATE NEUROLOGY & ELECTRODIAGNOSTICS\nElectromyography and Nerve Conduction Laboratory\nEMG / NERVE CONDUCTION STUDY REPORT\nPatient Whitfield, Marcus D. DOB 03/14/1987 Date of Study\n08/28/2024\nElectromyographer H. Vasquez-Lund, MD\nReferring G. Halloway, MD\nCLINICAL INDICATION\nPersistent lower extremity radicular symptoms following motor vehicle collision 02/11/2024. Evaluate for lumbosacral radiculopathy prior to surgical intervention.\nNERVE CONDUCTION STUDIES\nPeroneal motor, right Distal latency 4.4 ms, amplitude 3.8 mV, CV 44 m/s Peroneal motor, left Distal latency 4.1 ms, amplitude 5.6 mV, CV 47 m/s Tibial motor, bilateral Within normal limits Sural sensory, bilateral Within normal limits, amplitudes symmetric H-reflex Right 31.2 ms, Left 30.8 ms - within normal limits\nNEEDLE ELECTROMYOGRAPHY\nLeft tibialis anterior Positive sharp waves 1+, reduced recruitment Left extensor hallucis longus Fibrillations 1+, large polyphasic MUAPs Left gluteus medius Positive sharp waves 1+ Left lumbar paraspinals L5\nFibrillations 1+ Left gastrocnemius\nNormal Left vastus lateralis\nNormal Right lower extremity screen Normal insertional activity, no spontaneous activity, normal recruitment\nIMPRESSION\n1. Electrodiagnostic evidence of a chronic LEFT L5 radiculopathy with active denervation.\n2. No electrodiagnostic evidence of peripheral polyneuropathy, plexopathy, or entrapment neuropathy.\n3. Findings should be correlated with clinical examination and imaging.\nElectronically signed: Helena Vasquez-Lund, MD | 08/28/2024",
-        "token_count": 382
+        "chunk_text": "NORTHSTATE NEUROLOGY & ELECTRODIAGNOSTICS Electromyography and Nerve Conduction Laboratory",
+        "token_count": 20
     },
     {
-        "chunk_id": "LTM-PI-00015_P15_C24",
+        "chunk_id": "LTM-PI-00014_P14_C48",
+        "document_id": "LTM-PI-00014",
+        "page": 14,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "EMG / NERVE CONDUCTION STUDY REPORT",
+        "chunk_text": "Patient Whitfield, Marcus D. DOB 03/14/1987 Date of Study 08/28/2024 Electromyographer H. Vasquez-Lund, MD Referring G. Halloway, MD\n\nCLINICAL INDICATION Persistent lower extremity radicular symptoms following motor vehicle collision 02/11/2024. Evaluate for lumbosacral radiculopathy prior to surgical intervention.\n\nNERVE CONDUCTION STUDIES Peroneal motor, right Distal latency 4.4 ms, amplitude 3.8 mV, CV 44 m/s Peroneal motor, left Distal latency 4.1 ms, amplitude 5.6 mV, CV 47 m/s Tibial motor, bilateral Within normal limits Sural sensory, bilateral Within normal limits, amplitudes symmetric H-reflex Right 31.2 ms, Left 30.8 ms - within normal limits\n\nNEEDLE ELECTROMYOGRAPHY Left tibialis anterior Positive sharp waves 1+, reduced recruitment Left extensor hallucis longus Fibrillations 1+, large polyphasic MUAPs Left gluteus medius Positive sharp waves 1+ Left lumbar paraspinals L5 Fibrillations 1+ Left gastrocnemius Normal Left vastus lateralis Normal Right lower extremity screen Normal insertional activity, no spontaneous activity, normal recruitment",
+        "token_count": 272
+    },
+    {
+        "chunk_id": "LTM-PI-00015_P15_C49",
         "document_id": "LTM-PI-00015",
         "page": 15,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "piedmont county general hospital department of surgery | operating room 6 operative report patient whitfield, marcus d. mrn pcg - 4471902 date of surgery 09 / 10 / 2024 surgeon g. halloway, md assistant r. nkemdirim, pa - c anesthesia general endotracheal, administered by v. sokolova, md estimated blood loss 25 ml specimens disc material, sent to pathology complications none preoperative diagnosis right l4 - l5 herniated nucleus pulposus with right l5 radiculopathy, failed conservative management. postoperative diagnosis same, confirmed intraoperatively. procedure performed right l4 - l5 hemilaminotomy with microdiscectomy and decompression of the right l5 nerve root ( cpt 63030 ). indications the patient is a 37 - year - old male with a right l4 - l5 disc protrusion causing right l5 radiculopathy with motor deficit, which has failed a course of physical therapy, oral neuropathic and anti - inflammatory medication, and one transforaminal epidural steroid injection. symptoms have persisted for approximately seven months. risks, benefits, and alternatives were reviewed and informed consent obtained. description of procedure the patient was brought to the operating room and general anesthesia was induced without difficulty. he was turned prone onto a wilson frame with all pressure points padded. a surgical time - out was performed confirming patient identity, procedure, and correct operative level and laterality. the lumbar region was prepped and draped in the usual sterile fashion. a localizing radiograph confirmed the l4 - l5 interspace. a midline incision was made and carried through subcutaneous tissue. subperiosteal dissection was carried out on the right side exposing the l4 lamina and l4 - l5 interlaminar space. a retractor was placed and a repeat radiograph confirmed the level. using the operating microscope, a hemilaminotomy of the inferior margin of the right l4 lamina was performed with a high - speed burr and kerrison rongeurs. the ligamentum flav",
-        "token_count": 450
+        "chunk_text": "PIEDMONT COUNTY GENERAL HOSPITAL Department of Surgery | Operating Room 6",
+        "token_count": 11
     },
     {
-        "chunk_id": "LTM-PI-00015_P15_C25",
+        "chunk_id": "LTM-PI-00015_P15_C50",
         "document_id": "LTM-PI-00015",
         "page": 15,
-        "section": "General Information",
-        "chunk_text": "out on the right side exposing the l4 lamina and l4 - l5 interlaminar space. a retractor was placed and a repeat radiograph confirmed the level. using the operating microscope, a hemilaminotomy of the inferior margin of the right l4 lamina was performed with a high - speed burr and kerrison rongeurs. the ligamentum flavum was incised and removed. the thecal sac and traversing right l5 nerve root were identified. the nerve root was noted to be tented and erythematous over a firm extruded disc fragment in the right lateral recess. the nerve root was gently retracted medially. the fragment was delivered with a pituitary rongeur and additional loose degenerative nucleus pulposus was removed from the disc space. the lateral recess and foramen were then probed and found to be widely decompressed. the nerve root was noted to be freely mobile. hemostasis was obtained with bipolar cautery and thrombin - soaked gelfoam. the wound was irrigated with antibiotic solution. the fascia was closed with 0 - vicryl, subcutaneous tissue with 2 - 0 vicryl, and skin with a running subcuticular 4 - 0 monocryl. a sterile dressing was applied. all counts were correct. the patient was awakened, extubated, and transferred to the post - anesthesia care unit in stable condition. electronically signed : gregory halloway, md | 09 / 10 / 2024 13 : 48 addendum pathology returned as degenerative fibrocartilage consistent with intervertebral disc material. no malignancy. addendum not signed. no date recorded.",
-        "token_count": 356
-    },
-    {
-        "chunk_id": "LTM-PI-00017_P17_C26",
-        "document_id": "LTM-PI-00017",
-        "page": 17,
-        "section": "General Information",
-        "chunk_text": "halloway orthopedic spine institute post - operative follow - up post - operative office visit notes ( two visits ) visit 1 - 09 / 24 / 2024 ( two weeks post - operative ) provider r. nkemdirim, pa - c patient returns two weeks following right l4 - l5 microdiscectomy. he reports immediate and near - complete resolution of the right leg pain upon waking from surgery. current leg pain 1 / 10, incisional back pain 3 / 10. numbness on the dorsum of the right foot has improved but is not fully resolved. examination : incision clean, dry, intact, well - approximated without erythema or drainage. sutures absorbable, no removal required. motor : right ehl now 4 + / 5, improved from 4 / 5. right ankle dorsiflexion 5 / 5. sensation improved over the right l5 dermatome, diminished but present. slr negative bilaterally. gait non - antalgic. assessment : excellent early post - operative course following right l4 - l5 microdiscectomy. motor improvement documented. plan : begin post - operative physical therapy at 4 weeks. no lifting over 10 pounds, no bending or twisting for 6 weeks. remains off work. return in 6 weeks. electronically signed : rita nkemdirim, pa - c | 09 / 24 / 2024 visit 2 - 11 / 05 / 2024 ( eight weeks post - operative ) provider g. halloway, md patient is now eight weeks following right l4 - l5 microdiscectomy. he reports right leg pain is essentially resolved, rated 0 - 1 / 10 and present only after prolonged standing. low back pain 2 - 3 / 10, activity related. residual patchy numbness over the dorsum of the right foot which he describes as no longer bothersome. he has completed eight post - operative physical therapy sessions. examination : well - healed incision. motor 5 / 5 throughout including right ehl. sensation mildly diminished right l5 dermatome. slr negative. lumbar flexion 85 % of normal. gait normal. able to heel and toe",
-        "token_count": 450
-    },
-    {
-        "chunk_id": "LTM-PI-00017_P17_C27",
-        "document_id": "LTM-PI-00017",
-        "page": 17,
-        "section": "General Information",
-        "chunk_text": "over the dorsum of the right foot which he describes as no longer bothersome. he has completed eight post - operative physical therapy sessions. examination : well - healed incision. motor 5 / 5 throughout including right ehl. sensation mildly diminished right l5 dermatome. slr negative. lumbar flexion 85 % of normal. gait normal. able to heel and toe walk. assessment : excellent outcome following right l4 - l5 microdiscectomy with resolution of radicular pain and recovery of motor strength. residual mild sensory deficit, which may or may not fully resolve. plan : release to modified duty effective 11 / 11 / 2024 with a 25 pound lifting restriction for 8 weeks, then reassess for full duty. complete remaining physical therapy. continue home exercise program. return in 3 months or as needed. anticipate maximum medical improvement at approximately 6 months post - operative. electronically signed : gregory halloway, md | 11 / 05 / 2024",
-        "token_count": 203
-    },
-    {
-        "chunk_id": "LTM-PI-00018_P18_C28",
-        "document_id": "LTM-PI-00018",
-        "page": 18,
-        "section": "General Information",
-        "chunk_text": "RIVERBEND URGENT CARE - EAST\nPRIOR RECORDS OBTAINED BY SUBPOENA | Produced 06/2024\nURGENT CARE VISIT NOTE (HISTORICAL RECORD)\nPatient Whitfield, Marcus D. DOB 03/14/1987\nDate of Service\n08/17/2019\nProvider P. Lindqvist, PA-C\nCHIEF COMPLAINT\nLow back pain x 3 weeks.\nHISTORY\n32-year-old male presents with a three-week history of low back pain that began after moving furniture. Pain is described as an ache across the lower back, 5/10, worse with bending and prolonged standing. He reports intermittent radiation into the right buttock but denies pain below the knee. Denies numbness, weakness, bowel or bladder change, fever, or weight loss. Has tried over-the-counter ibuprofen with partial relief.\nEXAMINATION\nLumbar paraspinal tenderness bilaterally. Flexion mildly limited by pain. Straight leg raise negative bilaterally. Strength 5/5 throughout. Sensation intact. Reflexes symmetric. Gait normal.\nASSESSMENT\nMechanical low back pain, subacute, with non-radicular right buttock referral. No red flags.\nPLAN\n– Naproxen 500 mg BID x 10 days\n– Cyclobenzaprine 5 mg at bedtime PRN\n– Home exercise handout provided\n– Activity modification, avoid heavy lifting x 2 weeks\n– Follow up with primary care if not improved in 3 weeks or if new radiating pain, numbness, or weakness develops\nElectronically signed: P. Lindqvist, PA-C | 08/17/2019\nATTACHED: RADIOLOGY REPORT\nLUMBAR SPINE RADIOGRAPHS, 2 VIEWS - 08/17/2019\nFINDINGS: Vertebral body heights preserved. Mild disc space narrowing at L4-L5. Early facet arthropathy at L4-L5 and L5-S1.\nNo fracture or listhesis.\nIMPRESSION: Early degenerative disc disease and facet arthropathy at L4-L5 and L5-S1. No acute finding.\nReported by: M. Iverson, MD | 08/17/2019",
-        "token_count": 431
-    },
-    {
-        "chunk_id": "LTM-PI-00019_P19_C29",
-        "document_id": "LTM-PI-00019",
-        "page": 19,
-        "section": "General Information",
-        "chunk_text": "greenleaf community pharmacy # 218 patient medication history printout | generated 12 / 02 / 2024 pharmacy dispensing record patient whitfield, marcus d. dob 03 / 14 / 1987 allergies on file none documented insurance meridian health plan, member 88 - 2210 - 447 dispensing history 02 / 11 / 2024 naproxen 500 mg tab, qty 30, rx by nakamura s md, filled 22 : 40 02 / 11 / 2024 methocarbamol 750 mg tab, qty 30, rx by nakamura s md, filled 22 : 40 02 / 11 / 2024 acetaminophen / codeine 300 - 30 mg tab, qty 12, rx by nakamura s md, filled 22 : 41 02 / 19 / 2024 gabapentin 300 mg cap, qty 30, rx by osei - bonsu l md 03 / 18 / 2024 gabapentin 300 mg cap, qty 90, rx by osei - bonsu l md, titration to tid 03 / 18 / 2024 naproxen 500 mg tab, qty 60, refill, rx by osei - bonsu l md 04 / 23 / 2024 ondansetron 4 mg odt, qty 10, rx by farhadi d md 06 / 03 / 2024 gabapentin 300 mg cap, qty 90, refill 09 / 10 / 2024 oxycodone / acetaminophen 5 - 325 mg tab, qty 20, rx by halloway g md, post - operative 09 / 10 / 2024 docusate sodium 100 mg cap, qty 30, rx by halloway g md 09 / 10 / 2024 methocarbamol 750 mg tab, qty 40, rx by halloway g md 09 / 22 / 2024 oxycodone / acetaminophen 5 - 325 mg tab, qty 12, refill x1, rx by halloway g md 10 / 28 / 2024 gabapentin 300 mg cap, qty",
-        "token_count": 450
-    },
-    {
-        "chunk_id": "LTM-PI-00019_P19_C30",
-        "document_id": "LTM-PI-00019",
-        "page": 19,
-        "section": "General Information",
-        "chunk_text": "2024 methocarbamol 750 mg tab, qty 40, rx by halloway g md 09 / 22 / 2024 oxycodone / acetaminophen 5 - 325 mg tab, qty 12, refill x1, rx by halloway g md 10 / 28 / 2024 gabapentin 300 mg cap, qty 90, refill pharmacist notes 02 / 11 / 2024 - counseled on drowsiness with methocarbamol and codeine combination. advised no driving. 09 / 10 / 2024 - opioid counseling provided. naloxone offered and declined. pdmp reviewed, no concerning findings. this printout reflects prescriptions filled at greenleaf community pharmacy locations only and may not represent a complete medication history.",
-        "token_count": 170
-    },
-    {
-        "chunk_id": "LTM-PI-00020_P20_C31",
-        "document_id": "LTM-PI-00020",
-        "page": 20,
-        "section": "General Information",
-        "chunk_text": "meridian health system - patient financial services itemized statement of charges | claim pi - 2024 - 8871 itemized billing summary patient whitfield, marcus d. account ed - 24 - 0211 - 556 statement period 02 / 11 / 2024 through 11 / 30 / 2024 statement generated 12 / 09 / 2024 itemized charges 02 / 11 / 2024 ems ground transport, als - 1 ( a0427 ) $ 1, 480. 00 02 / 11 / 2024 ed visit, level 4 ( 99284 ) $ 2, 310. 00 02 / 11 / 2024 ct cervical spine w / o contrast ( 72125 ) $ 1, 875. 00 02 / 11 / 2024 radiographs lumbar spine 3 views ( 72100 ) $ 410. 00 02 / 11 / 2024 pharmacy, ed administered $ 186. 00 02 / 19 / 2024 office visit, established, level 3 ( 99213 ) $ 245. 00 02 / 26 / 2024 pt initial evaluation, moderate complexity ( 97162 ) $ 310. 00 03 / 06 / 2024 mri lumbar spine w / o contrast ( 72148 ) $ 3, 240. 00 03 / 12 / 2024 mri cervical spine w / o contrast ( 72141 ) $ 3, 180. 00 03 / 14 / 2024 consultation, spine surgery ( 99244 ) $ 595. 00 02 / 26 - 05 / 07 / 2024 physical therapy, 22 visits, bundled $ 4, 840. 00 04 / 23 / 2024 tfesi lumbar, single level ( 64483 ) $ 2, 650. 00 04 / 23 / 2024 fluoroscopic guidance ( 77003 ) $ 420. 00 06 / 11 / 2024 tfesi lumbar, single level ( 64483 ) $ 2, 650. 00 08 / 28 / 2024 emg / ncs, lower extremity ( 95886, 95908 ) $ 1, 290. 00 09 / 10 / 2024 laminotomy w / discectomy, 1 interspace ( 63030 ) $ 8, 950. 00 09 / 10 / 2024",
-        "token_count": 450
-    },
-    {
-        "chunk_id": "LTM-PI-00020_P20_C32",
-        "document_id": "LTM-PI-00020",
-        "page": 20,
-        "section": "General Information",
-        "chunk_text": ", single level ( 64483 ) $ 2, 650. 00 08 / 28 / 2024 emg / ncs, lower extremity ( 95886, 95908 ) $ 1, 290. 00 09 / 10 / 2024 laminotomy w / discectomy, 1 interspace ( 63030 ) $ 8, 950. 00 09 / 10 / 2024 anesthesia, spine surgery $ 1, 720. 00 09 / 10 / 2024 facility, ambulatory surgery $ 6, 400. 00 09 / 24 / 2024 post - op visit, global period $ 0. 00 10 / 2024 post - operative physical therapy, 8 visits $ 1, 760. 00 11 / 05 / 2024 office visit, established, level 3 ( 99213 ) $ 245. 00 summary total charges $ 44, 756. 00 insurance payments $ 18, 204. 36 adjustments / contractual write - offs $ 14, 988. 14 patient responsibility $ 11, 563. 50 outstanding balance $ 11, 563. 50 charges reflect the master charge description master rate and may not reflect negotiated rates. lien filed with meridian health system recovery unit 12 / 09 / 2024.",
+        "patient_name": "Whitfield, Marcus D",
+        "section": "OPERATIVE REPORT",
+        "chunk_text": "Patient Whitfield, Marcus D. MRN PCG-4471902 Date of Surgery 09/10/2024 Surgeon G. Halloway, MD Assistant R. Nkemdirim, PA-C Anesthesia General endotracheal, administered by V. Sokolova, MD Estimated Blood Loss 25 mL Specimens Disc material, sent to pathology Complications None\n\nPREOPERATIVE DIAGNOSIS Right L4-L5 herniated nucleus pulposus with right L5 radiculopathy, failed conservative management.\n\nPOSTOPERATIVE DIAGNOSIS Same, confirmed intraoperatively.\n\nPROCEDURE PERFORMED Right L4-L5 hemilaminotomy with microdiscectomy and decompression of the right L5 nerve root (CPT 63030).\n\nINDICATIONS The patient is a 37-year-old male with a right L4-L5 disc protrusion causing right L5 radiculopathy with motor deficit, which has failed a course of physical therapy, oral neuropathic and anti-inflammatory medication, and one transforaminal epidural steroid injection. Symptoms have persisted for approximately seven months. Risks, benefits, and alternatives were reviewed and informed consent obtained.",
         "token_count": 246
     },
     {
-        "chunk_id": "LTM-PI-00021_P21_C33",
+        "chunk_id": "LTM-PI-00015_P15_C51",
+        "document_id": "LTM-PI-00015",
+        "page": 15,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "OPERATIVE REPORT",
+        "chunk_text": "symptoms have persisted for approximately seven months. risks, benefits, and alternatives were reviewed and informed consent obtained.\n\nDESCRIPTION OF PROCEDURE The patient was brought to the operating room and general anesthesia was induced without difficulty. He was turned prone onto a Wilson frame with all pressure points padded. A surgical time-out was performed confirming patient identity, procedure, and correct operative level and laterality. The lumbar region was prepped and draped in the usual sterile fashion. A localizing radiograph confirmed the L4-L5 interspace. A midline incision was made and carried through subcutaneous tissue. Subperiosteal dissection was carried out on the right side exposing the L4 lamina and L4-L5 interlaminar space. A retractor was placed and a repeat radiograph confirmed the level. Using the operating microscope, a hemilaminotomy of the inferior margin of the right L4 lamina was performed with a high-speed burr and Kerrison rongeurs. The ligamentum flavum was incised and removed. The thecal sac and traversing right L5 nerve root were identified. The nerve root was noted to be tented and erythematous over a firm extruded disc fragment in the right lateral recess. The nerve root was gently retracted medially. The fragment was delivered with a pituitary rongeur and additional loose degenerative nucleus pulposus was removed from the disc space. The lateral recess and foramen were then probed and found to be widely decompressed. The nerve root was noted to be freely mobile. Hemostasis was obtained with bipolar cautery and thrombin-soaked Gelfoam. The wound was irrigated with antibiotic solution. The fascia was closed with 0-Vicryl, subcutaneous tissue with 2-0 Vicryl, and skin with a running subcuticular 4-0 Monocryl. A sterile dressing was applied. All counts were correct. The patient was awakened, extubated, and transferred to the post-anesthesia care unit in stable condition. Electronically signed: Gregory Halloway, MD | 09/10/2024 13: 48",
+        "token_count": 450
+    },
+    {
+        "chunk_id": "LTM-PI-00015_P15_C52",
+        "document_id": "LTM-PI-00015",
+        "page": 15,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "OPERATIVE REPORT",
+        "chunk_text": ", subcutaneous tissue with 2 - 0 vicryl, and skin with a running subcuticular 4 - 0 monocryl. a sterile dressing was applied. all counts were correct. the patient was awakened, extubated, and transferred to the post - anesthesia care unit in stable condition. electronically signed : gregory halloway, md | 09 / 10 / 2024 13 : 48\n\nADDENDUM Pathology returned as degenerative fibrocartilage consistent with intervertebral disc material. No malignancy. Addendum not signed. No date recorded.",
+        "token_count": 118
+    },
+    {
+        "chunk_id": "LTM-PI-00017_P17_C53",
+        "document_id": "LTM-PI-00017",
+        "page": 17,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "General Information",
+        "chunk_text": "HALLOWAY ORTHOPEDIC SPINE INSTITUTE Post-Operative Follow-Up",
+        "token_count": 15
+    },
+    {
+        "chunk_id": "LTM-PI-00017_P17_C54",
+        "document_id": "LTM-PI-00017",
+        "page": 17,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "General Information",
+        "chunk_text": "post - operative office visit notes ( two visits ) visit 1 - 09 / 24 / 2024 ( two weeks post - operative ) provider r. nkemdirim, pa - c patient returns two weeks following right l4 - l5 microdiscectomy. he reports immediate and near - complete resolution of the right leg pain upon waking from surgery. current leg pain 1 / 10, incisional back pain 3 / 10. numbness on the dorsum of the right foot has improved but is not fully resolved. examination : incision clean, dry, intact, well - approximated without erythema or drainage. sutures absorbable, no removal required. motor : right ehl now 4 + / 5, improved from 4 / 5. right ankle dorsiflexion 5 / 5. sensation improved over the right l5 dermatome, diminished but present. slr negative bilaterally. gait non - antalgic. assessment : excellent early post - operative course following right l4 - l5 microdiscectomy. motor improvement documented. plan : begin post - operative physical therapy at 4 weeks. no lifting over 10 pounds, no bending or twisting for 6 weeks. remains off work. return in 6 weeks. electronically signed : rita nkemdirim, pa - c | 09 / 24 / 2024 visit 2 - 11 / 05 / 2024 ( eight weeks post - operative ) provider g. halloway, md patient is now eight weeks following right l4 - l5 microdiscectomy. he reports right leg pain is essentially resolved, rated 0 - 1 / 10 and present only after prolonged standing. low back pain 2 - 3 / 10, activity related. residual patchy numbness over the dorsum of the right foot which he describes as no longer bothersome. he has completed eight post - operative physical therapy sessions. examination : well - healed incision. motor 5 / 5 throughout including right ehl. sensation mildly diminished right l5 dermatome. slr negative. lumbar flexion 85 % of normal. gait normal. able to heel and toe walk. assessment : excellent outcome following right l4 - l5 microdis",
+        "token_count": 450
+    },
+    {
+        "chunk_id": "LTM-PI-00017_P17_C55",
+        "document_id": "LTM-PI-00017",
+        "page": 17,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "General Information",
+        "chunk_text": "bothersome. he has completed eight post - operative physical therapy sessions. examination : well - healed incision. motor 5 / 5 throughout including right ehl. sensation mildly diminished right l5 dermatome. slr negative. lumbar flexion 85 % of normal. gait normal. able to heel and toe walk. assessment : excellent outcome following right l4 - l5 microdiscectomy with resolution of radicular pain and recovery of motor strength. residual mild sensory deficit, which may or may not fully resolve. plan : release to modified duty effective 11 / 11 / 2024 with a 25 pound lifting restriction for 8 weeks, then reassess for full duty. complete remaining physical therapy. continue home exercise program. return in 3 months or as needed. anticipate maximum medical improvement at approximately 6 months post - operative. electronically signed : gregory halloway, md | 11 / 05 / 2024",
+        "token_count": 188
+    },
+    {
+        "chunk_id": "LTM-PI-00018_P18_C56",
+        "document_id": "LTM-PI-00018",
+        "page": 18,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "General Information",
+        "chunk_text": "RIVERBEND URGENT CARE - EAST PRIOR RECORDS OBTAINED BY SUBPOENA | Produced 06/2024",
+        "token_count": 20
+    },
+    {
+        "chunk_id": "LTM-PI-00018_P18_C57",
+        "document_id": "LTM-PI-00018",
+        "page": 18,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "URGENT CARE VISIT NOTE (HISTORICAL RECORD)",
+        "chunk_text": "Patient Whitfield, Marcus D. DOB 03/14/1987 Date of Service 08/17/2019 Provider P. Lindqvist, PA-C\n\nCHIEF COMPLAINT Low back pain x 3 weeks.\n\nHISTORY 32-year-old male presents with a three-week history of low back pain that began after moving furniture. Pain is described as an ache across the lower back, 5/10, worse with bending and prolonged standing. He reports intermittent radiation into the right buttock but denies pain below the knee. Denies numbness, weakness, bowel or bladder change, fever, or weight loss. Has tried over-the-counter ibuprofen with partial relief.\n\nEXAMINATION Lumbar paraspinal tenderness bilaterally. Flexion mildly limited by pain. Straight leg raise negative bilaterally. Strength 5/5 throughout. Sensation intact. Reflexes symmetric. Gait normal.\n\nASSESSMENT Mechanical low back pain, subacute, with non-radicular right buttock referral. No red flags.\n\nPLAN – Naproxen 500 mg BID x 10 days – Cyclobenzaprine 5 mg at bedtime PRN – Home exercise handout provided – Activity modification, avoid heavy lifting x 2 weeks – Follow up with primary care if not improved in 3 weeks or if new radiating pain, numbness, or weakness develops Electronically signed: P. Lindqvist, PA-C | 08/17/2019",
+        "token_count": 289
+    },
+    {
+        "chunk_id": "LTM-PI-00018_P18_C58",
+        "document_id": "LTM-PI-00018",
+        "page": 18,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "ATTACHED: RADIOLOGY REPORT",
+        "chunk_text": "LUMBAR SPINE RADIOGRAPHS, 2 VIEWS - 08/17/2019 FINDINGS: Vertebral body heights preserved. Mild disc space narrowing at L4-L5. Early facet arthropathy at L4-L5 and L5-S1. No fracture or listhesis. IMPRESSION: Early degenerative disc disease and facet arthropathy at L4-L5 and L5-S1. No acute finding. Reported by: M. Iverson, MD | 08/17/2019",
+        "token_count": 109
+    },
+    {
+        "chunk_id": "LTM-PI-00019_P19_C59",
+        "document_id": "LTM-PI-00019",
+        "page": 19,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "GREENLEAF COMMUNITY PHARMACY #218",
+        "chunk_text": "Patient Medication History Printout | Generated 12/02/2024",
+        "token_count": 13
+    },
+    {
+        "chunk_id": "LTM-PI-00019_P19_C60",
+        "document_id": "LTM-PI-00019",
+        "page": 19,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "PHARMACY DISPENSING RECORD",
+        "chunk_text": "Patient Whitfield, Marcus D. DOB 03/14/1987 Allergies on File\n\nNONE DOCUMENTED Insurance Meridian Health Plan, Member 88-2210-447\n\nDISPENSING HISTORY 02/11/2024 Naproxen 500 mg tab, qty 30, Rx by Nakamura S MD, filled 22: 40 02/11/2024 Methocarbamol 750 mg tab, qty 30, Rx by Nakamura S MD, filled 22: 40 02/11/2024 Acetaminophen/Codeine 300-30 mg tab, qty 12, Rx by Nakamura S MD, filled 22: 41 02/19/2024 Gabapentin 300 mg cap, qty 30, Rx by Osei-Bonsu L MD 03/18/2024 Gabapentin 300 mg cap, qty 90, Rx by Osei-Bonsu L MD, titration to TID 03/18/2024 Naproxen 500 mg tab, qty 60, refill, Rx by Osei-Bonsu L MD 04/23/2024 Ondansetron 4 mg ODT, qty 10, Rx by Farhadi D MD 06/03/2024 Gabapentin 300 mg cap, qty 90, refill 09/10/2024 Oxycodone/Acetaminophen 5-325 mg tab, qty 20, Rx by Halloway G MD, post-operative 09/10/2024 Docusate sodium 100 mg cap, qty 30, Rx by Halloway G MD 09/10/2024 Methocarbamol 750 mg tab, qty 40, Rx by Halloway G MD 09/22/2024 Oxycodone/Acetaminophen 5-325 mg tab, qty 12, refill x1, Rx by Halloway G MD 10/28/2024 Gabapentin 300 mg cap, qty 90, refill",
+        "token_count": 429
+    },
+    {
+        "chunk_id": "LTM-PI-00019_P19_C61",
+        "document_id": "LTM-PI-00019",
+        "page": 19,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "PHARMACY DISPENSING RECORD",
+        "chunk_text": "##carbamol 750 mg tab, qty 40, rx by halloway g md 09 / 22 / 2024 oxycodone / acetaminophen 5 - 325 mg tab, qty 12, refill x1, rx by halloway g md 10 / 28 / 2024 gabapentin 300 mg cap, qty 90, refill\n\nPHARMACIST NOTES 02/11/2024 - Counseled on drowsiness with methocarbamol and codeine combination. Advised no driving. 09/10/2024 - Opioid counseling provided. Naloxone offered and declined. PDMP reviewed, no concerning findings. This printout reflects prescriptions filled at Greenleaf Community Pharmacy locations only and may not represent a complete medication history.",
+        "token_count": 168
+    },
+    {
+        "chunk_id": "LTM-PI-00020_P20_C62",
+        "document_id": "LTM-PI-00020",
+        "page": 20,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "General Information",
+        "chunk_text": "MERIDIAN HEALTH SYSTEM - PATIENT FINANCIAL SERVICES Itemized Statement of Charges | Claim PI-2024-8871",
+        "token_count": 22
+    },
+    {
+        "chunk_id": "LTM-PI-00020_P20_C63",
+        "document_id": "LTM-PI-00020",
+        "page": 20,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "ITEMIZED BILLING SUMMARY",
+        "chunk_text": "Patient Whitfield, Marcus D. Account ED-24-0211-556 Statement Period 02/11/2024 through 11/30/2024 Statement Generated 12/09/2024",
+        "token_count": 41
+    },
+    {
+        "chunk_id": "LTM-PI-00020_P20_C64",
+        "document_id": "LTM-PI-00020",
+        "page": 20,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "ITEMIZED BILLING SUMMARY",
+        "chunk_text": "itemized charges 02 / 11 / 2024 ems ground transport, als - 1 ( a0427 ) $ 1, 480. 00 02 / 11 / 2024 ed visit, level 4 ( 99284 ) $ 2, 310. 00 02 / 11 / 2024 ct cervical spine w / o contrast ( 72125 ) $ 1, 875. 00 02 / 11 / 2024 radiographs lumbar spine 3 views ( 72100 ) $ 410. 00 02 / 11 / 2024 pharmacy, ed administered $ 186. 00 02 / 19 / 2024 office visit, established, level 3 ( 99213 ) $ 245. 00 02 / 26 / 2024 pt initial evaluation, moderate complexity ( 97162 ) $ 310. 00 03 / 06 / 2024 mri lumbar spine w / o contrast ( 72148 ) $ 3, 240. 00 03 / 12 / 2024 mri cervical spine w / o contrast ( 72141 ) $ 3, 180. 00 03 / 14 / 2024 consultation, spine surgery ( 99244 ) $ 595. 00 02 / 26 - 05 / 07 / 2024 physical therapy, 22 visits, bundled $ 4, 840. 00 04 / 23 / 2024 tfesi lumbar, single level ( 64483 ) $ 2, 650. 00 04 / 23 / 2024 fluoroscopic guidance ( 77003 ) $ 420. 00 06 / 11 / 2024 tfesi lumbar, single level ( 64483 ) $ 2, 650. 00 08 / 28 / 2024 emg / ncs, lower extremity ( 95886, 95908 ) $ 1, 290. 00 09 / 10 / 2024 laminotomy w / discectomy, 1 interspace ( 63030 ) $ 8, 950. 00 09 / 10 / 2024 anesthesia, spine surgery $ 1, 720. 00 09 / 10 / 2024 facility, ambulatory surgery $ 6, 400. 00 09 / 24 / 2024 post - op visit, global period $ 0. 00 10 / 2024 post - operative physical therapy, 8 visits $ 1, 760. 00 11 / 05",
+        "token_count": 450
+    },
+    {
+        "chunk_id": "LTM-PI-00020_P20_C65",
+        "document_id": "LTM-PI-00020",
+        "page": 20,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "ITEMIZED BILLING SUMMARY",
+        "chunk_text": ") $ 8, 950. 00 09 / 10 / 2024 anesthesia, spine surgery $ 1, 720. 00 09 / 10 / 2024 facility, ambulatory surgery $ 6, 400. 00 09 / 24 / 2024 post - op visit, global period $ 0. 00 10 / 2024 post - operative physical therapy, 8 visits $ 1, 760. 00 11 / 05 / 2024 office visit, established, level 3 ( 99213 ) $ 245. 00",
+        "token_count": 99
+    },
+    {
+        "chunk_id": "LTM-PI-00020_P20_C66",
+        "document_id": "LTM-PI-00020",
+        "page": 20,
+        "patient_name": "Whitfield, Marcus D",
+        "section": "ITEMIZED BILLING SUMMARY",
+        "chunk_text": "SUMMARY Total Charges $44, 756.00 Insurance Payments $18, 204.36 Adjustments / Contractual Write-offs $14, 988.14\n\nPatient Responsibility $11, 563.50 Outstanding Balance $11, 563.50 Charges reflect the master charge description master rate and may not reflect negotiated rates. Lien filed with Meridian Health System Recovery Unit 12/09/2024.",
+        "token_count": 80
+    },
+    {
+        "chunk_id": "LTM-PI-00021_P21_C67",
         "document_id": "LTM-PI-00021",
         "page": 21,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "ATLAS LOGISTICS GROUP - HUMAN RESOURCES\nOccupational Health & Work Status File\nEMPLOYER WORK STATUS AND WAGE RECORD\nEmployee Whitfield, Marcus D.\nEmployee ID\nALG-33417\nPosition\nWarehouse Logistics Coordinator, Shift Lead Date of Hire\n06/02/2019 Rate of Pay $28.40 per hour, 40 hours regular plus average 6 hours overtime weekly\nWORK STATUS CHRONOLOGY\n02/12/2024 Off work per ED note dated 02/11/2024\n02/19/2024 Light duty offered by employer; declined as unavailable in role\n02/19/2024 Off work through 03/04/2024 per Dr. Osei-Bonsu\n03/14/2024 Remains off work per Dr. Halloway\n05/21/2024 Remains off work per Dr. Halloway\n09/10/2024 Surgical leave commences\n11/05/2024 Released to modified duty effective 11/11/2024, 25 lb restriction\n11/11/2024 Returned to work, modified duty, 32 hours per week\n01/06/2025 Returned to full duty per employer records WAGE LOSS CALCULATION (employer-provided) Total days off work 02/12/2024 through 11/10/2024 Regular hours lost Approximately 1, 560 hours Overtime hours lost Approximately 234 hours Partial wage loss, modified duty period 11/11/2024 through 01/05/2025, 8 hours per week reduction\nHR ANNOTATION\nEmployee was in good standing at the time of leave with no active disciplinary matters. Short-term disability benefits were paid at 60% of base wage from 02/26/2024 through 08/26/2024, the maximum benefit period. No benefits were payable thereafter.\nEmployee used 42 hours of accrued paid time off prior to short-term disability commencement.\nPrepared by: Danica Brant, HR Business Partner | 01/14/2025",
+        "chunk_text": "ATLAS LOGISTICS GROUP - HUMAN RESOURCES Occupational Health & Work Status File\n\nEMPLOYER WORK STATUS AND WAGE RECORD Employee Whitfield, Marcus D. Employee ID\n\nALG-33417 Position Warehouse Logistics Coordinator, Shift Lead Date of Hire 06/02/2019 Rate of Pay $28.40 per hour, 40 hours regular plus average 6 hours overtime weekly\n\nWORK STATUS CHRONOLOGY 02/12/2024 Off work per ED note dated 02/11/2024 02/19/2024 Light duty offered by employer; declined as unavailable in role 02/19/2024 Off work through 03/04/2024 per Dr. Osei-Bonsu 03/14/2024 Remains off work per Dr. Halloway 05/21/2024 Remains off work per Dr. Halloway 09/10/2024 Surgical leave commences 11/05/2024 Released to modified duty effective 11/11/2024, 25 lb restriction 11/11/2024 Returned to work, modified duty, 32 hours per week 01/06/2025 Returned to full duty per employer records WAGE LOSS CALCULATION (employer-provided) Total days off work 02/12/2024 through 11/10/2024 Regular hours lost Approximately 1, 560 hours Overtime hours lost Approximately 234 hours Partial wage loss, modified duty period 11/11/2024 through 01/05/2025, 8 hours per week reduction\n\nHR ANNOTATION Employee was in good standing at the time of leave with no active disciplinary matters. Short-term disability benefits were paid at 60% of base wage from 02/26/2024 through 08/26/2024, the maximum benefit period. No benefits were payable thereafter. Employee used 42 hours of accrued paid time off prior to short-term disability commencement. Prepared by: Danica Brant, HR Business Partner | 01/14/2025",
         "token_count": 379
     },
     {
-        "chunk_id": "LTM-PI-00022_P22_C34",
+        "chunk_id": "LTM-PI-00022_P22_C68",
         "document_id": "LTM-PI-00022",
         "page": 22,
+        "patient_name": "Whitfield, Marcus D",
         "section": "General Information",
-        "chunk_text": "OFFICE OF THE RECORDS CUSTODIAN\nCertification and Production Log\nRECORDS PRODUCTION CERTIFICATION\nMatter Whitfield v. Corrigan Hauling LLC\nClaim Number\nPI-2024-8871\nRecords Requested By Requesting Party (records request dated 12/18/2024) Date of Production\n01/22/2025\nTotal Pages Produced 22\nCERTIFICATION\nThe undersigned certifies that the accompanying documents are true and correct copies of records maintained in the ordinary course of business, produced in response to the request referenced above, and that the records were made at or near the time of the events described by persons with knowledge, or from information transmitted by such persons.\nPRODUCTION LOG - SOURCES\nPiedmont County EMS 1 page\nPiedmont County General Hospital - ED 3 pages\nPiedmont County General\nHospital - Radiology 1 page\nPiedmont County General\nHospital - Surgery 1 page\nNorthgate Family Medicine 1 page\nMeridian Rehabilitation & Sports\nTherapy 4 pages\nValley Imaging Partners 1 page\nHalloway Orthopedic Spine\nInstitute 3 pages\nSummit Interventional Pain &\nSpine 1 page\nNorthstate Neurology &\nElectrodiagnostics 1 page\nRiverbend Urgent Care (historical, subpoenaed) 1 page\nGreenleaf Community Pharmacy 1 page\nMeridian Health System -\nFinancial Services 1 page Atlas Logistics Group - HR 1 page This certification 1 page\nITEMS REQUESTED BUT NOT PRODUCED\n– MRI cervical spine, referenced in orthopedic consultation of 03/14/2024 and billed 03/12/2024. Report not located in the\nrequested file. Follow-up request pending.\n– Legible duplicate of the handwritten orthopedic note of 05/21/2024. Requested 06/14/2024, no response received.\n– Clinical documentation corresponding to the transforaminal epidural steroid injection billed on 06/11/2024. Not located.\n– Physical therapy daily notes for visits 15 through 22. Not located in this production.\nCertified by: Office of the Records Custodian | 01/22/2025",
+        "chunk_text": "OFFICE OF THE RECORDS CUSTODIAN Certification and Production Log\n\nRECORDS PRODUCTION CERTIFICATION Matter Whitfield v. Corrigan Hauling LLC Claim Number\n\nPI-2024-8871 Records Requested By Requesting Party (records request dated 12/18/2024) Date of Production 01/22/2025 Total Pages Produced 22\n\nCERTIFICATION The undersigned certifies that the accompanying documents are true and correct copies of records maintained in the ordinary course of business, produced in response to the request referenced above, and that the records were made at or near the time of the events described by persons with knowledge, or from information transmitted by such persons.\n\nPRODUCTION LOG - SOURCES Piedmont County EMS 1 page Piedmont County General Hospital - ED 3 pages Piedmont County General Hospital - Radiology 1 page Piedmont County General Hospital - Surgery 1 page Northgate Family Medicine 1 page Meridian Rehabilitation & Sports Therapy 4 pages Valley Imaging Partners 1 page Halloway Orthopedic Spine Institute 3 pages Summit Interventional Pain & Spine 1 page Northstate Neurology & Electrodiagnostics 1 page Riverbend Urgent Care (historical, subpoenaed) 1 page Greenleaf Community Pharmacy 1 page Meridian Health System - Financial Services 1 page Atlas Logistics Group - HR 1 page This certification 1 page\n\nITEMS REQUESTED BUT NOT PRODUCED – MRI cervical spine, referenced in orthopedic consultation of 03/14/2024 and billed 03/12/2024. Report not located in the requested file. Follow-up request pending. – Legible duplicate of the handwritten orthopedic note of 05/21/2024. Requested 06/14/2024, no response received. – Clinical documentation corresponding to the transforaminal epidural steroid injection billed on 06/11/2024. Not located. – Physical therapy daily notes for visits 15 through 22. Not located in this production. Certified by: Office of the Records Custodian | 01/22/2025",
         "token_count": 394
     }
 ]

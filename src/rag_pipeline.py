@@ -1,6 +1,8 @@
 import os
+import re
 from dotenv import load_dotenv
 from google import genai
+from google.genai import errors
 from google.genai import types
 
 from src.retrieval import retrieve_chunks
@@ -11,7 +13,14 @@ load_dotenv()
 
 # Gemini configuration
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
+GEMINI_MODELS = [
+    model.strip()
+    for model in os.getenv(
+        "GEMINI_MODELS",
+        "gemini-3.5-flash,gemini-3.5-flash-lite,gemini-3.1-flash-lite",
+    ).split(",")
+    if model.strip()
+]
 
 if not GEMINI_API_KEY:
     raise ValueError(
@@ -68,12 +77,17 @@ IMPORTANT RULES:
    clearly say:
    "The requested information was not found
    in the provided PDF."
-7. Cite the original PDF page number in your answer
-   using this format: [Page X].
+7. Cite every factual statement with the original PDF
+   page number using this exact format: [Page X].
 8. If evidence conflicts, explain the conflict.
 9. Do not provide medical advice or diagnosis.
 10. Distinguish documented facts from information
     that is not documented.
+11. Return a complete, readable answer. Never stop in the
+    middle of a name, sentence, or citation.
+12. For a patient-name query, use all evidence supplied
+    for the matching patient and organize the answer
+    under clear headings.
 
 RETRIEVED EVIDENCE:
 
@@ -86,22 +100,48 @@ USER QUESTION:
 ANSWER:
 """
 
-    # Send prompt to Gemini
-    response = client.models.generate_content(
-        model=GEMINI_MODEL,
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            temperature=0,
-            max_output_tokens=1024
+    response = None
+    unavailable_models = []
+    for model in GEMINI_MODELS:
+        try:
+            response = client.models.generate_content(
+                model=model,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    temperature=0,
+                    max_output_tokens=1024
+                )
+            )
+            break
+        except errors.ServerError as error:
+            if error.code != 503:
+                raise
+            unavailable_models.append(model)
+
+    if response is None:
+        models_text = ", ".join(unavailable_models)
+        raise RuntimeError(
+            "All configured Gemini models are temporarily unavailable "
+            f"(503): {models_text}. Please try again shortly."
         )
-    )
 
     if not response.text:
         raise RuntimeError(
             "Gemini returned an empty response."
         )
 
-    return response.text.strip()
+    answer = response.text.strip()
+    if not re.search(r"\[Page\s+\d+\]", answer, re.IGNORECASE):
+        pages = sorted({
+            str(chunk["page"])
+            for chunk in retrieved_chunks
+            if chunk.get("page") is not None
+        })
+        if pages:
+            answer += "\n\nSources: " + ", ".join(
+                f"[Page {page}]" for page in pages
+            )
+    return answer
 
 
 def answer_question(question, embedding_model, top_k=5):

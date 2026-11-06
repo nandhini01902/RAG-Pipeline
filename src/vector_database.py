@@ -1,12 +1,13 @@
 
 import json
-import math
-import re
-from collections import Counter
 from pathlib import Path
 
 import numpy as np
 from qdrant_client import QdrantClient, models
+try:
+    from src.sparse_vectors import build_sparse_vectors
+except ModuleNotFoundError:
+    from sparse_vectors import build_sparse_vectors
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,57 +33,6 @@ COLLECTION_NAME = "medical_records"
 SPARSE_MODEL_NAME = "local-bm25"
 
 
-def build_sparse_vectors(texts):
-    tokenized = [
-        re.findall(r"\b\w+\b", text.lower())
-        for text in texts
-    ]
-    vocabulary = {
-        token
-        for tokens in tokenized
-        for token in tokens
-    }
-    token_ids = {
-        token: index
-        for index, token in enumerate(sorted(vocabulary), start=1)
-    }
-    average_length = sum(map(len, tokenized)) / max(len(tokenized), 1)
-    document_frequency = Counter(
-        token
-        for tokens in tokenized
-        for token in set(tokens)
-    )
-    document_count = len(tokenized)
-
-    sparse_vectors = []
-    for tokens in tokenized:
-        counts = Counter(tokens)
-        document_length = len(tokens)
-        values = {}
-        for token, count in counts.items():
-            idf = math.log(
-                1 + (document_count - document_frequency[token] + 0.5)
-                / (document_frequency[token] + 0.5)
-            )
-            denominator = (
-                count
-                + 1.5
-                * (0.25 + 0.75 * document_length / max(average_length, 1))
-            )
-            values[token_ids[token]] = (
-                idf * count * 2.5 / denominator
-            )
-
-        sparse_vectors.append(
-            models.SparseVector(
-                indices=list(values.keys()),
-                values=list(values.values())
-            )
-        )
-
-    return sparse_vectors
-
-
 def create_vector_store():
 
     with open(CHUNKS_FILE, "r", encoding="utf-8") as file:
@@ -101,7 +51,7 @@ def create_vector_store():
     texts = [chunk["chunk_text"] for chunk in chunks]
 
     # Generate sparse vectors for every chunk
-    sparse_embeddings = build_sparse_vectors(texts)
+    sparse_embeddings, _, _, _ = build_sparse_vectors(texts)
 
     if len(sparse_embeddings) != len(chunks):
         raise ValueError(
@@ -159,7 +109,8 @@ def create_vector_store():
                     "chunk_id": chunk["chunk_id"],
                     "page": chunk["page"],
                     "section": chunk["section"],
-                    "chunk_text": chunk["chunk_text"]
+                    "chunk_text": chunk["chunk_text"],
+                    "patient_name": chunk.get("patient_name"),
                 }
             )
 

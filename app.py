@@ -56,7 +56,7 @@ if st.button("Submit Question"):
                 result = answer_question(
                     question,
                     model,
-                    top_k=5
+                    top_k=12
                 )
 
                 st.subheader("Answer")

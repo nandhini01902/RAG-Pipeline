@@ -22,6 +22,11 @@ MODEL_NAME = "BAAI/bge-small-en-v1.5"
 
 CHUNK_SIZE = 450
 CHUNK_OVERLAP = 80
+PATIENT_NAME_PATTERN = re.compile(
+    r"\bpatient(?:\s+name)?\s*[:\-]?\s*"
+    r"([a-z]+,\s*[a-z]+(?:\s+[a-z]\.?)?)",
+    re.IGNORECASE,
+)
 
 
 def encode_ids(tokenizer, text):
@@ -47,6 +52,45 @@ def get_page_text(page):
     raise ValueError(
         f"No text field found for page: {page}"
     )
+
+
+def extract_patient_name(text):
+    match = PATIENT_NAME_PATTERN.search(text)
+    return " ".join(match.group(1).split()) if match else None
+
+
+def split_paragraphs(text):
+    paragraphs = []
+    current = []
+
+    for line in (line.strip() for line in text.splitlines()):
+        if not line:
+            if current:
+                paragraphs.append(" ".join(current))
+                current = []
+            continue
+
+        starts_new_block = (
+            current
+            and (
+                is_heading(line)
+                or re.match(
+                    r"^(?:patient(?:\s+name)?|date of birth|sex|mrn|"
+                    r"account / encounter|run number)\b",
+                    line,
+                    re.IGNORECASE,
+                )
+            )
+        )
+        if starts_new_block:
+            paragraphs.append(" ".join(current))
+            current = []
+        current.append(line)
+
+    if current:
+        paragraphs.append(" ".join(current))
+
+    return paragraphs
 
 
 
@@ -89,11 +133,7 @@ def clean_heading(heading):
 
 def extract_sections(text):
 
-    paragraphs = [
-        p.strip()
-        for p in re.split(r"\n\s*\n", text)
-        if p.strip()
-    ]
+    paragraphs = split_paragraphs(text)
 
     sections = []
 
@@ -298,6 +338,7 @@ def create_chunks():
         )
 
         text = get_page_text(page)
+        patient_name = extract_patient_name(text)
 
         # Identify headings and paragraphs
         sections = extract_sections(text)
@@ -331,6 +372,8 @@ def create_chunks():
 
                     "page": page_number,
 
+                    "patient_name": patient_name,
+
                     "section": chunk["section"],
 
                     "chunk_text": chunk_text,
@@ -340,6 +383,41 @@ def create_chunks():
                     )
 
                 })
+
+    patient_names = {
+        chunk["patient_name"]
+        for chunk in all_chunks
+        if chunk.get("patient_name")
+    }
+    name_keys = {
+        tuple(re.findall(r"[a-z]+", name.lower())[:2])
+        for name in patient_names
+    }
+    compatible_names = (
+        patient_names
+        and len({key[0] for key in name_keys}) == 1
+        and len({
+            key[1]
+            for key in name_keys
+            if len(key) > 1
+        }) > 0
+        and all(
+            a.startswith(b) or b.startswith(a)
+            for a in [
+                key[1] for key in name_keys if len(key) > 1
+            ]
+            for b in [
+                key[1] for key in name_keys if len(key) > 1
+            ]
+        )
+    )
+    if compatible_names:
+        patient_name = max(
+            patient_names,
+            key=lambda name: len(re.findall(r"[a-z]+", name)),
+        )
+        for chunk in all_chunks:
+            chunk["patient_name"] = patient_name
 
     # Create output directory
     OUTPUT_FILE.parent.mkdir(
