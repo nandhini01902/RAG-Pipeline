@@ -5,6 +5,7 @@ from pathlib import Path
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
+from src.chunk_text import searchable_chunk_text
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,7 +33,7 @@ def generate_embeddings():
 
     model = SentenceTransformer(MODEL_NAME)
 
-    texts = [chunk["chunk_text"] for chunk in chunks]
+    texts = [searchable_chunk_text(chunk) for chunk in chunks]
 
     embeddings = model.encode(
         texts,
@@ -49,7 +50,7 @@ def generate_embeddings():
 
     print("\nEmbedding generation completed.")
     print("Number of chunks:", len(chunks))
-    print("Embedding shape:", embeddings[1])
+    print("Embedding shape:", embeddings.shape)
     print("Embedding dimension:", embeddings.shape[1])
     print("Saved to:", OUTPUT_FILE)
 

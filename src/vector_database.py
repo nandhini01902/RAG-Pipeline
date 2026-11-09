@@ -4,6 +4,8 @@ from pathlib import Path
 
 import numpy as np
 from qdrant_client import QdrantClient, models
+from src.chunk_text import searchable_chunk_text
+
 try:
     from src.sparse_vectors import build_sparse_vectors
 except ModuleNotFoundError:
@@ -48,7 +50,7 @@ def create_vector_store():
     if not chunks:
         raise ValueError("No chunks available.")
 
-    texts = [chunk["chunk_text"] for chunk in chunks]
+    texts = [searchable_chunk_text(chunk) for chunk in chunks]
 
     # Generate sparse vectors for every chunk
     sparse_embeddings, _, _, _ = build_sparse_vectors(texts)
@@ -111,6 +113,7 @@ def create_vector_store():
                     "section": chunk["section"],
                     "chunk_text": chunk["chunk_text"],
                     "patient_name": chunk.get("patient_name"),
+                    "searchable_text": searchable_chunk_text(chunk),
                 }
             )
 
