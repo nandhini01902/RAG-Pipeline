@@ -11,26 +11,9 @@ search, and sends that evidence to Gemini to draft a cited answer.
 
 ## Architecture
 
-```text
-PDF
- │
- ├─ PyMuPDF page-by-page extraction
- ├─ conservative text cleanup and document/page metadata
- ├─ heading/paragraph-aware chunks (450 tokens, 80-token overlap)
- ├─ section-aware BGE embeddings ───────────────┐
- └─ local BM25 sparse vectors ──────────────────┤
-                                                ▼
-                                      Local Qdrant hybrid index
-                                      dense + sparse, RRF fusion
-                                                │
-                           query expansion + token/section reranking
-                                                │
-                            selected passages + page/doc identifiers
-                                                │
-                               Gemini prompt with citation rules
-                                                │
-                                    Streamlit answer and evidence
-```
+See the full [RAG pipeline flow diagram](RAG_PIPELINE_FLOW.md) for indexing,
+question-time retrieval, answer generation, evidence-only inspection, and
+evaluation paths.
 
 ## Workflow, step by step
 
