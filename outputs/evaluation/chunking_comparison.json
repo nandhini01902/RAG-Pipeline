@@ -1,0 +1,3171 @@
+{
+  "created_at_utc": "2026-11-10T05:12:03.813020+00:00",
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "reranker": "same lexical and patient-name reranker enabled for both",
+  "retrieval": "dense + sparse Qdrant RRF",
+  "benchmark_questions": 10,
+  "ranking_unit": "unique PDF page, ordered by first retrieved chunk",
+  "baseline_source": "9d7535d:data/processed/chunks.json",
+  "limitations": [
+    "Retrieval metrics do not measure generated-answer quality or clinical safety.",
+    "The benchmark contains 10 manually labeled questions from one synthetic PDF.",
+    "The earlier dataset has 34 chunks in repository history; no 36-chunk snapshot was found.",
+    "Both chunk sets were re-embedded with the same current embedding model and evaluated using the same retrieval code."
+  ],
+  "configurations": [
+    {
+      "configuration": "Earlier chunking (34 chunks)",
+      "chunk_statistics": {
+        "chunk_count": 34,
+        "average_tokens": 352.7647058823529,
+        "min_tokens": 122,
+        "max_tokens": 450
+      },
+      "per_question": [
+        {
+          "question": "What medications are listed in the record?",
+          "relevant_pages": [
+            2,
+            3,
+            5,
+            6,
+            19
+          ],
+          "ranked_pages": [
+            19,
+            2,
+            5,
+            3,
+            18,
+            6,
+            22,
+            20,
+            13,
+            12,
+            9,
+            15,
+            10,
+            21,
+            4,
+            1,
+            8,
+            11,
+            7,
+            17
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 0.2,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 0.6,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                2,
+                5
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                2,
+                5
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 0.8,
+              "precision": 0.8,
+              "mrr": 1.0,
+              "ndcg": 0.8687949224876582,
+              "retrieved_pages": [
+                19,
+                2,
+                5,
+                3,
+                18
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                2,
+                5,
+                3
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.625,
+              "mrr": 1.0,
+              "ndcg": 0.9896062251871524,
+              "retrieved_pages": [
+                19,
+                2,
+                5,
+                3,
+                18,
+                6,
+                22,
+                20
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                2,
+                5,
+                3,
+                6
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.5,
+              "mrr": 1.0,
+              "ndcg": 0.9896062251871524,
+              "retrieved_pages": [
+                19,
+                2,
+                5,
+                3,
+                18,
+                6,
+                22,
+                20,
+                13,
+                12
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                2,
+                5,
+                3,
+                6
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "ndcg": 0.9896062251871524,
+              "retrieved_pages": [
+                19,
+                2,
+                5,
+                3,
+                18,
+                6,
+                22,
+                20,
+                13,
+                12,
+                9,
+                15,
+                10,
+                21,
+                4
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                2,
+                5,
+                3,
+                6
+              ]
+            }
+          }
+        },
+        {
+          "question": "What imaging examinations were performed?",
+          "relevant_pages": [
+            3,
+            4,
+            8,
+            9,
+            11,
+            15,
+            22
+          ],
+          "ranked_pages": [
+            4,
+            8,
+            3,
+            11,
+            22,
+            15,
+            14,
+            20,
+            9,
+            18,
+            2,
+            7,
+            21,
+            13,
+            17,
+            1,
+            6,
+            10,
+            5,
+            12
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 0.14285714285714285,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                4
+              ],
+              "relevant_pages_retrieved": [
+                4
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 0.42857142857142855,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                4,
+                8,
+                3
+              ],
+              "relevant_pages_retrieved": [
+                4,
+                8,
+                3
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 0.7142857142857143,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                4,
+                8,
+                3,
+                11,
+                22
+              ],
+              "relevant_pages_retrieved": [
+                4,
+                8,
+                3,
+                11,
+                22
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 0.8571428571428571,
+              "precision": 0.75,
+              "mrr": 1.0,
+              "ndcg": 0.9083745556952363,
+              "retrieved_pages": [
+                4,
+                8,
+                3,
+                11,
+                22,
+                15,
+                14,
+                20
+              ],
+              "relevant_pages_retrieved": [
+                4,
+                8,
+                3,
+                11,
+                22,
+                15
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.7,
+              "mrr": 1.0,
+              "ndcg": 0.9911205770005563,
+              "retrieved_pages": [
+                4,
+                8,
+                3,
+                11,
+                22,
+                15,
+                14,
+                20,
+                9,
+                18
+              ],
+              "relevant_pages_retrieved": [
+                4,
+                8,
+                3,
+                11,
+                22,
+                15,
+                9
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.4666666666666667,
+              "mrr": 1.0,
+              "ndcg": 0.9911205770005563,
+              "retrieved_pages": [
+                4,
+                8,
+                3,
+                11,
+                22,
+                15,
+                14,
+                20,
+                9,
+                18,
+                2,
+                7,
+                21,
+                13,
+                17
+              ],
+              "relevant_pages_retrieved": [
+                4,
+                8,
+                3,
+                11,
+                22,
+                15,
+                9
+              ]
+            }
+          }
+        },
+        {
+          "question": "What did the lumbar MRI show?",
+          "relevant_pages": [
+            8,
+            9
+          ],
+          "ranked_pages": [
+            8,
+            6,
+            3,
+            9,
+            7,
+            4,
+            20,
+            15,
+            18,
+            11,
+            1,
+            14,
+            10,
+            17,
+            22,
+            12,
+            5,
+            13,
+            19
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 0.5,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 0.5,
+              "precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "ndcg": 0.6131471927654584,
+              "retrieved_pages": [
+                8,
+                6,
+                3
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "mrr": 1.0,
+              "ndcg": 0.8772153153380493,
+              "retrieved_pages": [
+                8,
+                6,
+                3,
+                9,
+                7
+              ],
+              "relevant_pages_retrieved": [
+                8,
+                9
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.25,
+              "mrr": 1.0,
+              "ndcg": 0.8772153153380493,
+              "retrieved_pages": [
+                8,
+                6,
+                3,
+                9,
+                7,
+                4,
+                20,
+                15
+              ],
+              "relevant_pages_retrieved": [
+                8,
+                9
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 0.8772153153380493,
+              "retrieved_pages": [
+                8,
+                6,
+                3,
+                9,
+                7,
+                4,
+                20,
+                15,
+                18,
+                11
+              ],
+              "relevant_pages_retrieved": [
+                8,
+                9
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.13333333333333333,
+              "mrr": 1.0,
+              "ndcg": 0.8772153153380493,
+              "retrieved_pages": [
+                8,
+                6,
+                3,
+                9,
+                7,
+                4,
+                20,
+                15,
+                18,
+                11,
+                1,
+                14,
+                10,
+                17,
+                22
+              ],
+              "relevant_pages_retrieved": [
+                8,
+                9
+              ]
+            }
+          }
+        },
+        {
+          "question": "What procedure was performed on September 10?",
+          "relevant_pages": [
+            15
+          ],
+          "ranked_pages": [
+            15,
+            1,
+            11,
+            3,
+            4,
+            13,
+            8,
+            6,
+            20,
+            9,
+            10,
+            5,
+            22,
+            12,
+            17,
+            19,
+            2,
+            21,
+            18,
+            7
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                15
+              ],
+              "relevant_pages_retrieved": [
+                15
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                15,
+                1,
+                11
+              ],
+              "relevant_pages_retrieved": [
+                15
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                15,
+                1,
+                11,
+                3,
+                4
+              ],
+              "relevant_pages_retrieved": [
+                15
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.125,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                15,
+                1,
+                11,
+                3,
+                4,
+                13,
+                8,
+                6
+              ],
+              "relevant_pages_retrieved": [
+                15
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                15,
+                1,
+                11,
+                3,
+                4,
+                13,
+                8,
+                6,
+                20,
+                9
+              ],
+              "relevant_pages_retrieved": [
+                15
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.06666666666666667,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                15,
+                1,
+                11,
+                3,
+                4,
+                13,
+                8,
+                6,
+                20,
+                9,
+                10,
+                5,
+                22,
+                12,
+                17
+              ],
+              "relevant_pages_retrieved": [
+                15
+              ]
+            }
+          }
+        },
+        {
+          "question": "What allergies are documented?",
+          "relevant_pages": [
+            2,
+            3,
+            6,
+            19
+          ],
+          "ranked_pages": [
+            19,
+            2,
+            6,
+            3,
+            9,
+            13,
+            22,
+            17,
+            11,
+            15,
+            4,
+            5,
+            18,
+            8,
+            10,
+            21,
+            1,
+            14,
+            20,
+            7
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 0.25,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 0.75,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                2,
+                6
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                2,
+                6
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.8,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                2,
+                6,
+                3,
+                9
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                2,
+                6,
+                3
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.5,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                2,
+                6,
+                3,
+                9,
+                13,
+                22,
+                17
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                2,
+                6,
+                3
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                2,
+                6,
+                3,
+                9,
+                13,
+                22,
+                17,
+                11,
+                15
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                2,
+                6,
+                3
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.26666666666666666,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                2,
+                6,
+                3,
+                9,
+                13,
+                22,
+                17,
+                11,
+                15,
+                4,
+                5,
+                18,
+                8,
+                10
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                2,
+                6,
+                3
+              ]
+            }
+          }
+        },
+        {
+          "question": "What did the EMG and nerve conduction study show?",
+          "relevant_pages": [
+            14
+          ],
+          "ranked_pages": [
+            14,
+            15,
+            1,
+            10,
+            7,
+            20,
+            3,
+            11,
+            8,
+            9,
+            6,
+            12,
+            13,
+            4,
+            2,
+            18,
+            5,
+            19,
+            17
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                14
+              ],
+              "relevant_pages_retrieved": [
+                14
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                14,
+                15,
+                1
+              ],
+              "relevant_pages_retrieved": [
+                14
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                14,
+                15,
+                1,
+                10,
+                7
+              ],
+              "relevant_pages_retrieved": [
+                14
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.125,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                14,
+                15,
+                1,
+                10,
+                7,
+                20,
+                3,
+                11
+              ],
+              "relevant_pages_retrieved": [
+                14
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                14,
+                15,
+                1,
+                10,
+                7,
+                20,
+                3,
+                11,
+                8,
+                9
+              ],
+              "relevant_pages_retrieved": [
+                14
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.06666666666666667,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                14,
+                15,
+                1,
+                10,
+                7,
+                20,
+                3,
+                11,
+                8,
+                9,
+                6,
+                12,
+                13,
+                4,
+                2
+              ],
+              "relevant_pages_retrieved": [
+                14
+              ]
+            }
+          }
+        },
+        {
+          "question": "What medications were administered in the emergency department?",
+          "relevant_pages": [
+            2
+          ],
+          "ranked_pages": [
+            5,
+            2,
+            19,
+            3,
+            15,
+            20,
+            9,
+            6,
+            1,
+            18,
+            13,
+            11,
+            22,
+            4,
+            12,
+            21,
+            10,
+            17,
+            8,
+            7
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0,
+              "retrieved_pages": [
+                5
+              ],
+              "relevant_pages_retrieved": []
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.3333333333333333,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575,
+              "retrieved_pages": [
+                5,
+                2,
+                19
+              ],
+              "relevant_pages_retrieved": [
+                2
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575,
+              "retrieved_pages": [
+                5,
+                2,
+                19,
+                3,
+                15
+              ],
+              "relevant_pages_retrieved": [
+                2
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.125,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575,
+              "retrieved_pages": [
+                5,
+                2,
+                19,
+                3,
+                15,
+                20,
+                9,
+                6
+              ],
+              "relevant_pages_retrieved": [
+                2
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575,
+              "retrieved_pages": [
+                5,
+                2,
+                19,
+                3,
+                15,
+                20,
+                9,
+                6,
+                1,
+                18
+              ],
+              "relevant_pages_retrieved": [
+                2
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.06666666666666667,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575,
+              "retrieved_pages": [
+                5,
+                2,
+                19,
+                3,
+                15,
+                20,
+                9,
+                6,
+                1,
+                18,
+                13,
+                11,
+                22,
+                4,
+                12
+              ],
+              "relevant_pages_retrieved": [
+                2
+              ]
+            }
+          }
+        },
+        {
+          "question": "What restrictions were given at discharge?",
+          "relevant_pages": [
+            5
+          ],
+          "ranked_pages": [
+            5,
+            2,
+            1,
+            6,
+            18,
+            17,
+            22,
+            15,
+            12,
+            3,
+            21,
+            14,
+            7,
+            13,
+            11,
+            9,
+            10,
+            4,
+            20,
+            8,
+            19
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                5
+              ],
+              "relevant_pages_retrieved": [
+                5
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                5,
+                2,
+                1
+              ],
+              "relevant_pages_retrieved": [
+                5
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                5,
+                2,
+                1,
+                6,
+                18
+              ],
+              "relevant_pages_retrieved": [
+                5
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.125,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                5,
+                2,
+                1,
+                6,
+                18,
+                17,
+                22,
+                15
+              ],
+              "relevant_pages_retrieved": [
+                5
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                5,
+                2,
+                1,
+                6,
+                18,
+                17,
+                22,
+                15,
+                12,
+                3
+              ],
+              "relevant_pages_retrieved": [
+                5
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.06666666666666667,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                5,
+                2,
+                1,
+                6,
+                18,
+                17,
+                22,
+                15,
+                12,
+                3,
+                21,
+                14,
+                7,
+                13,
+                11
+              ],
+              "relevant_pages_retrieved": [
+                5
+              ]
+            }
+          }
+        },
+        {
+          "question": "What were the findings of the lumbar spine MRI?",
+          "relevant_pages": [
+            8
+          ],
+          "ranked_pages": [
+            8,
+            3,
+            4,
+            7,
+            15,
+            6,
+            9,
+            18,
+            11,
+            20,
+            14,
+            10,
+            22,
+            17,
+            5,
+            1,
+            13,
+            19,
+            12,
+            21
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                3,
+                4
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                3,
+                4,
+                7,
+                15
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.125,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                3,
+                4,
+                7,
+                15,
+                6,
+                9,
+                18
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                3,
+                4,
+                7,
+                15,
+                6,
+                9,
+                18,
+                11,
+                20
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.06666666666666667,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                3,
+                4,
+                7,
+                15,
+                6,
+                9,
+                18,
+                11,
+                20,
+                14,
+                10,
+                22,
+                17,
+                5
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            }
+          }
+        },
+        {
+          "question": "What medications were filled by the pharmacy?",
+          "relevant_pages": [
+            19
+          ],
+          "ranked_pages": [
+            19,
+            5,
+            2,
+            22,
+            3,
+            6,
+            20,
+            15,
+            18,
+            13,
+            21,
+            11,
+            8,
+            9,
+            4,
+            12,
+            10,
+            1,
+            17,
+            7
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                22,
+                3
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.125,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                22,
+                3,
+                6,
+                20,
+                15
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                22,
+                3,
+                6,
+                20,
+                15,
+                18,
+                13
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.06666666666666667,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                22,
+                3,
+                6,
+                20,
+                15,
+                18,
+                13,
+                21,
+                11,
+                8,
+                9,
+                4
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            }
+          }
+        }
+      ],
+      "aggregate_by_k": [
+        {
+          "configuration": "Earlier chunking (34 chunks)",
+          "top_k": 1,
+          "num_questions": 10,
+          "hit_rate": 0.9,
+          "recall": 0.6092857142857142,
+          "precision": 0.9,
+          "mrr": 0.9,
+          "ndcg": 0.9
+        },
+        {
+          "configuration": "Earlier chunking (34 chunks)",
+          "top_k": 3,
+          "num_questions": 10,
+          "hit_rate": 1.0,
+          "recall": 0.8278571428571428,
+          "precision": 0.5333333333333333,
+          "mrr": 0.95,
+          "ndcg": 0.9244076946336917
+        },
+        {
+          "configuration": "Earlier chunking (34 chunks)",
+          "top_k": 5,
+          "num_questions": 10,
+          "hit_rate": 1.0,
+          "recall": 0.9514285714285714,
+          "precision": 0.42000000000000004,
+          "mrr": 0.95,
+          "ndcg": 0.9376939991397165
+        },
+        {
+          "configuration": "Earlier chunking (34 chunks)",
+          "top_k": 8,
+          "num_questions": 10,
+          "hit_rate": 1.0,
+          "recall": 0.9857142857142858,
+          "precision": 0.2875,
+          "mrr": 0.95,
+          "ndcg": 0.9406125849791895
+        },
+        {
+          "configuration": "Earlier chunking (34 chunks)",
+          "top_k": 10,
+          "num_questions": 10,
+          "hit_rate": 1.0,
+          "recall": 1.0,
+          "precision": 0.24,
+          "mrr": 0.95,
+          "ndcg": 0.9488871871097215
+        },
+        {
+          "configuration": "Earlier chunking (34 chunks)",
+          "top_k": 15,
+          "num_questions": 10,
+          "hit_rate": 1.0,
+          "recall": 1.0,
+          "precision": 0.16,
+          "mrr": 0.95,
+          "ndcg": 0.9488871871097215
+        }
+      ]
+    },
+    {
+      "configuration": "Current chunking (68 chunks)",
+      "chunk_statistics": {
+        "chunk_count": 68,
+        "average_tokens": 157.41176470588235,
+        "min_tokens": 8,
+        "max_tokens": 450
+      },
+      "per_question": [
+        {
+          "question": "What medications are listed in the record?",
+          "relevant_pages": [
+            2,
+            3,
+            5,
+            6,
+            19
+          ],
+          "ranked_pages": [
+            19,
+            5,
+            2,
+            3,
+            6,
+            13,
+            18,
+            9,
+            22,
+            12,
+            20,
+            4,
+            10,
+            15,
+            1,
+            21,
+            11,
+            8,
+            17
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 0.2,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 0.6,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                5,
+                2
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                3,
+                6
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                5,
+                2,
+                3,
+                6
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.625,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                3,
+                6,
+                13,
+                18,
+                9
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                5,
+                2,
+                3,
+                6
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.5,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                3,
+                6,
+                13,
+                18,
+                9,
+                22,
+                12
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                5,
+                2,
+                3,
+                6
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                3,
+                6,
+                13,
+                18,
+                9,
+                22,
+                12,
+                20,
+                4,
+                10,
+                15,
+                1
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                5,
+                2,
+                3,
+                6
+              ]
+            }
+          }
+        },
+        {
+          "question": "What imaging examinations were performed?",
+          "relevant_pages": [
+            3,
+            4,
+            8,
+            9,
+            11,
+            15,
+            22
+          ],
+          "ranked_pages": [
+            4,
+            8,
+            3,
+            9,
+            20,
+            15,
+            22,
+            11,
+            18,
+            2,
+            1,
+            13,
+            7,
+            14,
+            10,
+            17,
+            5,
+            21,
+            12,
+            6
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 0.14285714285714285,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                4
+              ],
+              "relevant_pages_retrieved": [
+                4
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 0.42857142857142855,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                4,
+                8,
+                3
+              ],
+              "relevant_pages_retrieved": [
+                4,
+                8,
+                3
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 0.5714285714285714,
+              "precision": 0.8,
+              "mrr": 1.0,
+              "ndcg": 0.8687949224876582,
+              "retrieved_pages": [
+                4,
+                8,
+                3,
+                9,
+                20
+              ],
+              "relevant_pages_retrieved": [
+                4,
+                8,
+                3,
+                9
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.875,
+              "mrr": 1.0,
+              "ndcg": 0.9803771474638899,
+              "retrieved_pages": [
+                4,
+                8,
+                3,
+                9,
+                20,
+                15,
+                22,
+                11
+              ],
+              "relevant_pages_retrieved": [
+                4,
+                8,
+                3,
+                9,
+                15,
+                22,
+                11
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.7,
+              "mrr": 1.0,
+              "ndcg": 0.9803771474638899,
+              "retrieved_pages": [
+                4,
+                8,
+                3,
+                9,
+                20,
+                15,
+                22,
+                11,
+                18,
+                2
+              ],
+              "relevant_pages_retrieved": [
+                4,
+                8,
+                3,
+                9,
+                15,
+                22,
+                11
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.4666666666666667,
+              "mrr": 1.0,
+              "ndcg": 0.9803771474638899,
+              "retrieved_pages": [
+                4,
+                8,
+                3,
+                9,
+                20,
+                15,
+                22,
+                11,
+                18,
+                2,
+                1,
+                13,
+                7,
+                14,
+                10
+              ],
+              "relevant_pages_retrieved": [
+                4,
+                8,
+                3,
+                9,
+                15,
+                22,
+                11
+              ]
+            }
+          }
+        },
+        {
+          "question": "What did the lumbar MRI show?",
+          "relevant_pages": [
+            8,
+            9
+          ],
+          "ranked_pages": [
+            8,
+            9,
+            18,
+            15,
+            7,
+            4,
+            20,
+            6,
+            10,
+            3,
+            1,
+            14,
+            12,
+            17,
+            5,
+            22,
+            11
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 0.5,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.6666666666666666,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                9,
+                18
+              ],
+              "relevant_pages_retrieved": [
+                8,
+                9
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                9,
+                18,
+                15,
+                7
+              ],
+              "relevant_pages_retrieved": [
+                8,
+                9
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.25,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                9,
+                18,
+                15,
+                7,
+                4,
+                20,
+                6
+              ],
+              "relevant_pages_retrieved": [
+                8,
+                9
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                9,
+                18,
+                15,
+                7,
+                4,
+                20,
+                6,
+                10,
+                3
+              ],
+              "relevant_pages_retrieved": [
+                8,
+                9
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.13333333333333333,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                9,
+                18,
+                15,
+                7,
+                4,
+                20,
+                6,
+                10,
+                3,
+                1,
+                14,
+                12,
+                17,
+                5
+              ],
+              "relevant_pages_retrieved": [
+                8,
+                9
+              ]
+            }
+          }
+        },
+        {
+          "question": "What procedure was performed on September 10?",
+          "relevant_pages": [
+            15
+          ],
+          "ranked_pages": [
+            15,
+            13,
+            11,
+            20,
+            4,
+            9,
+            5,
+            8,
+            1,
+            3,
+            6,
+            10,
+            17,
+            19,
+            22,
+            12,
+            2,
+            18
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                15
+              ],
+              "relevant_pages_retrieved": [
+                15
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                15,
+                13,
+                11
+              ],
+              "relevant_pages_retrieved": [
+                15
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                15,
+                13,
+                11,
+                20,
+                4
+              ],
+              "relevant_pages_retrieved": [
+                15
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.125,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                15,
+                13,
+                11,
+                20,
+                4,
+                9,
+                5,
+                8
+              ],
+              "relevant_pages_retrieved": [
+                15
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                15,
+                13,
+                11,
+                20,
+                4,
+                9,
+                5,
+                8,
+                1,
+                3
+              ],
+              "relevant_pages_retrieved": [
+                15
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.06666666666666667,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                15,
+                13,
+                11,
+                20,
+                4,
+                9,
+                5,
+                8,
+                1,
+                3,
+                6,
+                10,
+                17,
+                19,
+                22
+              ],
+              "relevant_pages_retrieved": [
+                15
+              ]
+            }
+          }
+        },
+        {
+          "question": "What allergies are documented?",
+          "relevant_pages": [
+            2,
+            3,
+            6,
+            19
+          ],
+          "ranked_pages": [
+            2,
+            6,
+            19,
+            3,
+            13,
+            22,
+            11,
+            17,
+            4,
+            9,
+            10,
+            15,
+            1,
+            5,
+            14,
+            18,
+            8,
+            20,
+            21,
+            7
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 0.25,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2
+              ],
+              "relevant_pages_retrieved": [
+                2
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 0.75,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2,
+                6,
+                19
+              ],
+              "relevant_pages_retrieved": [
+                2,
+                6,
+                19
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.8,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2,
+                6,
+                19,
+                3,
+                13
+              ],
+              "relevant_pages_retrieved": [
+                2,
+                6,
+                19,
+                3
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.5,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2,
+                6,
+                19,
+                3,
+                13,
+                22,
+                11,
+                17
+              ],
+              "relevant_pages_retrieved": [
+                2,
+                6,
+                19,
+                3
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2,
+                6,
+                19,
+                3,
+                13,
+                22,
+                11,
+                17,
+                4,
+                9
+              ],
+              "relevant_pages_retrieved": [
+                2,
+                6,
+                19,
+                3
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.26666666666666666,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2,
+                6,
+                19,
+                3,
+                13,
+                22,
+                11,
+                17,
+                4,
+                9,
+                10,
+                15,
+                1,
+                5,
+                14
+              ],
+              "relevant_pages_retrieved": [
+                2,
+                6,
+                19,
+                3
+              ]
+            }
+          }
+        },
+        {
+          "question": "What did the EMG and nerve conduction study show?",
+          "relevant_pages": [
+            14
+          ],
+          "ranked_pages": [
+            14,
+            10,
+            15,
+            3,
+            1,
+            20,
+            9,
+            11,
+            8,
+            2,
+            7,
+            6,
+            13,
+            5,
+            4,
+            12,
+            18,
+            19
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                14
+              ],
+              "relevant_pages_retrieved": [
+                14
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                14,
+                10,
+                15
+              ],
+              "relevant_pages_retrieved": [
+                14
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                14,
+                10,
+                15,
+                3,
+                1
+              ],
+              "relevant_pages_retrieved": [
+                14
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.125,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                14,
+                10,
+                15,
+                3,
+                1,
+                20,
+                9,
+                11
+              ],
+              "relevant_pages_retrieved": [
+                14
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                14,
+                10,
+                15,
+                3,
+                1,
+                20,
+                9,
+                11,
+                8,
+                2
+              ],
+              "relevant_pages_retrieved": [
+                14
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.06666666666666667,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                14,
+                10,
+                15,
+                3,
+                1,
+                20,
+                9,
+                11,
+                8,
+                2,
+                7,
+                6,
+                13,
+                5,
+                4
+              ],
+              "relevant_pages_retrieved": [
+                14
+              ]
+            }
+          }
+        },
+        {
+          "question": "What medications were administered in the emergency department?",
+          "relevant_pages": [
+            2
+          ],
+          "ranked_pages": [
+            2,
+            5,
+            19,
+            3,
+            20,
+            15,
+            6,
+            9,
+            1,
+            13,
+            4,
+            12,
+            22,
+            18,
+            11,
+            21,
+            10,
+            17
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2
+              ],
+              "relevant_pages_retrieved": [
+                2
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2,
+                5,
+                19
+              ],
+              "relevant_pages_retrieved": [
+                2
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2,
+                5,
+                19,
+                3,
+                20
+              ],
+              "relevant_pages_retrieved": [
+                2
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.125,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2,
+                5,
+                19,
+                3,
+                20,
+                15,
+                6,
+                9
+              ],
+              "relevant_pages_retrieved": [
+                2
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2,
+                5,
+                19,
+                3,
+                20,
+                15,
+                6,
+                9,
+                1,
+                13
+              ],
+              "relevant_pages_retrieved": [
+                2
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.06666666666666667,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2,
+                5,
+                19,
+                3,
+                20,
+                15,
+                6,
+                9,
+                1,
+                13,
+                4,
+                12,
+                22,
+                18,
+                11
+              ],
+              "relevant_pages_retrieved": [
+                2
+              ]
+            }
+          }
+        },
+        {
+          "question": "What restrictions were given at discharge?",
+          "relevant_pages": [
+            5
+          ],
+          "ranked_pages": [
+            5,
+            6,
+            2,
+            12,
+            1,
+            18,
+            3,
+            20,
+            21,
+            13,
+            17,
+            22,
+            7,
+            15,
+            14,
+            11,
+            9,
+            10,
+            4
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                5
+              ],
+              "relevant_pages_retrieved": [
+                5
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                5,
+                6,
+                2
+              ],
+              "relevant_pages_retrieved": [
+                5
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                5,
+                6,
+                2,
+                12,
+                1
+              ],
+              "relevant_pages_retrieved": [
+                5
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.125,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                5,
+                6,
+                2,
+                12,
+                1,
+                18,
+                3,
+                20
+              ],
+              "relevant_pages_retrieved": [
+                5
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                5,
+                6,
+                2,
+                12,
+                1,
+                18,
+                3,
+                20,
+                21,
+                13
+              ],
+              "relevant_pages_retrieved": [
+                5
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.06666666666666667,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                5,
+                6,
+                2,
+                12,
+                1,
+                18,
+                3,
+                20,
+                21,
+                13,
+                17,
+                22,
+                7,
+                15,
+                14
+              ],
+              "relevant_pages_retrieved": [
+                5
+              ]
+            }
+          }
+        },
+        {
+          "question": "What were the findings of the lumbar spine MRI?",
+          "relevant_pages": [
+            8
+          ],
+          "ranked_pages": [
+            8,
+            9,
+            18,
+            4,
+            15,
+            7,
+            10,
+            3,
+            20,
+            6,
+            22,
+            11,
+            14,
+            1,
+            17,
+            12,
+            13,
+            5
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                9,
+                18
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                9,
+                18,
+                4,
+                15
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.125,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                9,
+                18,
+                4,
+                15,
+                7,
+                10,
+                3
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                9,
+                18,
+                4,
+                15,
+                7,
+                10,
+                3,
+                20,
+                6
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.06666666666666667,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                9,
+                18,
+                4,
+                15,
+                7,
+                10,
+                3,
+                20,
+                6,
+                22,
+                11,
+                14,
+                1,
+                17
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            }
+          }
+        },
+        {
+          "question": "What medications were filled by the pharmacy?",
+          "relevant_pages": [
+            19
+          ],
+          "ranked_pages": [
+            19,
+            5,
+            2,
+            6,
+            22,
+            3,
+            15,
+            20,
+            18,
+            13,
+            9,
+            4,
+            21,
+            11,
+            12,
+            1,
+            17,
+            10
+          ],
+          "metrics_by_k": {
+            "1": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            },
+            "3": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            },
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                6,
+                22
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            },
+            "8": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.125,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                6,
+                22,
+                3,
+                15,
+                20
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                6,
+                22,
+                3,
+                15,
+                20,
+                18,
+                13
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            },
+            "15": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.06666666666666667,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                6,
+                22,
+                3,
+                15,
+                20,
+                18,
+                13,
+                9,
+                4,
+                21,
+                11,
+                12
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            }
+          }
+        }
+      ],
+      "aggregate_by_k": [
+        {
+          "configuration": "Current chunking (68 chunks)",
+          "top_k": 1,
+          "num_questions": 10,
+          "hit_rate": 1.0,
+          "recall": 0.7092857142857143,
+          "precision": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0
+        },
+        {
+          "configuration": "Current chunking (68 chunks)",
+          "top_k": 3,
+          "num_questions": 10,
+          "hit_rate": 1.0,
+          "recall": 0.8778571428571429,
+          "precision": 0.5666666666666667,
+          "mrr": 1.0,
+          "ndcg": 1.0
+        },
+        {
+          "configuration": "Current chunking (68 chunks)",
+          "top_k": 5,
+          "num_questions": 10,
+          "hit_rate": 1.0,
+          "recall": 0.9571428571428571,
+          "precision": 0.42000000000000004,
+          "mrr": 1.0,
+          "ndcg": 0.9868794922487659
+        },
+        {
+          "configuration": "Current chunking (68 chunks)",
+          "top_k": 8,
+          "num_questions": 10,
+          "hit_rate": 1.0,
+          "recall": 1.0,
+          "precision": 0.3,
+          "mrr": 1.0,
+          "ndcg": 0.998037714746389
+        },
+        {
+          "configuration": "Current chunking (68 chunks)",
+          "top_k": 10,
+          "num_questions": 10,
+          "hit_rate": 1.0,
+          "recall": 1.0,
+          "precision": 0.24,
+          "mrr": 1.0,
+          "ndcg": 0.998037714746389
+        },
+        {
+          "configuration": "Current chunking (68 chunks)",
+          "top_k": 15,
+          "num_questions": 10,
+          "hit_rate": 1.0,
+          "recall": 1.0,
+          "precision": 0.16,
+          "mrr": 1.0,
+          "ndcg": 0.998037714746389
+        }
+      ]
+    }
+  ]
+}

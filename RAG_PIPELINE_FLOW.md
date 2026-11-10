@@ -67,14 +67,25 @@ flowchart TD
         BENCH["10 labeled questions<br/>with relevant PDF pages"]
         RUNNER["src/evaluate_retrieval.py<br/>unique-page ranking"]
         SWEEP["Sweep k = 1, 3, 5, 8, 10, 15"]
+        ABLATION["Compare RRF only vs.<br/>RRF + lexical reranker at k=5"]
         METRICS["Hit Rate@k, Recall@k,<br/>Precision@k, MRR@k, nDCG@k"]
         JSON[("outputs/evaluation/<br/>retrieval_metrics.json")]
         CSV[("outputs/evaluation/<br/>retrieval_metrics.csv")]
+        COMPARE_CSV[("outputs/evaluation/<br/>configuration_comparison.csv")]
+        CHUNK_RUNNER["src/evaluate_chunking.py<br/>34 vs 68 chunks"]
+        CHUNK_METRICS["Same model, reranker,<br/>benchmark and top-k values"]
+        CHUNK_JSON[("outputs/evaluation/<br/>chunking_comparison.json")]
+        CHUNK_CSV[("outputs/evaluation/<br/>chunking_comparison.csv")]
 
         BENCH --> RUNNER --> SWEEP --> METRICS
+        RUNNER --> ABLATION --> METRICS
         RUNNER -->|"reuse retrieval path"| QEXP
+        BENCH --> CHUNK_RUNNER --> CHUNK_METRICS
         METRICS --> JSON
         METRICS --> CSV
+        ABLATION --> COMPARE_CSV
+        CHUNK_METRICS --> CHUNK_JSON
+        CHUNK_METRICS --> CHUNK_CSV
     end
 ```
 
@@ -90,10 +101,12 @@ flowchart TD
 4. **Answer generation uses Gemini.** Retrieved chunk text and its source
    metadata are included in the prompt. A quota error is displayed without
    trying another model, because the project quota applies to generation.
-5. **The evaluation runner measures retrieval only.** It compares six `k`
-   settings against the manually labeled relevant-page benchmark and writes
-   JSON and CSV scores. It does not evaluate answer correctness or clinical
-   safety.
+5. **The evaluation runners measure retrieval only.** They compare six `k`
+   settings, reranking on/off at fixed `k=5`, and the historical 34-chunk
+   dataset against the current 68-chunk dataset. Chunking configurations use
+   isolated temporary indexes and the same manually labeled benchmark.
+   Results are written to JSON and CSV; answer correctness and clinical
+   safety are not evaluated.
 
 ## Source files
 
@@ -104,5 +117,5 @@ flowchart TD
   [`src/vector_database.py`](src/vector_database.py)
 - Query and answer: [`src/retrieval.py`](src/retrieval.py),
   [`src/rag_pipeline.py`](src/rag_pipeline.py), [`app.py`](app.py)
-- Metrics: [`src/evaluate_retrieval.py`](src/evaluate_retrieval.py)
-
+- Metrics: [`src/evaluate_retrieval.py`](src/evaluate_retrieval.py),
+  [`src/evaluate_chunking.py`](src/evaluate_chunking.py)

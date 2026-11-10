@@ -1,5 +1,5 @@
 {
-  "created_at_utc": "2026-11-09T06:36:17.181983+00:00",
+  "created_at_utc": "2026-11-10T04:26:42.064098+00:00",
   "model": "BAAI/bge-small-en-v1.5",
   "ranking_unit": "unique PDF page, ordered by first retrieved chunk",
   "metric_definitions": {
@@ -1566,9 +1566,951 @@
       "ndcg": 0.998037714746389
     }
   ],
+  "configuration_comparison": {
+    "variable": "reranker",
+    "fixed_settings": {
+      "embedding_model": "BAAI/bge-small-en-v1.5",
+      "hybrid_retrieval": "dense + sparse with Qdrant RRF",
+      "retrieval_depth": 30,
+      "evaluation_top_k": 5,
+      "query_benchmark": "same 10 manually labeled questions"
+    },
+    "configurations": [
+      {
+        "configuration": "RRF only",
+        "use_reranker": false,
+        "top_k": 5,
+        "num_questions": 10,
+        "hit_rate": 1.0,
+        "recall": 0.9371428571428572,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "ndcg": 0.9599941887983
+      },
+      {
+        "configuration": "RRF + lexical reranker",
+        "use_reranker": true,
+        "top_k": 5,
+        "num_questions": 10,
+        "hit_rate": 1.0,
+        "recall": 0.9571428571428571,
+        "precision": 0.42000000000000004,
+        "mrr": 1.0,
+        "ndcg": 0.9868794922487659
+      }
+    ],
+    "per_question": [
+      {
+        "question": "What medications are listed in the record?",
+        "relevant_pages": [
+          2,
+          3,
+          5,
+          6,
+          19
+        ],
+        "configurations": {
+          "RRF only": {
+            "ranked_pages": [
+              19,
+              5,
+              6,
+              2,
+              13,
+              18,
+              9,
+              22,
+              12,
+              20,
+              3,
+              4,
+              10,
+              15,
+              1,
+              21,
+              11,
+              8,
+              17
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 0.8,
+              "precision": 0.8,
+              "mrr": 1.0,
+              "ndcg": 0.8687949224876582,
+              "retrieved_pages": [
+                19,
+                5,
+                6,
+                2,
+                13
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                5,
+                6,
+                2
+              ]
+            }
+          },
+          "RRF + lexical reranker": {
+            "ranked_pages": [
+              19,
+              5,
+              2,
+              3,
+              6,
+              13,
+              18,
+              9,
+              22,
+              12,
+              20,
+              4,
+              10,
+              15,
+              1,
+              21,
+              11,
+              8,
+              17
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 1.0,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                3,
+                6
+              ],
+              "relevant_pages_retrieved": [
+                19,
+                5,
+                2,
+                3,
+                6
+              ]
+            }
+          }
+        }
+      },
+      {
+        "question": "What imaging examinations were performed?",
+        "relevant_pages": [
+          3,
+          4,
+          8,
+          9,
+          11,
+          15,
+          22
+        ],
+        "configurations": {
+          "RRF only": {
+            "ranked_pages": [
+              4,
+              8,
+              3,
+              20,
+              9,
+              18,
+              15,
+              22,
+              11,
+              1,
+              13,
+              7,
+              14,
+              10,
+              2,
+              17,
+              5,
+              21,
+              12,
+              6
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 0.5714285714285714,
+              "precision": 0.8,
+              "mrr": 1.0,
+              "ndcg": 0.8539316501572937,
+              "retrieved_pages": [
+                4,
+                8,
+                3,
+                20,
+                9
+              ],
+              "relevant_pages_retrieved": [
+                4,
+                8,
+                3,
+                9
+              ]
+            }
+          },
+          "RRF + lexical reranker": {
+            "ranked_pages": [
+              4,
+              8,
+              3,
+              9,
+              20,
+              15,
+              22,
+              11,
+              18,
+              2,
+              1,
+              13,
+              7,
+              14,
+              10,
+              17,
+              5,
+              21,
+              12,
+              6
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 0.5714285714285714,
+              "precision": 0.8,
+              "mrr": 1.0,
+              "ndcg": 0.8687949224876582,
+              "retrieved_pages": [
+                4,
+                8,
+                3,
+                9,
+                20
+              ],
+              "relevant_pages_retrieved": [
+                4,
+                8,
+                3,
+                9
+              ]
+            }
+          }
+        }
+      },
+      {
+        "question": "What did the lumbar MRI show?",
+        "relevant_pages": [
+          8,
+          9
+        ],
+        "configurations": {
+          "RRF only": {
+            "ranked_pages": [
+              8,
+              18,
+              15,
+              9,
+              4,
+              10,
+              11,
+              3,
+              1,
+              7,
+              14,
+              6,
+              12,
+              17,
+              20,
+              13,
+              5
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "mrr": 1.0,
+              "ndcg": 0.8772153153380493,
+              "retrieved_pages": [
+                8,
+                18,
+                15,
+                9,
+                4
+              ],
+              "relevant_pages_retrieved": [
+                8,
+                9
+              ]
+            }
+          },
+          "RRF + lexical reranker": {
+            "ranked_pages": [
+              8,
+              9,
+              18,
+              15,
+              7,
+              4,
+              20,
+              6,
+              10,
+              3,
+              1,
+              14,
+              12,
+              17,
+              5,
+              22,
+              11
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                9,
+                18,
+                15,
+                7
+              ],
+              "relevant_pages_retrieved": [
+                8,
+                9
+              ]
+            }
+          }
+        }
+      },
+      {
+        "question": "What procedure was performed on September 10?",
+        "relevant_pages": [
+          15
+        ],
+        "configurations": {
+          "RRF only": {
+            "ranked_pages": [
+              15,
+              13,
+              11,
+              20,
+              5,
+              17,
+              4,
+              1,
+              8,
+              3,
+              6,
+              9,
+              22,
+              12,
+              10,
+              2,
+              18,
+              19
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                15,
+                13,
+                11,
+                20,
+                5
+              ],
+              "relevant_pages_retrieved": [
+                15
+              ]
+            }
+          },
+          "RRF + lexical reranker": {
+            "ranked_pages": [
+              15,
+              13,
+              11,
+              20,
+              4,
+              9,
+              5,
+              8,
+              1,
+              3,
+              6,
+              10,
+              17,
+              19,
+              22,
+              12,
+              2,
+              18
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                15,
+                13,
+                11,
+                20,
+                4
+              ],
+              "relevant_pages_retrieved": [
+                15
+              ]
+            }
+          }
+        }
+      },
+      {
+        "question": "What allergies are documented?",
+        "relevant_pages": [
+          2,
+          3,
+          6,
+          19
+        ],
+        "configurations": {
+          "RRF only": {
+            "ranked_pages": [
+              6,
+              2,
+              19,
+              3,
+              13,
+              22,
+              11,
+              17,
+              4,
+              9,
+              10,
+              15,
+              1,
+              5,
+              14,
+              18,
+              8,
+              20,
+              21,
+              7
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.8,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                6,
+                2,
+                19,
+                3,
+                13
+              ],
+              "relevant_pages_retrieved": [
+                6,
+                2,
+                19,
+                3
+              ]
+            }
+          },
+          "RRF + lexical reranker": {
+            "ranked_pages": [
+              2,
+              6,
+              19,
+              3,
+              13,
+              22,
+              11,
+              17,
+              4,
+              9,
+              10,
+              15,
+              1,
+              5,
+              14,
+              18,
+              8,
+              20,
+              21,
+              7
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.8,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2,
+                6,
+                19,
+                3,
+                13
+              ],
+              "relevant_pages_retrieved": [
+                2,
+                6,
+                19,
+                3
+              ]
+            }
+          }
+        }
+      },
+      {
+        "question": "What did the EMG and nerve conduction study show?",
+        "relevant_pages": [
+          14
+        ],
+        "configurations": {
+          "RRF only": {
+            "ranked_pages": [
+              14,
+              10,
+              3,
+              1,
+              15,
+              9,
+              20,
+              2,
+              7,
+              6,
+              11,
+              13,
+              8,
+              5,
+              4,
+              12,
+              18,
+              19
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                14,
+                10,
+                3,
+                1,
+                15
+              ],
+              "relevant_pages_retrieved": [
+                14
+              ]
+            }
+          },
+          "RRF + lexical reranker": {
+            "ranked_pages": [
+              14,
+              10,
+              15,
+              3,
+              1,
+              20,
+              9,
+              11,
+              8,
+              2,
+              7,
+              6,
+              13,
+              5,
+              4,
+              12,
+              18,
+              19
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                14,
+                10,
+                15,
+                3,
+                1
+              ],
+              "relevant_pages_retrieved": [
+                14
+              ]
+            }
+          }
+        }
+      },
+      {
+        "question": "What medications were administered in the emergency department?",
+        "relevant_pages": [
+          2
+        ],
+        "configurations": {
+          "RRF only": {
+            "ranked_pages": [
+              2,
+              5,
+              19,
+              3,
+              6,
+              20,
+              15,
+              12,
+              1,
+              22,
+              18,
+              9,
+              13,
+              11,
+              4,
+              21,
+              10,
+              17
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2,
+                5,
+                19,
+                3,
+                6
+              ],
+              "relevant_pages_retrieved": [
+                2
+              ]
+            }
+          },
+          "RRF + lexical reranker": {
+            "ranked_pages": [
+              2,
+              5,
+              19,
+              3,
+              20,
+              15,
+              6,
+              9,
+              1,
+              13,
+              4,
+              12,
+              22,
+              18,
+              11,
+              21,
+              10,
+              17
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                2,
+                5,
+                19,
+                3,
+                20
+              ],
+              "relevant_pages_retrieved": [
+                2
+              ]
+            }
+          }
+        }
+      },
+      {
+        "question": "What restrictions were given at discharge?",
+        "relevant_pages": [
+          5
+        ],
+        "configurations": {
+          "RRF only": {
+            "ranked_pages": [
+              5,
+              12,
+              2,
+              6,
+              18,
+              1,
+              20,
+              21,
+              13,
+              17,
+              3,
+              22,
+              7,
+              15,
+              14,
+              11,
+              9,
+              10,
+              4
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                5,
+                12,
+                2,
+                6,
+                18
+              ],
+              "relevant_pages_retrieved": [
+                5
+              ]
+            }
+          },
+          "RRF + lexical reranker": {
+            "ranked_pages": [
+              5,
+              6,
+              2,
+              12,
+              1,
+              18,
+              3,
+              20,
+              21,
+              13,
+              17,
+              22,
+              7,
+              15,
+              14,
+              11,
+              9,
+              10,
+              4
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                5,
+                6,
+                2,
+                12,
+                1
+              ],
+              "relevant_pages_retrieved": [
+                5
+              ]
+            }
+          }
+        }
+      },
+      {
+        "question": "What were the findings of the lumbar spine MRI?",
+        "relevant_pages": [
+          8
+        ],
+        "configurations": {
+          "RRF only": {
+            "ranked_pages": [
+              8,
+              9,
+              18,
+              15,
+              4,
+              10,
+              11,
+              3,
+              7,
+              14,
+              20,
+              1,
+              6,
+              22,
+              17,
+              12,
+              13,
+              21
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                9,
+                18,
+                15,
+                4
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            }
+          },
+          "RRF + lexical reranker": {
+            "ranked_pages": [
+              8,
+              9,
+              18,
+              4,
+              15,
+              7,
+              10,
+              3,
+              20,
+              6,
+              22,
+              11,
+              14,
+              1,
+              17,
+              12,
+              13,
+              5
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                8,
+                9,
+                18,
+                4,
+                15
+              ],
+              "relevant_pages_retrieved": [
+                8
+              ]
+            }
+          }
+        }
+      },
+      {
+        "question": "What medications were filled by the pharmacy?",
+        "relevant_pages": [
+          19
+        ],
+        "configurations": {
+          "RRF only": {
+            "ranked_pages": [
+              19,
+              5,
+              2,
+              6,
+              15,
+              22,
+              9,
+              20,
+              18,
+              13,
+              3,
+              11,
+              12,
+              1,
+              17,
+              21,
+              4,
+              10
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                6,
+                15
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            }
+          },
+          "RRF + lexical reranker": {
+            "ranked_pages": [
+              19,
+              5,
+              2,
+              6,
+              22,
+              3,
+              15,
+              20,
+              18,
+              13,
+              9,
+              4,
+              21,
+              11,
+              12,
+              1,
+              17,
+              10
+            ],
+            "metrics": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0,
+              "retrieved_pages": [
+                19,
+                5,
+                2,
+                6,
+                22
+              ],
+              "relevant_pages_retrieved": [
+                19
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
   "limitations": [
     "Scores measure retrieval only, not generated-answer correctness or medical safety.",
     "The benchmark contains 10 manually labeled questions from this single PDF.",
-    "Precision uses k as its denominator even when fewer than k pages are retrieved."
+    "Precision uses k as its denominator even when fewer than k pages are retrieved.",
+    "The reranker comparison changes only lexical and patient-name reranking; both configurations use the same RRF candidate retrieval."
   ]
 }

@@ -214,7 +214,13 @@ def _context_limit(query, top_k):
     return top_k, False, False
 
 
-def retrieve_chunks(query, model, top_k=8, apply_context_limits=True):
+def retrieve_chunks(
+    query,
+    model,
+    top_k=8,
+    apply_context_limits=True,
+    use_reranker=True,
+):
     if not query or not query.strip():
         raise ValueError("Question cannot be empty.")
     if top_k < 1:
@@ -313,22 +319,27 @@ def retrieve_chunks(query, model, top_k=8, apply_context_limits=True):
         default=1.0,
     )
     for item in output:
-        normalized_rrf = item["rrf_score"] / max_rrf_score
-        section_tokens = set(tokenize(item["section"]))
-        section_overlap = (
-            len(informative_query_tokens & section_tokens)
-            / max(len(informative_query_tokens), 1)
-        )
-        item["score"] = (
-            0.65 * normalized_rrf
-            + 0.20 * item["_token_overlap"]
-            + 0.15 * section_overlap
-        )
+        if use_reranker:
+            normalized_rrf = item["rrf_score"] / max_rrf_score
+            section_tokens = set(tokenize(item["section"]))
+            section_overlap = (
+                len(informative_query_tokens & section_tokens)
+                / max(len(informative_query_tokens), 1)
+            )
+            item["score"] = (
+                0.65 * normalized_rrf
+                + 0.20 * item["_token_overlap"]
+                + 0.15 * section_overlap
+            )
+        else:
+            item["score"] = item["rrf_score"]
         del item["_token_overlap"]
 
     output.sort(
         key=lambda item: (
-            item["patient_match_score"] if is_name_search else 0,
+            item["patient_match_score"]
+            if use_reranker and is_name_search
+            else 0,
             item["score"],
         ),
         reverse=True,

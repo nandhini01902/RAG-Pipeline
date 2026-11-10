@@ -1,8 +1,12 @@
+import csv
+import json
 import os
+import tempfile
 import unittest
 from types import SimpleNamespace
 from unittest.mock import patch
 
+from src import evaluate_retrieval
 from src.evaluate_retrieval import metrics_at_k
 
 
@@ -97,6 +101,69 @@ class RagPipelineTests(unittest.TestCase):
         self.assertEqual(metrics["precision"], 0.0)
         self.assertEqual(metrics["mrr"], 0.0)
         self.assertEqual(metrics["ndcg"], 0.0)
+
+    def test_evaluation_compares_reranker_configs_at_fixed_k(self):
+        def fake_retrieve_chunks(
+            _question,
+            _model,
+            **kwargs,
+        ):
+            if not _question or _model is None:
+                raise AssertionError("The benchmark query and model are required.")
+            return [
+                {"page": page}
+                for page in (
+                    [2, 3, 5]
+                    if kwargs["use_reranker"]
+                    else [19, 6, 3]
+                )
+            ]
+
+        with tempfile.TemporaryDirectory() as output_dir:
+            with patch.object(
+                evaluate_retrieval,
+                "retrieve_chunks",
+                side_effect=fake_retrieve_chunks,
+            ) as retrieve:
+                result = evaluate_retrieval.evaluate(
+                    model=object(),
+                    output_dir=output_dir,
+                )
+
+            comparison = result["configuration_comparison"]
+            self.assertEqual(comparison["variable"], "reranker")
+            self.assertEqual(
+                [row["configuration"] for row in comparison["configurations"]],
+                ["RRF only", "RRF + lexical reranker"],
+            )
+            self.assertTrue(
+                all(row["top_k"] == 5 for row in comparison["configurations"])
+            )
+            self.assertEqual(retrieve.call_count, len(evaluate_retrieval.BENCHMARK) * 2)
+            self.assertEqual(
+                {call.kwargs["use_reranker"] for call in retrieve.call_args_list},
+                {False, True},
+            )
+
+            comparison_csv = os.path.join(
+                output_dir,
+                "configuration_comparison.csv",
+            )
+            with open(comparison_csv, newline="", encoding="utf-8") as file:
+                csv_rows = list(csv.DictReader(file))
+            self.assertEqual(len(csv_rows), 2)
+
+            with open(
+                os.path.join(output_dir, "retrieval_metrics.json"),
+                encoding="utf-8",
+            ) as file:
+                saved_result = json.load(file)
+            self.assertEqual(
+                saved_result["configuration_comparison"]["fixed_settings"][
+                    "evaluation_top_k"
+                ],
+                5,
+            )
 
     def test_quota_error_is_actionable_and_does_not_retry_other_models(self):
         error = rag_pipeline.errors.ClientError(

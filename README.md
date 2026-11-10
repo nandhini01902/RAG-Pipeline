@@ -116,7 +116,10 @@ Run the retrieval-only evaluation; it does not call Gemini:
 ```
 
 The runner evaluates unique-page rankings at `k = 1, 3, 5, 8, 10, 15` on a
-10-question manually labeled benchmark. It calculates:
+10-question manually labeled benchmark. It also compares two retrieval
+configurations at fixed `k = 5`: Qdrant dense+sparse RRF alone versus the same
+retrieval with lexical and patient-name reranking enabled. This isolates the
+reranker as the only changed variable. Both experiments calculate:
 
 | Metric | Meaning |
 |---|---|
@@ -132,6 +135,46 @@ Results are saved on each run to:
   per-question relevant and ranked pages, per-question scores, and averages.
 - `outputs/evaluation/retrieval_metrics.csv` — one aggregate row per k for
   experiment-table use.
+- `outputs/evaluation/configuration_comparison.csv` — aggregate scores for
+  the two fixed-top-k reranker configurations.
+
+### Chunking comparison
+
+Run the chunking comparison separately:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.evaluate_chunking
+```
+
+This compares the historical 34-chunk snapshot from commit `9d7535d` with
+the current 68-chunk dataset. The older splitter separated paragraphs at
+blank lines; the newer splitter also treats headings and selected metadata
+labels as paragraph boundaries. Both datasets are re-embedded with
+`BAAI/bge-small-en-v1.5` and evaluated with the same hybrid retrieval,
+reranker, benchmark, and k values. Each configuration uses a temporary
+isolated Qdrant index, leaving the active index unchanged.
+
+The source-history version has **34 chunks** (the repository history contains
+no 36-chunk snapshot); the current version has **68**. Average chunk length
+changed from 352.8 to 157.4 tokens. On the same 10 questions at k=5:
+
+| Chunk configuration | Hit Rate@5 | Recall@5 | Precision@5 | MRR@5 | nDCG@5 |
+|---|---:|---:|---:|---:|---:|
+| Earlier chunking (34 chunks) | 1.000 | 0.951 | 0.420 | 0.950 | 0.938 |
+| Current chunking (68 chunks) | 1.000 | 0.957 | 0.420 | 1.000 | 0.987 |
+
+At k=5, current chunking improves recall by 0.006, MRR by 0.050, and nDCG
+by 0.049; hit rate and precision are unchanged. The full k sweep and
+per-question rankings are saved in:
+
+- `outputs/evaluation/chunking_comparison.csv`
+- `outputs/evaluation/chunking_comparison.json`
+- `outputs/evaluation/chunks_34_baseline.json` — frozen historical chunks so
+  the comparison can be rerun without depending on Git history.
+
+These are retrieval-only metrics on a small, single-document benchmark; they
+do not establish statistical significance, answer quality, or clinical
+safety.
 
 ### Current recorded retrieval results
 
@@ -151,6 +194,21 @@ clinical-safety scores. The benchmark is small, covers one synthetic PDF,
 uses page-level binary relevance labels, and is not an independent test set.
 High scores should not be generalized to arbitrary documents or questions.
 
+### Reranker comparison (k = 5)
+
+The local run compared the configurations on the same 10 questions, BGE
+embedding model, hybrid RRF retrieval, and retrieval depth. Only lexical and
+patient-name reranking changed:
+
+| Configuration | Hit Rate@5 | Recall@5 | Precision@5 | MRR@5 | nDCG@5 |
+|---|---:|---:|---:|---:|---:|
+| RRF only | 1.000 | 0.937 | 0.400 | 1.000 | 0.960 |
+| RRF + lexical reranker | 1.000 | 0.957 | 0.420 | 1.000 | 0.987 |
+
+On this small benchmark, reranking improved recall by 0.020 and nDCG by
+0.027, with hit rate and MRR unchanged. This is a retrieval-only result and
+does not establish statistical significance or generated-answer quality.
+
 Run unit tests with:
 
 ```powershell
@@ -164,7 +222,7 @@ Run unit tests with:
 | PDF extraction, cleanup, chunking, BGE embeddings, local vector database | Implemented for the sample PDF. |
 | Page/document metadata and source citations | Page/document IDs are retained and provided to the prompt; output citation adherence is not automatically scored. |
 | Retrieval metrics in section 6.1 | Implemented: Hit Rate@k, Recall@k, Precision@k, MRR@k, and nDCG@k. |
-| Compare at least two configurations | Top-k sweep is implemented. Chunk-size/strategy sweeps and reranker ablation are not yet implemented. |
+| Compare at least two configurations | Implemented: top-k sweep, fixed-top-k reranker ablation, and historical 34- versus current 68-chunk comparison. Parameter sweeps across additional chunk sizes or strategies are not yet implemented. |
 | 20–50 open-source medical PDFs with source metadata | Not implemented; the current corpus is one synthetic record and does not provide the requested multi-source metadata. |
 | 2–4 chunking strategies | Not implemented; current pipeline uses one heading/paragraph-aware strategy. |
 | Query rewrite | No LLM query rewrite is implemented. Domain-specific sparse-query expansion is implemented. |
@@ -185,4 +243,5 @@ Run unit tests with:
 | [`src/retrieval.py`](src/retrieval.py) | Query encoding, hybrid retrieval, fusion, and reranking. |
 | [`src/rag_pipeline.py`](src/rag_pipeline.py) | Evidence prompt construction and Gemini generation. |
 | [`src/evaluate_retrieval.py`](src/evaluate_retrieval.py) | Retrieval metrics and top-k evaluation artifacts. |
+| [`src/evaluate_chunking.py`](src/evaluate_chunking.py) | Isolated retrieval comparison for the historical and current chunk sets. |
 | [`app.py`](app.py) | Streamlit demo and evidence-inspection mode. |
