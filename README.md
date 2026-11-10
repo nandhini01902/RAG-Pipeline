@@ -9,6 +9,9 @@ search, and sends that evidence to Gemini to draft a cited answer.
 > project is not a clinical decision-support system and must not be used for
 > diagnosis or treatment.
 
+For the detailed system and experiment write-up, see the
+[project report](RAG_REPORT.md). This README remains the setup and usage guide.
+
 ## Architecture
 
 See the full [RAG pipeline flow diagram](RAG_PIPELINE_FLOW.md) for indexing,
