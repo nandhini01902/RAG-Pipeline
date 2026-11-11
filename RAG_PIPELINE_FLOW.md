@@ -28,6 +28,9 @@ flowchart TD
     subgraph QUERY["B. Online question and retrieval"]
         USER["User enters a question"]
         UI{"Streamlit action"}
+        REWRITE["Gemini query rewrite<br/>correct spelling and grammar;<br/>preserve intent and clinical details"]
+        RAW["Keep original question"]
+        SEARCH_QUERY["Rewritten query for answer generation<br/>or original query for inspection"]
         QEXP["Expand sparse query with<br/>domain terms when applicable"]
         QDENSE["Encode query with BGE<br/>retrieval instruction + normalization"]
         SEARCH["Qdrant dense and sparse prefetch"]
@@ -37,18 +40,21 @@ flowchart TD
         EVIDENCE["Selected chunks<br/>document ID, page, section, text"]
 
         USER --> UI
-        UI -->|"Generate answer"| QEXP
-        UI -->|"Inspect evidence only"| QEXP
+        UI -->|"Generate answer"| REWRITE
+        UI -->|"Inspect evidence only"| RAW
+        REWRITE --> SEARCH_QUERY
+        RAW --> SEARCH_QUERY
+        SEARCH_QUERY --> QEXP
         QEXP --> SEARCH
         QDENSE --> SEARCH
-        USER --> QDENSE
+        SEARCH_QUERY --> QDENSE
         QDRANT --> SEARCH
         SEARCH --> FUSION --> RERANK --> FILTER --> EVIDENCE
         CHUNKS -. "restore original chunk text and document ID" .-> EVIDENCE
     end
 
     subgraph GENERATION["C. Answer generation (only for Generate answer)"]
-        PROMPT["Build structured prompt with<br/>evidence and question"]
+        PROMPT["Build structured prompt with<br/>evidence, original question,<br/>and rewritten search query"]
         GEMINI["Google Gemini API<br/>temperature 0, minimal thinking,<br/>2048 output-token budget"]
         CHECK{"Generation result"}
         ANSWER["Display answer with<br/>[doc_id, page N] citations"]
@@ -93,20 +99,27 @@ flowchart TD
 
 1. **Indexing happens offline.** The PDF is extracted, cleaned, chunked, and
    converted into dense and sparse vectors stored in local Qdrant.
-2. **At query time, retrieval is local.** The query is embedded and expanded
-   for sparse search where supported. Qdrant fuses dense and sparse results
-   with RRF; the application reranks and limits the evidence sent onward.
-3. **Evidence inspection does not use Gemini.** The UI can show retrieved
+2. **For answer generation, query rewriting uses Gemini first.** It corrects
+   spelling and grammar into a concise search query while preserving intent
+   and clinical details. That query is embedded and expanded for sparse search
+   where supported. Evidence inspection skips rewriting and searches the
+   original question to remain API-free.
+3. **Retrieval is local after query preparation.** Qdrant fuses dense and
+   sparse results with RRF; the application reranks and limits the evidence
+   sent onward.
+4. **Evidence inspection does not use Gemini.** The UI can show retrieved
    passages and the prompt preview while the Gemini quota is exhausted.
-4. **Answer generation uses Gemini.** Retrieved chunk text and its source
+5. **Answer generation uses Gemini.** The original question, rewritten search
+   query, and retrieved chunk text with source
    metadata are included in the prompt. A quota error is displayed without
    trying another model, because the project quota applies to generation.
-5. **The evaluation runners measure retrieval only.** They compare six `k`
+6. **The evaluation runners measure retrieval only.** They compare six `k`
    settings, reranking on/off at fixed `k=5`, and the historical 34-chunk
    dataset against the current 68-chunk dataset. Chunking configurations use
    isolated temporary indexes and the same manually labeled benchmark.
-   Results are written to JSON and CSV; answer correctness and clinical
-   safety are not evaluated.
+   They do not call Gemini or measure query-rewrite effectiveness. Results are
+   written to JSON and CSV; answer correctness and clinical safety are not
+   evaluated.
 
 ## Source files
 

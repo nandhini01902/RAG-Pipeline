@@ -11,8 +11,10 @@ This project implements a local retrieval-augmented generation (RAG) pipeline
 for a single synthetic medical-record PDF. The system extracts and cleans
 page-level text, creates section-aware chunks, indexes them with dense and
 sparse representations in local Qdrant, retrieves evidence, and can send that
-evidence to Gemini for a cited answer. A Streamlit application also supports
-evidence inspection without calling a generation model.
+evidence to Gemini for a cited answer. For answer generation, Gemini first
+rewrites the user's question for retrieval while preserving its intent. A
+Streamlit application also supports evidence inspection without calling a
+generation model.
 
 Retrieval was evaluated on 10 manually labeled questions using relevant PDF
 pages. Two experiments are recorded:
@@ -36,6 +38,8 @@ The project demonstrates the core stages of a document RAG workflow:
 - Split content into section-aware chunks and retain source metadata.
 - Index dense and sparse representations locally.
 - Retrieve and rank evidence for a question.
+- Rewrite spelling and grammar errors in answer-generation queries while
+  preserving clinical details and the original question.
 - Generate an evidence-grounded answer with citations, or inspect evidence
   without contacting the LLM.
 - Measure retrieval quality against a manually labeled benchmark.
@@ -67,21 +71,26 @@ baseline has 34 chunks, averaging 352.8 tokens.
 
 ### 2.2 Retrieval and generation
 
-At query time, the pipeline encodes the question, expands selected domain
-terms for sparse retrieval, combines dense and sparse rankings with Qdrant
-reciprocal-rank fusion (RRF), then applies lightweight lexical and
-patient-name ranking. Page-diversity and query-specific limits control the
-evidence returned.
+For answer generation, Gemini first rewrites the question to correct spelling
+and grammar while preserving intent, names, dates, numbers, laterality,
+medical terms, and requested details. The rewritten query is encoded, expanded
+with selected domain terms for sparse retrieval, combined with dense rankings
+using Qdrant reciprocal-rank fusion (RRF), then reranked with lightweight
+lexical and patient-name signals. Page-diversity and query-specific limits
+control the evidence returned. Evidence inspection skips the LLM rewrite and
+retrieves directly using the original question.
 
 [`src/rag_pipeline.py`](src/rag_pipeline.py) packages retrieved passages,
-their document and page metadata, and the question for Gemini. The system
-instruction requires answers to rely only on supplied evidence, cite
-factual statements, avoid medical advice, and abstain with “I don't know.”
-when evidence is insufficient. Gemini generation is separate from the
-offline retrieval evaluation.
+their document and page metadata, the original question, and the rewritten
+search query for answer generation. Gemini is instructed to rely only on
+supplied evidence, cite factual statements, avoid medical advice, and abstain
+with “I don't know.” when evidence is insufficient. The offline retrieval
+evaluation continues to use benchmark questions as written and does not
+evaluate query rewriting or call Gemini.
 
 [`app.py`](app.py) exposes answer generation and evidence-only inspection.
-The latter does not make an LLM request.
+The latter does not make an LLM request; the answer-generation path makes one
+Gemini request for rewriting and another for the answer.
 
 ## 3. Evaluation methodology
 
@@ -206,6 +215,7 @@ page level, and the benchmark is not an independent test set.
 - Chunking comparison is confounded by related pipeline changes, including
   patient-name metadata extraction.
 - No evaluation has been run comparing two LLMs.
+- Query-rewrite quality and its impact on retrieval have not been evaluated.
 - No automatic answer correctness, completeness, citation-support,
   hallucination, or clinical-safety benchmark is implemented.
 - No confidence intervals, significance tests, or effect sizes have been

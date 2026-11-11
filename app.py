@@ -7,6 +7,7 @@ from src.rag_pipeline import (
     GeminiQuotaExceededError,
     build_prompt,
     generate_answer,
+    rewrite_query,
 )
 from src.retrieval import retrieve_chunks
 
@@ -34,9 +35,10 @@ st.write(
 )
 
 st.info(
-    "Answers use retrieved passages from the provided PDF. Generating an "
-    "answer sends your question and those passages to Gemini. Use evidence "
-    "inspection to check retrieval without making a Gemini API request. "
+    "Answers use retrieved passages from the provided PDF. Generate answer "
+    "rewrites your question with Gemini before retrieval, then sends the "
+    "original question and retrieved passages to Gemini for an answer. Use "
+    "evidence inspection to check retrieval without a Gemini API request. "
     "This is not a medical advice system."
 )
 
@@ -57,18 +59,38 @@ if submit_question or inspect_evidence:
     else:
         try:
             model = load_embedding_model()
-            sources = retrieve_chunks(question, model, top_k=8)
+            search_query = (
+                rewrite_query(question)
+                if submit_question
+                else question.strip()
+            )
+            sources = retrieve_chunks(search_query, model, top_k=8)
+            if submit_question:
+                st.info(f"Query used for retrieval: {search_query}")
+            else:
+                st.info(
+                    "Evidence inspection uses your original question and "
+                    "does not call Gemini for query rewriting."
+                )
 
             if not sources:
                 st.warning("No relevant passages were found in the PDF.")
             else:
                 st.subheader("Retrieved evidence")
                 st.caption(
-                    "This is the evidence placed in the Gemini request. "
-                    "Inspection mode does not contact Gemini."
+                    "This preview shows the evidence and question that would "
+                    "be placed in the Gemini answer request. Inspection mode "
+                    "does not contact Gemini."
                 )
-                with st.expander("Preview evidence and question sent to Gemini"):
-                    st.code(build_prompt(question, sources), language="text")
+                with st.expander("Preview answer request"):
+                    st.code(
+                        build_prompt(
+                            question,
+                            sources,
+                            search_query=search_query,
+                        ),
+                        language="text",
+                    )
 
                 if inspect_evidence:
                     st.info(
@@ -76,7 +98,11 @@ if submit_question or inspect_evidence:
                     )
                 else:
                     try:
-                        answer = generate_answer(question, sources)
+                        answer = generate_answer(
+                            question,
+                            sources,
+                            search_query=search_query,
+                        )
                     except GeminiQuotaExceededError as error:
                         st.warning(str(error))
                     else:
@@ -93,5 +119,7 @@ if submit_question or inspect_evidence:
                         st.write("**Chunk ID:**", source["chunk_id"])
                         st.write(source["chunk_text"])
 
+        except GeminiQuotaExceededError as error:
+            st.warning(str(error))
         except Exception as error:
             st.error(f"An error occurred: {error}")

@@ -3,7 +3,10 @@
 A local Retrieval-Augmented Generation (RAG) demo for asking questions about
 the medical-record PDF in `data/`. It extracts text page by page, indexes
 section-aware chunks in local Qdrant, retrieves evidence with dense and sparse
-search, and sends that evidence to Gemini to draft a cited answer.
+search, and sends that evidence to Gemini to draft a cited answer. For answer
+generation, Gemini first rewrites the question to correct spelling and
+grammar while preserving the original intent; retrieval uses that rewritten
+query, and answer generation still receives the original question.
 
 > **Scope:** the checked-in corpus is one synthetic medical-record PDF. The
 > project is not a clinical decision-support system and must not be used for
@@ -15,8 +18,8 @@ For the detailed system and experiment write-up, see the
 ## Architecture
 
 See the full [RAG pipeline flow diagram](RAG_PIPELINE_FLOW.md) for indexing,
-question-time retrieval, answer generation, evidence-only inspection, and
-evaluation paths.
+question rewriting, retrieval, answer generation, evidence-only inspection,
+and evaluation paths.
 
 ## Workflow, step by step
 
@@ -78,7 +81,28 @@ run these commands from the repository root in order:
 .\.venv\Scripts\python.exe -m src.vector_database
 ```
 
-### 5. Answer generation
+### 5. Query rewriting and answer generation
+
+When **Generate answer** is selected, [`src/rag_pipeline.py`](src/rag_pipeline.py)
+asks Gemini to correct spelling and grammar and produce a concise retrieval
+query. The rewrite instruction requires it to preserve the user's intent,
+names, dates, numbers, laterality, medical terms, and requested details; it
+must not answer the question. The rewritten query is used for dense retrieval,
+sparse retrieval, and reranking. The app displays the rewritten query.
+
+The original question and rewritten search query are both included with the
+retrieved evidence in the answer-generation request. Gemini is instructed to
+answer the original question, using the rewritten query only as retrieval
+context. Query rewriting is an LLM step and therefore makes a Gemini API
+request before answer generation; quota or model errors are surfaced rather
+than silently falling back to the original query.
+
+**Inspect retrieved evidence** intentionally skips the LLM rewrite and uses
+the original question so that evidence inspection remains a no-Gemini path.
+The offline retrieval evaluation also uses its benchmark questions as written
+and does not measure query-rewrite effectiveness.
+
+### 6. Answer generation
 
 [`src/rag_pipeline.py`](src/rag_pipeline.py) packages each retrieved passage
 with its document ID, original page number, section, and text. Gemini is
@@ -93,13 +117,13 @@ models are only tried for temporary model-unavailable (`503`) errors. A
 quota-exhausted project must wait for its reset or have its account quota
 changed before generating answers.
 
-### 6. Demo UI
+### 7. Demo UI
 
 [`app.py`](app.py) provides a Streamlit interface. **Generate answer** runs
-retrieval and Gemini generation. **Inspect retrieved evidence (no Gemini
-call)** performs retrieval only and displays the passages and the exact
-prompt payload. Evidence inspection is useful when the Gemini free-tier
-quota is exhausted.
+Gemini query rewriting, retrieval, and Gemini answer generation. **Inspect
+retrieved evidence (no Gemini call)** performs retrieval using the original
+question and displays the passages and the prompt preview. Evidence inspection
+is useful when the Gemini free-tier quota is exhausted.
 
 Start the app from the repository root:
 
@@ -110,7 +134,7 @@ Start the app from the repository root:
 Open the localhost URL printed by Streamlit (normally
 `http://localhost:8501`).
 
-## Evaluation
+### 8. Retrieval evaluation
 
 Run the retrieval-only evaluation; it does not call Gemini:
 
@@ -228,7 +252,7 @@ Run unit tests with:
 | Compare at least two configurations | Implemented: top-k sweep, fixed-top-k reranker ablation, and historical 34- versus current 68-chunk comparison. Parameter sweeps across additional chunk sizes or strategies are not yet implemented. |
 | 20–50 open-source medical PDFs with source metadata | Not implemented; the current corpus is one synthetic record and does not provide the requested multi-source metadata. |
 | 2–4 chunking strategies | Not implemented; current pipeline uses one heading/paragraph-aware strategy. |
-| Query rewrite | No LLM query rewrite is implemented. Domain-specific sparse-query expansion is implemented. |
+| Query rewrite | Gemini-based query rewriting is implemented for answer generation; it preserves the original question and uses a rewritten query for retrieval. Rewrite quality is not separately evaluated. |
 | Generation, answer-quality, and safety evaluation | Not yet implemented. Gemini quota can also prevent live answer evaluation. |
 | Statistical analysis and final architecture/experiment report | The evaluation artifacts and this workflow README exist; confidence intervals, significance tests, effect sizes, and the final experimental report remain to be done. |
 | Source code, requirements, `.env.example`, demo | Present. |
@@ -244,7 +268,7 @@ Run unit tests with:
 | [`src/sparse_vectors.py`](src/sparse_vectors.py) | Local BM25-style sparse vectors. |
 | [`src/vector_database.py`](src/vector_database.py) | Build the local hybrid Qdrant index. |
 | [`src/retrieval.py`](src/retrieval.py) | Query encoding, hybrid retrieval, fusion, and reranking. |
-| [`src/rag_pipeline.py`](src/rag_pipeline.py) | Evidence prompt construction and Gemini generation. |
+| [`src/rag_pipeline.py`](src/rag_pipeline.py) | Gemini query rewriting, evidence prompt construction, and answer generation. |
 | [`src/evaluate_retrieval.py`](src/evaluate_retrieval.py) | Retrieval metrics and top-k evaluation artifacts. |
 | [`src/evaluate_chunking.py`](src/evaluate_chunking.py) | Isolated retrieval comparison for the historical and current chunk sets. |
 | [`app.py`](app.py) | Streamlit demo and evidence-inspection mode. |
