@@ -8,13 +8,14 @@
 ## Executive summary
 
 This project implements a local retrieval-augmented generation (RAG) pipeline
-for a single synthetic medical-record PDF. The system extracts and cleans
-page-level text, creates section-aware chunks, indexes them with dense and
-sparse representations in local Qdrant, retrieves evidence, and can send that
-evidence to Gemini for a cited answer. For answer generation, Gemini first
-rewrites the user's question for retrieval while preserving its intent. A
-Streamlit application also supports evidence inspection without calling a
-generation model.
+for a sample synthetic medical-record PDF and also supports user-uploaded
+PDFs. The system extracts page-level text, creates section-aware chunks,
+indexes dense and sparse representations in local Qdrant, retrieves evidence,
+and can send that evidence to Gemini for a cited answer. Uploaded PDFs are
+indexed together in memory for the request and do not replace or persist in
+the sample index. For answer generation, Gemini first rewrites the user's
+question for retrieval while preserving its intent. A Streamlit application
+also supports evidence inspection without calling a generation model.
 
 Retrieval was evaluated on 10 manually labeled questions using relevant PDF
 pages. Two experiments are recorded:
@@ -38,6 +39,8 @@ The project demonstrates the core stages of a document RAG workflow:
 - Split content into section-aware chunks and retain source metadata.
 - Index dense and sparse representations locally.
 - Retrieve and rank evidence for a question.
+- Upload and search one or more PDFs together without rebuilding the
+  checked-in sample corpus.
 - Rewrite spelling and grammar errors in answer-generation queries while
   preserving clinical details and the original question.
 - Generate an evidence-grounded answer with citations, or inspect evidence
@@ -80,6 +83,13 @@ lexical and patient-name signals. Page-diversity and query-specific limits
 control the evidence returned. Evidence inspection skips the LLM rewrite and
 retrieves directly using the original question.
 
+The Streamlit uploader accepts multiple PDFs. Their text is extracted and
+chunked in memory, then an ephemeral in-memory Qdrant index is built for
+hybrid retrieval. When no files are uploaded, the app uses the prebuilt
+sample corpus. Uploaded PDFs are not saved to the project or added to the
+sample index; scanned/image-only PDFs require OCR before upload. Only the
+retrieved passages—not the full PDF—are included in Gemini's answer request.
+
 [`src/rag_pipeline.py`](src/rag_pipeline.py) packages retrieved passages,
 their document and page metadata, the original question, and the rewritten
 search query for answer generation. Gemini is instructed to rely only on
@@ -89,7 +99,8 @@ evaluation continues to use benchmark questions as written and does not
 evaluate query rewriting or call Gemini.
 
 [`app.py`](app.py) exposes answer generation and evidence-only inspection.
-The latter does not make an LLM request; the answer-generation path makes one
+It supports querying uploaded PDFs or the sample corpus. Evidence-only
+inspection does not make an LLM request; the answer-generation path makes one
 Gemini request for rewriting and another for the answer.
 
 ## 3. Evaluation methodology
@@ -207,8 +218,12 @@ page level, and the benchmark is not an independent test set.
 
 ## 5. Limitations and work remaining
 
-- The corpus contains one synthetic medical record, not the requested
-  collection of 20–50 diverse medical PDFs.
+- The checked-in corpus contains one synthetic medical record, not the
+  requested collection of 20–50 diverse medical PDFs. The app accepts
+  temporary multi-PDF uploads but does not retain a persistent user document
+  library.
+- Scanned/image-only uploads are not OCR-processed and cannot be searched
+  unless OCR text is present in the PDF.
 - Only one current chunking strategy is implemented; the two historical/current
   versions are not a full multi-strategy or chunk-size sweep.
 - The available history provides a 34-chunk baseline, not 36 chunks.

@@ -10,6 +10,7 @@ from src.rag_pipeline import (
     rewrite_query,
 )
 from src.retrieval import retrieve_chunks
+from src.uploaded_documents import chunk_uploaded_pdfs, load_chunk_tokenizer
 
 
 MODEL_NAME = "BAAI/bge-small-en-v1.5"
@@ -17,8 +18,12 @@ MODEL_NAME = "BAAI/bge-small-en-v1.5"
 
 @st.cache_resource
 def load_embedding_model():
-
     return SentenceTransformer(MODEL_NAME)
+
+
+@st.cache_resource
+def load_document_tokenizer():
+    return load_chunk_tokenizer()
 
 
 st.set_page_config(
@@ -30,16 +35,27 @@ st.set_page_config(
 st.title("Medical PDF Question Answering")
 
 st.write(
-    "Ask questions about the uploaded synthetic "
-    "medical-record PDF."
+    "Upload one or more PDFs to ask questions across their contents, or "
+    "search the sample medical-record corpus."
 )
 
 st.info(
-    "Answers use retrieved passages from the provided PDF. Generate answer "
-    "rewrites your question with Gemini before retrieval, then sends the "
-    "original question and retrieved passages to Gemini for an answer. Use "
-    "evidence inspection to check retrieval without a Gemini API request. "
-    "This is not a medical advice system."
+    "Upload one or more PDFs to search them together, or leave the uploader "
+    "empty to use the project's sample corpus. PDFs are processed in memory "
+    "and are not saved. Generate answer sends your question and retrieved "
+    "passages (not the full PDFs) to Gemini. This is not a medical advice "
+    "system."
+)
+
+uploaded_files = st.file_uploader(
+    "Upload PDF documents",
+    type=["pdf"],
+    accept_multiple_files=True,
+    help=(
+        "Selected PDFs are searched together for this question. Their "
+        "extracted text stays in memory; retrieved passages are sent to "
+        "Gemini only when you generate an answer."
+    ),
 )
 
 question = st.text_input(
@@ -58,13 +74,35 @@ if submit_question or inspect_evidence:
         st.warning("Please enter a question.")
     else:
         try:
+            if uploaded_files:
+                uploaded_chunks = chunk_uploaded_pdfs(
+                    [
+                        (file.name, file.getvalue())
+                        for file in uploaded_files
+                    ],
+                    load_document_tokenizer(),
+                )
+                document_chunks = uploaded_chunks
+                st.info(
+                    f"Indexed {len(uploaded_files)} uploaded PDF(s) into "
+                    f"{len(uploaded_chunks)} searchable passage(s)."
+                )
+            else:
+                document_chunks = None
+                st.info("Searching the project's sample PDF corpus.")
+
             model = load_embedding_model()
             search_query = (
                 rewrite_query(question)
                 if submit_question
                 else question.strip()
             )
-            sources = retrieve_chunks(search_query, model, top_k=8)
+            sources = retrieve_chunks(
+                search_query,
+                model,
+                top_k=8,
+                chunks=document_chunks,
+            )
             if submit_question:
                 st.info(f"Query used for retrieval: {search_query}")
             else:
@@ -112,7 +150,8 @@ if submit_question or inspect_evidence:
                 st.subheader("Retrieved PDF passages")
                 for index, source in enumerate(sources, start=1):
                     with st.expander(
-                        f"Result {index} | Page {source['page']} | "
+                        f"Result {index} | {source['document_name']} | "
+                        f"Page {source['page']} | "
                         f"Score {source['score']:.4f}"
                     ):
                         st.write("**Section:**", source["section"])

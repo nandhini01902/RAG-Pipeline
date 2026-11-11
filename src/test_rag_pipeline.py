@@ -42,6 +42,7 @@ class RagPipelineTests(unittest.TestCase):
 
         self.assertIn('"page": 5', prompt)
         self.assertIn('"doc_id": "record-A"', prompt)
+        self.assertIn('"document_name": "record-A"', prompt)
         self.assertIn('"section": "Discharge medications"', prompt)
         self.assertIn("Naproxen 500 mg PO twice daily with food.", prompt)
         self.assertIn('"page": 19', prompt)

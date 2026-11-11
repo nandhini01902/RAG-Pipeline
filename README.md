@@ -1,12 +1,14 @@
 # Medical PDF Question Answering (RAG)
 
 A local Retrieval-Augmented Generation (RAG) demo for asking questions about
-the medical-record PDF in `data/`. It extracts text page by page, indexes
-section-aware chunks in local Qdrant, retrieves evidence with dense and sparse
-search, and sends that evidence to Gemini to draft a cited answer. For answer
-generation, Gemini first rewrites the question to correct spelling and
-grammar while preserving the original intent; retrieval uses that rewritten
-query, and answer generation still receives the original question.
+the sample medical-record PDF or one or more PDFs uploaded in the Streamlit
+app. Uploaded files are extracted and indexed together in a temporary,
+in-memory Qdrant collection. The app retrieves evidence with dense and sparse
+search and sends only the selected passages to Gemini to draft a cited
+answer. For answer generation, Gemini first rewrites the question to correct
+spelling and grammar while preserving the original intent; retrieval uses
+that rewritten query, and answer generation still receives the original
+question.
 
 > **Scope:** the checked-in corpus is one synthetic medical-record PDF. The
 > project is not a clinical decision-support system and must not be used for
@@ -70,6 +72,23 @@ contribute to retrieval and generation context.
   imaging, restrictions, allergies, EMG, and lumbar-MRI questions, plus
   query-specific evidence limits.
 
+### Upload and search your own PDFs
+
+In the Streamlit app, select one or more PDFs in **Upload PDF documents**.
+The app extracts page text, splits it into the same section-aware chunks, and
+builds an in-memory dense+sparse Qdrant index for the selected documents.
+Questions search across all selected PDFs, and each result retains its source
+filename and page number. When no files are selected, the existing sample
+corpus and its saved local Qdrant index are used.
+
+Uploaded files are not added to the checked-in sample corpus or saved by the
+app. Their index is recreated in memory when you request an answer or inspect
+evidence. Scanned/image-only PDFs are not OCR-processed and must have
+searchable text. **Generate answer** sends the rewritten question and
+retrieved passages to Gemini; it does not send the full PDF. Do not upload
+documents unless you are permitted to share their relevant excerpts with
+Gemini.
+
 To rebuild the local index after changing the source PDF or processing code,
 run these commands from the repository root in order:
 
@@ -120,10 +139,12 @@ changed before generating answers.
 ### 7. Demo UI
 
 [`app.py`](app.py) provides a Streamlit interface. **Generate answer** runs
-Gemini query rewriting, retrieval, and Gemini answer generation. **Inspect
-retrieved evidence (no Gemini call)** performs retrieval using the original
-question and displays the passages and the prompt preview. Evidence inspection
-is useful when the Gemini free-tier quota is exhausted.
+Gemini query rewriting, retrieval, and Gemini answer generation.
+**Upload PDF documents** accepts multiple PDFs to search together; with no
+uploads selected, the app uses the sample corpus. **Inspect retrieved
+evidence (no Gemini call)** performs retrieval using the original question
+and displays the passages and the prompt preview. Evidence inspection is
+useful when the Gemini free-tier quota is exhausted.
 
 Start the app from the repository root:
 
@@ -250,7 +271,8 @@ Run unit tests with:
 | Page/document metadata and source citations | Page/document IDs are retained and provided to the prompt; output citation adherence is not automatically scored. |
 | Retrieval metrics in section 6.1 | Implemented: Hit Rate@k, Recall@k, Precision@k, MRR@k, and nDCG@k. |
 | Compare at least two configurations | Implemented: top-k sweep, fixed-top-k reranker ablation, and historical 34- versus current 68-chunk comparison. Parameter sweeps across additional chunk sizes or strategies are not yet implemented. |
-| 20–50 open-source medical PDFs with source metadata | Not implemented; the current corpus is one synthetic record and does not provide the requested multi-source metadata. |
+| 20–50 open-source medical PDFs with source metadata | Not implemented; the checked-in corpus is one synthetic record. The app can search user-uploaded PDFs per request, but does not maintain a persistent multi-document collection. |
+| Multi-PDF upload and retrieval | Implemented for one or more PDFs selected in the app; the temporary uploaded-document index is rebuilt for each answer/evidence request and is not saved. |
 | 2–4 chunking strategies | Not implemented; current pipeline uses one heading/paragraph-aware strategy. |
 | Query rewrite | Gemini-based query rewriting is implemented for answer generation; it preserves the original question and uses a rewritten query for retrieval. Rewrite quality is not separately evaluated. |
 | Generation, answer-quality, and safety evaluation | Not yet implemented. Gemini quota can also prevent live answer evaluation. |
@@ -267,7 +289,9 @@ Run unit tests with:
 | [`src/embedding.py`](src/embedding.py) | Dense BGE embedding generation. |
 | [`src/sparse_vectors.py`](src/sparse_vectors.py) | Local BM25-style sparse vectors. |
 | [`src/vector_database.py`](src/vector_database.py) | Build the local hybrid Qdrant index. |
-| [`src/retrieval.py`](src/retrieval.py) | Query encoding, hybrid retrieval, fusion, and reranking. |
+| [`src/uploaded_documents.py`](src/uploaded_documents.py) | Extract and chunk uploaded PDFs for request-scoped in-memory retrieval. |
+| [`src/uploaded_documents.py`](src/uploaded_documents.py) | In-memory text extraction and section-aware chunking for uploaded PDFs. |
+| [`src/retrieval.py`](src/retrieval.py) | Query encoding, hybrid retrieval from the sample or uploaded documents, fusion, and reranking. |
 | [`src/rag_pipeline.py`](src/rag_pipeline.py) | Gemini query rewriting, evidence prompt construction, and answer generation. |
 | [`src/evaluate_retrieval.py`](src/evaluate_retrieval.py) | Retrieval metrics and top-k evaluation artifacts. |
 | [`src/evaluate_chunking.py`](src/evaluate_chunking.py) | Isolated retrieval comparison for the historical and current chunk sets. |

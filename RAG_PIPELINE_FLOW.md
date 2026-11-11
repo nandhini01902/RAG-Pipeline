@@ -1,13 +1,13 @@
 # RAG Pipeline Flow
 
-This diagram shows the implemented offline indexing path, online question
-answering path, the quota-free evidence-inspection path, and the independent
-retrieval evaluation path.
+This diagram shows the sample corpus's offline indexing path, runtime
+multi-PDF upload path, online question answering, quota-free evidence
+inspection, and independent retrieval evaluation.
 
 ```mermaid
 flowchart TD
     subgraph INDEX["A. Offline document ingestion and indexing"]
-        PDF["Source medical PDF"]
+        PDF["Sample medical PDF"]
         EXTRACT["PyMuPDF: extract text page by page"]
         CLEAN["Clean spacing and OCR artifacts<br/>preserve page and document IDs<br/>exclude identified wrong-patient page"]
         CHUNK["Detect headings and paragraphs<br/>BGE tokenizer<br/>450-token chunks, 80-token overlap"]
@@ -25,9 +25,23 @@ flowchart TD
         SPARSE --> QDRANT
     end
 
+    subgraph UPLOAD["A2. Runtime PDF uploads (per request)"]
+        FILES["Streamlit uploader<br/>one or more PDFs"]
+        UP_EXTRACT["PyMuPDF: extract each page<br/>in memory"]
+        UP_CHUNK["Section-aware chunking<br/>keep filename, document ID,<br/>and original page"]
+        UP_DENSE["Encode uploaded chunks<br/>with BGE"]
+        UP_SPARSE["Build local BM25-style<br/>sparse vectors"]
+        UP_QDRANT[("Temporary in-memory Qdrant<br/>dense + sparse vectors")]
+
+        FILES --> UP_EXTRACT --> UP_CHUNK
+        UP_CHUNK --> UP_DENSE --> UP_QDRANT
+        UP_CHUNK --> UP_SPARSE --> UP_QDRANT
+    end
+
     subgraph QUERY["B. Online question and retrieval"]
         USER["User enters a question"]
         UI{"Streamlit action"}
+        DOC_SOURCE{"PDFs uploaded?"}
         REWRITE["Gemini query rewrite<br/>correct spelling and grammar;<br/>preserve intent and clinical details"]
         RAW["Keep original question"]
         SEARCH_QUERY["Rewritten query for answer generation<br/>or original query for inspection"]
@@ -40,6 +54,9 @@ flowchart TD
         EVIDENCE["Selected chunks<br/>document ID, page, section, text"]
 
         USER --> UI
+        UI --> DOC_SOURCE
+        DOC_SOURCE -->|"No: use sample corpus"| QDRANT
+        DOC_SOURCE -->|"Yes: upload one or more"| FILES
         UI -->|"Generate answer"| REWRITE
         UI -->|"Inspect evidence only"| RAW
         REWRITE --> SEARCH_QUERY
@@ -48,7 +65,8 @@ flowchart TD
         QEXP --> SEARCH
         QDENSE --> SEARCH
         SEARCH_QUERY --> QDENSE
-        QDRANT --> SEARCH
+        QDRANT -->|"No uploads"| SEARCH
+        UP_QDRANT -->|"Uploaded PDFs"| SEARCH
         SEARCH --> FUSION --> RERANK --> FILTER --> EVIDENCE
         CHUNKS -. "restore original chunk text and document ID" .-> EVIDENCE
     end
@@ -97,22 +115,27 @@ flowchart TD
 
 ## What the diagram means
 
-1. **Indexing happens offline.** The PDF is extracted, cleaned, chunked, and
-   converted into dense and sparse vectors stored in local Qdrant.
+1. **The sample corpus is indexed offline.** The bundled PDF is extracted,
+   cleaned, chunked, and stored in the repository's local Qdrant index.
+   Alternatively, the user can upload one or more PDFs; these are extracted
+   and chunked in memory and indexed together in a temporary Qdrant instance
+   for that request. They do not replace or persist in the sample corpus.
 2. **For answer generation, query rewriting uses Gemini first.** It corrects
    spelling and grammar into a concise search query while preserving intent
    and clinical details. That query is embedded and expanded for sparse search
    where supported. Evidence inspection skips rewriting and searches the
    original question to remain API-free.
 3. **Retrieval is local after query preparation.** Qdrant fuses dense and
-   sparse results with RRF; the application reranks and limits the evidence
-   sent onward.
+   sparse results from the selected corpus (sample or uploaded PDFs) with
+   RRF; the application reranks and limits the evidence sent onward. Results
+   identify the source filename and original page.
 4. **Evidence inspection does not use Gemini.** The UI can show retrieved
    passages and the prompt preview while the Gemini quota is exhausted.
 5. **Answer generation uses Gemini.** The original question, rewritten search
-   query, and retrieved chunk text with source
-   metadata are included in the prompt. A quota error is displayed without
-   trying another model, because the project quota applies to generation.
+   query, and retrieved chunk text with source metadata are included in the
+   prompt. The full uploaded PDFs are not sent. A quota error is displayed
+   without trying another model, because the project quota applies to
+   generation.
 6. **The evaluation runners measure retrieval only.** They compare six `k`
    settings, reranking on/off at fixed `k=5`, and the historical 34-chunk
    dataset against the current 68-chunk dataset. Chunking configurations use
@@ -124,7 +147,8 @@ flowchart TD
 ## Source files
 
 - Ingestion: [`src/text_extraction.py`](src/text_extraction.py),
-  [`src/clean_text.py`](src/clean_text.py), [`src/chunk.py`](src/chunk.py)
+  [`src/clean_text.py`](src/clean_text.py), [`src/chunk.py`](src/chunk.py),
+  [`src/uploaded_documents.py`](src/uploaded_documents.py)
 - Index: [`src/embedding.py`](src/embedding.py),
   [`src/sparse_vectors.py`](src/sparse_vectors.py),
   [`src/vector_database.py`](src/vector_database.py)

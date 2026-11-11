@@ -163,7 +163,7 @@ def _select_page_diverse_chunks(
         selected_ids = set()
         for page_limit in range(1, max_per_page + 1):
             for chunk in chunks:
-                page = chunk["page"]
+                page = (chunk.get("document_id"), chunk["page"])
                 if (
                     chunk["chunk_id"] in selected_ids
                     or counts[page] >= page_limit
@@ -179,7 +179,7 @@ def _select_page_diverse_chunks(
     selected = []
     counts = Counter()
     for chunk in chunks:
-        page = chunk["page"]
+        page = (chunk.get("document_id"), chunk["page"])
         if counts[page] >= max_per_page:
             continue
         selected.append(chunk)
@@ -220,6 +220,7 @@ def retrieve_chunks(
     top_k=8,
     apply_context_limits=True,
     use_reranker=True,
+    chunks=None,
 ):
     if not query or not query.strip():
         raise ValueError("Question cannot be empty.")
@@ -227,13 +228,19 @@ def retrieve_chunks(
         raise ValueError("top_k must be at least 1.")
 
     query = query.strip()
-    with open(CHUNKS_FILE, "r", encoding="utf-8") as file:
-        chunks = json.load(file)
+    uploaded_chunks = chunks is not None
+    if uploaded_chunks:
+        chunks = list(chunks)
+    else:
+        with open(CHUNKS_FILE, "r", encoding="utf-8") as file:
+            chunks = json.load(file)
     if not chunks:
         return []
 
     texts = [searchable_chunk_text(chunk) for chunk in chunks]
-    _, vocabulary, document_frequency, average_length = build_sparse_vectors(texts)
+    sparse_embeddings, vocabulary, document_frequency, average_length = (
+        build_sparse_vectors(texts)
+    )
     sparse_query = build_sparse_vector(
         _expand_sparse_query(query),
         vocabulary,
@@ -252,8 +259,48 @@ def retrieve_chunks(
         for document_id, name in patient_names.items()
     }
 
-    client = QdrantClient(path=str(QDRANT_PATH))
+    client = (
+        QdrantClient(location=":memory:")
+        if uploaded_chunks
+        else QdrantClient(path=str(QDRANT_PATH))
+    )
     try:
+        if uploaded_chunks:
+            dense_embeddings = model.encode(
+                texts,
+                convert_to_numpy=True,
+                normalize_embeddings=True,
+            )
+            client.create_collection(
+                collection_name=COLLECTION_NAME,
+                vectors_config={
+                    "dense": models.VectorParams(
+                        size=dense_embeddings.shape[1],
+                        distance=models.Distance.COSINE,
+                    )
+                },
+                sparse_vectors_config={
+                    "sparse": models.SparseVectorParams(
+                        modifier=models.Modifier.IDF,
+                    )
+                },
+            )
+            client.upsert(
+                collection_name=COLLECTION_NAME,
+                points=[
+                    models.PointStruct(
+                        id=index,
+                        vector={
+                            "dense": dense_embeddings[index].tolist(),
+                            "sparse": sparse_embeddings[index],
+                        },
+                        payload={"chunk_id": chunk["chunk_id"]},
+                    )
+                    for index, chunk in enumerate(chunks)
+                ],
+                wait=True,
+            )
+
         results = client.query_points(
             collection_name=COLLECTION_NAME,
             prefetch=[
@@ -301,6 +348,7 @@ def retrieve_chunks(
         output.append({
             "chunk_id": chunk["chunk_id"],
             "document_id": chunk["document_id"],
+            "document_name": chunk.get("document_name", chunk["document_id"]),
             "patient_name": chunk.get(
                 "patient_name",
                 patient_names.get(chunk["document_id"]),
@@ -352,12 +400,16 @@ def retrieve_chunks(
     else:
         result_limit, spread_pages, prefer_best_page = top_k, False, False
     if prefer_best_page and output:
-        target_page = output[0]["page"]
+        target_page = (output[0]["document_id"], output[0]["page"])
         page_results = [
-            item for item in output if item["page"] == target_page
+            item
+            for item in output
+            if (item["document_id"], item["page"]) == target_page
         ][:2]
         other_results = [
-            item for item in output if item["page"] != target_page
+            item
+            for item in output
+            if (item["document_id"], item["page"]) != target_page
         ]
         return _select_page_diverse_chunks(
             page_results + other_results,
