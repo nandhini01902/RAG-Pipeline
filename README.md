@@ -14,6 +14,31 @@ question.
 > project is not a clinical decision-support system and must not be used for
 > diagnosis or treatment.
 
+## Setup on Windows
+
+Use Python 3.11 for this project. The project dependencies, including PyYAML,
+have compatible wheels for this version; Python 3.15 currently does not have
+the required PyYAML wheel and can also produce dependency-resolution conflicts.
+Create a separate environment so an existing `.venv` is left untouched:
+
+```powershell
+py -3.11 -m venv .venv311
+.\.venv311\Scripts\python.exe -m pip install --upgrade pip
+.\.venv311\Scripts\python.exe -m pip install -r requirements.txt
+if (-not (Test-Path .env)) { Copy-Item .env.example .env }
+```
+
+Add your `GEMINI_API_KEY` to `.env` to generate answers. Evidence inspection
+does not require a Gemini key. To launch the complete Streamlit app from the
+project directory:
+
+```powershell
+.\.venv311\Scripts\python.exe -m streamlit run app.py
+```
+
+Open the localhost URL printed by Streamlit (normally
+`http://localhost:8501`).
+
 For the detailed system and experiment write-up, see the
 [project report](RAG_REPORT.md). This README remains the setup and usage guide.
 
@@ -93,11 +118,11 @@ To rebuild the local index after changing the source PDF or processing code,
 run these commands from the repository root in order:
 
 ```powershell
-.\.venv\Scripts\python.exe -m src.text_extraction
-.\.venv\Scripts\python.exe -m src.clean_text
-.\.venv\Scripts\python.exe -m src.chunk
-.\.venv\Scripts\python.exe -m src.embedding
-.\.venv\Scripts\python.exe -m src.vector_database
+.\.venv311\Scripts\python.exe -m src.text_extraction
+.\.venv311\Scripts\python.exe -m src.clean_text
+.\.venv311\Scripts\python.exe -m src.chunk
+.\.venv311\Scripts\python.exe -m src.embedding
+.\.venv311\Scripts\python.exe -m src.vector_database
 ```
 
 ### 5. Query rewriting and answer generation
@@ -149,7 +174,7 @@ useful when the Gemini free-tier quota is exhausted.
 Start the app from the repository root:
 
 ```powershell
-.\.venv\Scripts\python.exe -m streamlit run app.py
+.\.venv311\Scripts\python.exe -m streamlit run app.py
 ```
 
 Open the localhost URL printed by Streamlit (normally
@@ -160,7 +185,7 @@ Open the localhost URL printed by Streamlit (normally
 Run the retrieval-only evaluation; it does not call Gemini:
 
 ```powershell
-.\.venv\Scripts\python.exe -m src.evaluate_retrieval
+.\.venv311\Scripts\python.exe -m src.evaluate_retrieval
 ```
 
 The runner evaluates unique-page rankings at `k = 1, 3, 5, 8, 10, 15` on a
@@ -191,7 +216,7 @@ Results are saved on each run to:
 Run the chunking comparison separately:
 
 ```powershell
-.\.venv\Scripts\python.exe -m src.evaluate_chunking
+.\.venv311\Scripts\python.exe -m src.evaluate_chunking
 ```
 
 This compares the historical 34-chunk snapshot from commit `9d7535d` with
@@ -260,7 +285,7 @@ does not establish statistical significance or generated-answer quality.
 Run unit tests with:
 
 ```powershell
-.\.venv\Scripts\python.exe -m unittest discover -s src -v
+.\.venv311\Scripts\python.exe -m unittest discover -s src -v
 ```
 
 ## Project status against the intern task brief
