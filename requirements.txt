@@ -7,3 +7,5 @@ requests
 tokenizers
 google-genai
 python-dotenv
+ragas==0.2.15
+langchain-google-genai

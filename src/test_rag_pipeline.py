@@ -7,6 +7,7 @@ from types import SimpleNamespace
 from unittest.mock import patch
 
 from src import evaluate_retrieval
+from src import evaluate_answers
 from src.evaluate_retrieval import metrics_at_k
 
 
@@ -175,6 +176,59 @@ class RagPipelineTests(unittest.TestCase):
         self.assertEqual(metrics["precision"], 0.0)
         self.assertEqual(metrics["mrr"], 0.0)
         self.assertEqual(metrics["ndcg"], 0.0)
+
+    def test_ragas_evaluation_aggregates_scores_and_writes_metric_files(self):
+        scores = [{
+            metric: 0.8
+            for metric in evaluate_answers.METRIC_NAMES
+        }]
+        records = [{
+            "question": "What medication was prescribed?",
+            "answer": "Naproxen was prescribed.",
+            "contexts": ["Naproxen 500 mg twice daily."],
+            "reference_answer": "Naproxen 500 mg was prescribed.",
+        }]
+        with tempfile.TemporaryDirectory() as output_dir:
+            with patch.object(
+                evaluate_answers,
+                "_run_ragas",
+                return_value=scores,
+            ):
+                result = evaluate_answers.evaluate_answers(
+                    records,
+                    output_dir=output_dir,
+                )
+
+            self.assertEqual(result["num_questions"], 1)
+            self.assertEqual(result["metrics"]["answer_correctness"], 0.8)
+            self.assertEqual(
+                result["per_question"][0]["metrics"]["faithfulness"],
+                0.8,
+            )
+            self.assertTrue(
+                os.path.isfile(
+                    os.path.join(output_dir, "ragas_answer_metrics.json")
+                )
+            )
+            with open(
+                os.path.join(output_dir, "ragas_answer_metrics.csv"),
+                newline="",
+                encoding="utf-8",
+            ) as file:
+                rows = list(csv.DictReader(file))
+            self.assertEqual(len(rows), 1)
+            self.assertEqual(rows[0]["question"], records[0]["question"])
+
+    def test_ragas_evaluation_rejects_missing_ground_truth(self):
+        with patch.object(evaluate_answers, "_run_ragas") as run_ragas:
+            with self.assertRaisesRegex(ValueError, "reference_answer"):
+                evaluate_answers.evaluate_answers([{
+                    "question": "Question?",
+                    "answer": "Answer.",
+                    "contexts": ["Evidence."],
+                }])
+
+        run_ragas.assert_not_called()
 
     def test_evaluation_compares_reranker_configs_at_fixed_k(self):
         def fake_retrieve_chunks(
